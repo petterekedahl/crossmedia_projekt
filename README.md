@@ -1,2 +1,2 @@
 # crossmedia_projekt
-Project in the course Crossmedia: Multi chanel publishing - spring '21
+Student projekt i kursen Crossmedia: Multikanalspublicering på Malmö Universitet
