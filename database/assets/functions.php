@@ -1,5 +1,5 @@
 <?php
-$databaseLink = '../json/usersDatabase';
+$databaseLink = '../json/database';
 $database = [];
 
 if(!file_exists($databaseLink)) {
