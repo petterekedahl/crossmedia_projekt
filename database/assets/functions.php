@@ -1,5 +1,5 @@
 <?php
-$databaseLink = '../json/database';
+$databaseLink = '../json/database.json';
 $database = [];
 
 if(!file_exists($databaseLink)) {
@@ -23,6 +23,15 @@ function hashPassword($password) {
 
 function getHashedPassword($password, $hashedPassword) {
   return password_verify($password, $hashedPassword);
+}
+
+function validateUser($username, $password) {
+  foreach ($database["users"] as $user) {
+    if ($username == $user["username"]) {
+        return $user;
+    }
+  }
+  return false;
 }
 
 function updateDatabase($newData) {
