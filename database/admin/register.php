@@ -14,12 +14,19 @@ $method = $_SERVER["REQUEST_METHODS"];
 
 if (!isMethodAlloed($method)) die();
 
-if(isset($_POST["username"]) && isset($_POST["password"])) {
-  $username = $_POST("username");
-  $password = $_POST("password");
+if(isset($_POST["username"]) && isset($_POST['email']) && isset($_POST["password"])) {
+  $username = $_POST["username"];
+  $password = $_POST["password"];
+  $email = $_POST['email'];
   
   if (!isUsernameTaken($username)) {
     errorMessage(401, "Username taken");
+    exit();
+  }
+
+  if(!isEmailTaken($email)) {
+    errorMessage(401, "Email is already in use");
+    exit();
   }
 
   $password = hashPassword($password);
@@ -29,7 +36,8 @@ if(isset($_POST["username"]) && isset($_POST["password"])) {
   $newUser = [
     "id" => $id,
     "username" => $username,
-    "password" => $password
+    "password" => $password,
+    "email" => $email
   ];
 
   $database["users"][] = $newUser;

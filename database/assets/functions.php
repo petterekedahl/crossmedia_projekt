@@ -57,6 +57,15 @@ function isUsernameTaken($username) {
   return true;
 }
 
+function isEmailTaken($email) {
+  foreach ($database["users"] as $user) {
+    if ($email == $user["email"]) {
+      return false;
+    }
+  }
+  return true;
+}
+
 function isMethodAllowed($method) {
   if (!in_array($method, allowedMethods())) {
     abort(405, "Your method is not allowed");
