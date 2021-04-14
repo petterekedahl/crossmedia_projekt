@@ -1,41 +1,51 @@
 <?php
 session_start();
-$databaseLink = '../json/database';
+$databaseLink = '../json/database.json';
 $database = [];
 
-require_once "../assets/functions.php";
-require_once "../assets/messageFunction.php";
+require_once("../assets/functions.php");
+require_once("../assets/messageFunctions.php");
 
-if(!file_exists($databaseLink)) {
+if(file_exists($databaseLink)) {
   $database = json_decode(file_get_contents($databaseLink), true);
 }
 
-$method = $_SERVER["REQUEST_METHODS"];
+$method = $_SERVER["REQUEST_METHOD"];
 
-if (!isMethodAlloed($method)) die();
+if (!isMethodAllowed($method)) die();
 
-if(isset($_POST["username"]) && isset($_POST["password"])) {
-  $username = $_POST("username");
-  $password = $_POST("password");
+if(isset($_POST["username"]) && isset($_POST['email']) && isset($_POST["password"]) && isset($_POST["register-tnc-agree"])) {
+  $username = $_POST["username"];
+  $password = $_POST["password"];
+  $email = $_POST['email'];
   
-  if (!isUsernameTaken($username)) {
+  if (!isUsernameTaken($database, $username)) {
     errorMessage(401, "Username taken");
+    exit();
+  }
+
+  if(!isEmailTaken($database, $email)) {
+    errorMessage(401, "Email is already in use");
+    exit();
   }
 
   $password = hashPassword($password);
 
-  $id = getHighestId();
+  $id = getHighestId($database, "users");
 
   $newUser = [
     "id" => $id,
     "username" => $username,
-    "password" => $password
+    "password" => $password,
+    "email" => $email,
+    "emailRecieve" => $_POST["register-email-agree"],
+    "TnC" => $_POST["register-tnc-agree"]
   ];
 
   $database["users"][] = $newUser;
 
   updateDatabase($database);
-  send(200, "User registered");
+  header("Location: ../../spelapp/index.php");
   exit();
 }
 ?>

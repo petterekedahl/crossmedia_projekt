@@ -1,8 +1,8 @@
 <?php
-$databaseLink = '../database';
+$databaseLink = '../json/database.json';
 $database = [];
 
-if(!file_exists($databaseLink)) {
+if(file_exists($databaseLink)) {
   $database = json_decode(file_get_contents($databaseLink), true);
 }
 

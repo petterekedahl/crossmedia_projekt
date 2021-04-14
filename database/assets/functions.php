@@ -1,16 +1,11 @@
 <?php
-$databaseLink = '../json/database.json';
-$database = [];
+// $databaseLink = '../json/database.json';
 
-if(!file_exists($databaseLink)) {
-  $database = json_decode(file_get_contents($databaseLink), true);
-}
-
-function getHighestId($key) {
+function getHighestId($database, $key) {
   $highestId = 0;
 
   foreach ($database[$key] as $object) {
-    if ($highestId < $object["id"]) {
+    if ($highestId <= $object["id"]) {
       $highestId = $object["id"] + 1;
     }
   }
@@ -25,7 +20,7 @@ function getHashedPassword($password, $hashedPassword) {
   return password_verify($password, $hashedPassword);
 }
 
-function validateUser($username, $password) {
+function validateUser($database, $username, $password) {
   foreach ($database["users"] as $user) {
     if ($username == $user["username"]) {
         return $user;
@@ -40,15 +35,11 @@ function updateDatabase($newData) {
   $jsonData = json_encode($newData, JSON_PRETTY_PRINT);
   if(!$jsonData) return false;
 
-  file_put_contents($database, $jsonData);
+  file_put_contents('../json/database.json', $jsonData);
   return true;
 }
 
-function allowedMethods() {
-  return ["GET", "POST", "PATCH", "DELETE"];
-}
-
-function isUsernameTaken($username) {
+function isUsernameTaken($database, $username) {
   foreach ($database["users"] as $user) {
     if ($username == $user["username"]) {
       return false;
@@ -57,9 +48,18 @@ function isUsernameTaken($username) {
   return true;
 }
 
+function isEmailTaken($database, $email) {
+  foreach ($database["users"] as $user) {
+    if ($email == $user["email"]) {
+      return false;
+    }
+  }
+  return true;
+}
+
 function isMethodAllowed($method) {
-  if (!in_array($method, allowedMethods())) {
-    abort(405, "Your method is not allowed");
+  if (!in_array($method, ["GET", "POST", "PATCH", "DELETE"])) {
+    errorMessage(405, "Your method is not allowed");
     return false;
   }
   return true;
