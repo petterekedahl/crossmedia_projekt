@@ -20,7 +20,7 @@ session_start();
       <div class="register-checkboxes">
         <input type="checkbox" name="register-email-agree">
         <label>Yes, I would like to recieve emails regarding this shit</label>
-        <input type="checkbox">
+        <input type="checkbox" name="register-tnc-agree">
         <label>Yes, I accept the <span>Terms and conditions</span></label>
       </div>
       <button type="submit">Register</button>

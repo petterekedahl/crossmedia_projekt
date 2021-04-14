@@ -14,36 +14,38 @@ $method = $_SERVER["REQUEST_METHOD"];
 
 if (!isMethodAllowed($method)) die();
 
-if(isset($_POST["username"]) && isset($_POST['email']) && isset($_POST["password"])) {
+if(isset($_POST["username"]) && isset($_POST['email']) && isset($_POST["password"]) && isset($_POST["register-tnc-agree"])) {
   $username = $_POST["username"];
   $password = $_POST["password"];
   $email = $_POST['email'];
   
-  if (!isUsernameTaken($username)) {
+  if (!isUsernameTaken($database, $username)) {
     errorMessage(401, "Username taken");
     exit();
   }
 
-  if(!isEmailTaken($email)) {
+  if(!isEmailTaken($database, $email)) {
     errorMessage(401, "Email is already in use");
     exit();
   }
 
   $password = hashPassword($password);
 
-  $id = getHighestId("user");
+  $id = getHighestId($database, "users");
 
   $newUser = [
     "id" => $id,
     "username" => $username,
     "password" => $password,
-    "email" => $email
+    "email" => $email,
+    "emailRecieve" => $_POST["register-email-agree"],
+    "TnC" => $_POST["register-tnc-agree"]
   ];
 
   $database["users"][] = $newUser;
 
   updateDatabase($database);
-  send(200, "User registered");
+  header("Location: ../../spelapp/index.php");
   exit();
 }
 ?>
