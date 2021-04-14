@@ -1,18 +1,18 @@
 <?php
 session_start();
-$databaseLink = '../json/database';
+$databaseLink = '../json/database.json';
 $database = [];
 
-require_once "../assets/functions.php";
-require_once "../assets/messageFunction.php";
+require_once("../assets/functions.php");
+require_once("../assets/messageFunctions.php");
 
-if(!file_exists($databaseLink)) {
+if(file_exists($databaseLink)) {
   $database = json_decode(file_get_contents($databaseLink), true);
 }
 
-$method = $_SERVER["REQUEST_METHODS"];
+$method = $_SERVER["REQUEST_METHOD"];
 
-if (!isMethodAlloed($method)) die();
+if (!isMethodAllowed($method)) die();
 
 if(isset($_POST["username"]) && isset($_POST['email']) && isset($_POST["password"])) {
   $username = $_POST["username"];
@@ -31,7 +31,7 @@ if(isset($_POST["username"]) && isset($_POST['email']) && isset($_POST["password
 
   $password = hashPassword($password);
 
-  $id = getHighestId();
+  $id = getHighestId("user");
 
   $newUser = [
     "id" => $id,

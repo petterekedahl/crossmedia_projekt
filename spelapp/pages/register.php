@@ -12,7 +12,7 @@ session_start();
 </head>
 <body>
   <div class="spel-register-div">
-    <form id="register-form">
+    <form id="register-form" action="../../database/admin/register.php" method="POST">
       <input class="input-write" id="register-username" name="username" type="text" placeholder="Username.">
       <input class="input-write" id="register-email" name="email" type="text" placeholder="Email.">
       <input class="input-write" id="register-password" name="password" type="text" placeholder="Password.">

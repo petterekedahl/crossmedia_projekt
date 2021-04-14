@@ -2,7 +2,7 @@
 $databaseLink = '../json/database.json';
 $database = [];
 
-if(!file_exists($databaseLink)) {
+if(file_exists($databaseLink)) {
   $database = json_decode(file_get_contents($databaseLink), true);
 }
 
@@ -44,11 +44,8 @@ function updateDatabase($newData) {
   return true;
 }
 
-function allowedMethods() {
-  return ["GET", "POST", "PATCH", "DELETE"];
-}
-
 function isUsernameTaken($username) {
+  var_dump($database);
   foreach ($database["users"] as $user) {
     if ($username == $user["username"]) {
       return false;
@@ -67,8 +64,8 @@ function isEmailTaken($email) {
 }
 
 function isMethodAllowed($method) {
-  if (!in_array($method, allowedMethods())) {
-    abort(405, "Your method is not allowed");
+  if (!in_array($method, ["GET", "POST", "PATCH", "DELETE"])) {
+    errorMessage(405, "Your method is not allowed");
     return false;
   }
   return true;
