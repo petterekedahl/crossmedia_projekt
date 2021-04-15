@@ -1,0 +1,43 @@
+nav {
+  background-color: white;
+
+  position: fixed;
+  right: 0;
+  top: 0;
+
+  height: 100vh;
+  width: 20%;
+  padding: 5px;
+}
+
+#nav-div {
+  height: 40%;
+
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  flex-direction: column;
+  padding-left: 3%;
+}
+
+a {
+  font-weight: bold;
+  text-decoration: none;
+  color: black;
+}
+
+/* div::after {
+  position: absolute;
+  width: 0;
+  height: 2px;
+  content: '';
+  left: -300px;
+}
+
+div:hover div::after {
+  content: '';
+  left:0;
+  width: 100%;
+  background-color: black;
+  transition: all 0.5 ease;
+} */

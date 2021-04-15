@@ -4,7 +4,7 @@
   --headerFontSize: 28px;
   --contentFontSize: 16px;
   --checkBoxFontSize: 10px;
-  --contentFontColor: rgb(230, 230, 230);
+  --contentFontColor: rgba(230, 230, 230, 1);
 
   --adminBoxColor: rgb(97, 97, 97);
 
