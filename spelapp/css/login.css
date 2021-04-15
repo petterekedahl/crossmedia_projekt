@@ -1,0 +1,94 @@
+@import "variables.css";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  background-color: var(--mainBGColor);
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.spel-login-div {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 40%;
+  height: 30%;
+  background-color: var(--adminBoxColor);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 20px;
+}
+
+#login-form {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+
+  padding: 5%;
+}
+
+.input-write {
+  background-color: transparent;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 2px solid var(--contentFontColor);
+
+  height: 20%;
+  width: 100%;
+
+  color: var(--contentFontColor);
+  font-size: var(--contentFontSize);
+}
+
+input:hover {
+  background-color: var(--buttonHoverColor);
+}
+
+#login-buttons {
+  background-color: transparent;
+  height: 30%;
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+button {
+  border: 0;
+  border-radius: 10px;
+
+  background-color: transparent;
+
+  font-size: var(--contentFontSize);
+  color: var(--contentFontColor);
+
+  width: 30%;
+  height: 50%;
+
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--buttonHoverColor);
+  cursor: pointer;
+}
+
+a {
+  background-color: transparent;
+  text-decoration: none;
+  color: var(--contentFontColor);
+}
