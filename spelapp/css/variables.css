@@ -1,0 +1,12 @@
+:root {
+  --mainBGColor: rgb(58, 57, 57);
+
+  --headerFontSize: 28px;
+  --contentFontSize: 16px;
+  --checkBoxFontSize: 10px;
+  --contentFontColor: rgb(230, 230, 230);
+
+  --adminBoxColor: rgb(97, 97, 97);
+
+  --buttonHoverColor: rgb(134, 134, 134);
+}

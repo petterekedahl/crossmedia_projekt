@@ -1,0 +1,104 @@
+@import "variables.css";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  background-color: var(--mainBGColor);
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.spel-register-div {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 40%;
+  height: 50%;
+  background-color: var(--adminBoxColor);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 20px;
+}
+
+#register-form {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+
+  padding: 10%;
+}
+
+.register-checkboxes {
+  display: grid;
+  grid-template-columns: 15px 1fr;
+  grid-gap: 5px;
+
+  color: var(--contentFontColor);
+  font-size: var(--checkBoxFontSize);
+
+  margin-left: 0;
+}
+
+.input-write {
+  background-color: transparent;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 2px solid var(--contentFontColor);
+
+  height: 10%;
+  width: 100%;
+
+  color: var(--contentFontColor);
+  font-size: var(--contentFontSize);
+}
+
+input:hover {
+  background-color: var(--buttonHoverColor);
+}
+
+#register-form button {
+  border: 0;
+  border-radius: 10px;
+
+  background-color: transparent;
+
+  font-size: var(--contentFontSize);
+  color: var(--contentFontColor);
+
+  width: 30%;
+  height: 10%;
+  margin-left: 70%;
+
+  transition: all 0.3s ease;
+}
+
+#register-form button:hover {
+  background-color: var(--buttonHoverColor);
+  cursor: pointer;
+}
+
+a {
+  font-weight: bold;
+  text-decoration: none;
+  color: var(--contentFontColor);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:visited {
+  color: var(--contentFontColor);
+}
