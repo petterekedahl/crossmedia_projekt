@@ -14,14 +14,14 @@ session_start();
 <body>
   <div class="spel-register-div">
     <form id="register-form" action="../../database/admin/register.php" method="POST">
-      <input class="input-write" id="register-username" name="username" type="text" placeholder="username">
-      <input class="input-write" id="register-email" name="email" type="text" placeholder="email">
-      <input class="input-write" id="register-password" name="password" type="password" placeholder="password">
+      <input class="input-write" id="register-username" name="username" type="text" placeholder="username" required>
+      <input class="input-write" id="register-email" name="email" type="text" placeholder="email" required>
+      <input class="input-write" id="register-password" name="password" type="password" placeholder="password" required>
       <!-- <input class="input-write" id="register-password2" type="text" placeholder="Repeat password."> -->
       <div class="register-checkboxes">
         <input type="checkbox" name="register-email-agree">
         <label>Yes, I would like to recieve emails regarding this shit</label>
-        <input type="checkbox" name="register-tnc-agree">
+        <input type="checkbox" name="register-tnc-agree" required>
         <label>Yes, I accept the <a href="./terms-and-conditions.php">Terms and conditions</a></label>
       </div>
       <button type="submit">REGISTER</button>

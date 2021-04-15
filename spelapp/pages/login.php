@@ -17,8 +17,8 @@ if(isset($_SESSION['username'])) {
 <body>
   <div class="spel-login-div">
     <form id="login-form" action="../../database/admin/login.php" method="POST">
-      <input class="input-write" id="login-username" name="username" type="text" placeholder="username">
-      <input class="input-write" id="login-password" name="password" type="password" placeholder="password">
+      <input class="input-write" id="login-username" name="username" type="text" placeholder="username" required>
+      <input class="input-write" id="login-password" name="password" type="password" placeholder="password" required>
       <div id="login-buttons">
         <button><a href="./register.php">REGISTER</a></button>
         <button id="login-button" type="submit">LOGIN</button>
