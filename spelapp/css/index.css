@@ -1,0 +1,45 @@
+@import "variables.css";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--mainBGColor);
+
+  height: 100vh;
+  width: 100vw;
+}
+
+.spel-welcome-div {
+  height: 100vh;
+  width: 100vw;
+
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+}
+
+.spel-welcome-div h2 {
+  color: rgba(230, 230, 230, 1);
+}
+
+.welcome-div-hidden {
+  animation: hideElement 1s ease forwards;
+}
+
+#main-div {
+  display: none;
+}
+
+@keyframes hideElement {
+  to {
+    color: rgba(230, 230, 230, 0);
+  }
+}

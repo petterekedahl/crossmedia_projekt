@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap');
+
+:root {
+  --mainBGColor: rgb(58, 57, 57);
+  --fontHeaders: 'Dela Gothic One';
+  --fontContentText: arial;
+
+  --headerFontSize: 28px;
+  --contentFontSize: 16px;
+  --checkBoxFontSize: 10px;
+  --contentFontColor: rgba(230, 230, 230, 1);
+
+  --adminBoxColor: rgb(97, 97, 97);
+
+  --buttonHoverColor: rgb(134, 134, 134);
+}
