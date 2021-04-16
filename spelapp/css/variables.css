@@ -1,5 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap');
+
 :root {
   --mainBGColor: rgb(58, 57, 57);
+  --fontHeaders: 'Dela Gothic One';
+  --fontContentText: arial;
 
   --headerFontSize: 28px;
   --contentFontSize: 16px;
