@@ -1,5 +1,3 @@
-const mainDiv = document.querySelector('#main-div');
-
 let whatPageToLoad = 0;
 //Tar bort "welcome" när sidan har laddats klart
 setTimeout(() => {
