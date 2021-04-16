@@ -1,6 +1,6 @@
-const mainDiv = document.getElementById('main-div');
+const contentDiv = document.getElementById('content-div');
 function resetMainDiv() {
-  mainDiv.innerHTML = '';
+  contentDiv.innerHTML = '';
 }
 
 function loadHomePage() {
