@@ -1,5 +1,5 @@
 nav {
-  background-color: white;
+  background-color: rgb(139, 139, 139);
 
   position: fixed;
   right: 0;
@@ -12,32 +12,57 @@ nav {
 
 #nav-div {
   height: 40%;
-
+  padding-left: 10%;
+  overflow: hidden;
   display: flex;
   justify-content: space-evenly;
   align-items: flex-start;
   flex-direction: column;
-  padding-left: 3%;
 }
 
-a {
+#nav-div > div {
+  overflow: hidden;
+  width: 100%;
+}
+
+ .nav-button{
   font-weight: bold;
-  text-decoration: none;
   color: black;
 }
 
-/* div::after {
-  position: absolute;
-  width: 0;
-  height: 2px;
-  content: '';
-  left: -300px;
+.nav-slidein-div {
+  width: 100%;
+  border-bottom: 2px solid black;
+  margin-left: -100%;
+  transition: all 0.3s ease;
 }
 
-div:hover div::after {
-  content: '';
-  left:0;
-  width: 100%;
-  background-color: black;
-  transition: all 0.5 ease;
-} */
+a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+a:visited {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+#nav-div > div:hover, #nav-div > a:hover {
+  cursor: pointer;
+}
+
+#nav-div > div:hover > .nav-slidein-div, #nav-div > a:hover > .nav-slidein-div {
+  margin-left: 0;
+  transition: all 0.5s ease;
+}
+
+.active {
+  color: white;
+}
+
+.active-slidein-div {
+  margin-left: 0;
+  border: 2px solid white;
+}

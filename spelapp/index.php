@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(!isset($_SESSION['username'])) {
-  header("Location: ./pages/login.php");
+  header("Location: /pages/login.php");
 };
 ?>
 <!DOCTYPE html>
@@ -25,5 +25,6 @@ if(!isset($_SESSION['username'])) {
     ?>
   </main>
 </body>
+<script src="./js/navigation.js"></script>
 <script src="./js/index.js"></script>
 </html>
