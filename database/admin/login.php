@@ -36,6 +36,7 @@ if ($method == "POST") {
 
     $_SESSION["isLoggedIn"] = true;
     $_SESSION["username"] = $username;
+    $_SESSION["userId"] = $user["id"];
 
     header("Location: ../../spelapp/index.php");
     exit();

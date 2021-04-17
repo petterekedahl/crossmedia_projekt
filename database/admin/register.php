@@ -7,6 +7,7 @@ $loginUrlReg = "../../spelapp/pages/register.php";
 
 require_once("../assets/functions.php");
 require_once("../assets/messageFunctions.php");
+require_once("../assets/defaultData.php");
 
 if(file_exists($databaseLink)) {
   $database = json_decode(file_get_contents($databaseLink), true);
@@ -41,13 +42,14 @@ if(isset($_POST["username"]) && isset($_POST['email']) && isset($_POST["password
     "password" => $password,
     "email" => $email,
     "emailRecieve" => $_POST["register-email-agree"],
-    "TnC" => $_POST["register-tnc-agree"]
+    "TnC" => $_POST["register-tnc-agree"],
+    "suspects" => $defaultSuspects
   ];
 
   $database["users"][] = $newUser;
 
   updateDatabase($database);
-  header("Location: ../../spelapp/index.php");
+  header("Location: ../spelapp/index.php");
   exit();
 }
 ?>

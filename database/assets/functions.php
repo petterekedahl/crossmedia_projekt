@@ -1,4 +1,5 @@
 <?php
+session_start();
 // $databaseLink = '../json/database.json';
 
 function getHighestId($database, $key) {
@@ -63,5 +64,9 @@ function isMethodAllowed($method) {
     return false;
   }
   return true;
+}
+
+function findUser() {
+
 }
 ?>
