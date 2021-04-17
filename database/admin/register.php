@@ -3,6 +3,8 @@ session_start();
 $databaseLink = '../json/database.json';
 $database = [];
 
+$loginUrlReg = "../../spelapp/pages/register.php";
+
 require_once("../assets/functions.php");
 require_once("../assets/messageFunctions.php");
 
@@ -20,12 +22,12 @@ if(isset($_POST["username"]) && isset($_POST['email']) && isset($_POST["password
   $email = $_POST['email'];
   
   if (!isUsernameTaken($database, $username)) {
-    errorMessage(401, "Username taken");
+    errorMessagePhp(401, $loginUrlReg + "error=0");
     exit();
   }
 
   if(!isEmailTaken($database, $email)) {
-    errorMessage(401, "Email is already in use");
+    errorMessagePhp(401, $loginUrlReg + "error=1");
     exit();
   }
 
