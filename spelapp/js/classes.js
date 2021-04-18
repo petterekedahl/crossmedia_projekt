@@ -7,11 +7,11 @@ class Suspect {
     this.notes = data.notes,
     this.image = data.image,
     this.isStillSuspect = data.isStillSuspect,
-    this.id = data.id
+    this.id = data.id,
+    this.age = data.age
   }
 
   createHTML() {
-    console.log(this.height);
     const card = document.createElement('div');
     const imageDiv = document.createElement('div');
     const image = document.createElement('img');
@@ -19,13 +19,13 @@ class Suspect {
     const infoDiv = document.createElement('div');
     const noteDiv = document.createElement('div');
 
-    const spanNoteDiv = document.createElement('span');
-    const notes = document.createElement('div');
+    const notesButton = document.createElement('button');
 
     // Set image div
     image.setAttribute('src', this.image);
+    nameDiv.textContent = this.name;
     imageDiv.append(image, nameDiv);
-    imageDiv.classList.add('supect-image-div');
+    imageDiv.classList.add('suspect-image-div');
     nameDiv.classList.add('suspect-name');
     image.classList.add('suspect-image');
 
@@ -82,13 +82,11 @@ class Suspect {
     infoDiv.classList.add('suspect-info-div');
 
     // Notes
-    notes.setAttribute('contenteditable', true);
-    notes.textContent = this.notes;
-    spanNoteDiv.textContent = 'Your notes:';
-    noteDiv.append(spanNoteDiv, notes);
-    noteDiv.classList.add('suspect-note-div');
-    spanNoteDiv.classList.add('note-span');
-    notes.classList.add('suspect-notes');
+    notesButton.textContent = 'Your notes:';
+    notesButton.id = this.id + "suspect-note-button";
+
+    noteDiv.append(notesButton);
+    notesButton.classList.add('notes-button');
 
     // Fill the card
     card.append(imageDiv, infoDiv, noteDiv);

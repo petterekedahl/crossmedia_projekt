@@ -9,64 +9,70 @@
             "TnC": "on",
             "suspects": [
                 {
-                    "name": "None",
-                    "height": "None",
-                    "alibi": "None",
-                    "nationality": "None",
+                    "name": "Unknown",
+                    "height": "Unknown",
+                    "alibi": "Unknown",
+                    "nationality": "Unknown",
                     "notes": "",
                     "image": "..\/images\/",
                     "isStillSuspect": true,
-                    "id": 0
+                    "id": 0,
+                    "age": "Unknown"
                 },
                 {
-                    "name": "None",
-                    "height": "None",
-                    "alibi": "None",
-                    "nationality": "None",
+                    "name": "Unknown",
+                    "height": "Unknown",
+                    "alibi": "Unknown",
+                    "nationality": "Unknown",
                     "notes": "",
                     "image": "..\/images\/",
                     "isStillSuspect": true,
-                    "id": 1
+                    "id": 1,
+                    "age": "Unknown"
                 },
                 {
-                    "name": "None",
-                    "height": "None",
-                    "alibi": "None",
-                    "nationality": "None",
+                    "name": "Unknown",
+                    "height": "Unknown",
+                    "alibi": "Unknown",
+                    "nationality": "Unknown",
                     "notes": "",
                     "image": "..\/images\/",
                     "isStillSuspect": true,
-                    "id": 2
+                    "id": 2,
+                    "age": "Unknown"
                 },
                 {
-                    "name": "None",
-                    "height": "None",
-                    "alibi": "None",
-                    "nationality": "None",
+                    "name": "Unknown",
+                    "height": "Unknown",
+                    "alibi": "Unknown",
+                    "nationality": "Unknown",
                     "notes": "",
                     "image": "..\/images\/",
                     "isStillSuspect": true,
-                    "id": 3
+                    "id": 3,
+                    "age": "Unknown"
                 },
                 {
-                    "name": "None",
-                    "height": "None",
-                    "alibi": "None",
-                    "nationality": "None",
+                    "name": "Unknown",
+                    "height": "Unknown",
+                    "alibi": "Unknown",
+                    "nationality": "Unknown",
                     "notes": "",
                     "image": "..\/images\/",
                     "isStillSuspect": true,
-                    "id": 4
+                    "id": 4,
+                    "age": "Unknown"
                 },
                 {
-                    "name": "None",
-                    "height": "None",
-                    "alibi": "None",
-                    "nationality": "None",
+                    "name": "Unknown",
+                    "height": "Unknown",
+                    "alibi": "Unknown",
+                    "nationality": "Unknown",
                     "notes": "",
                     "image": "..\/images\/",
                     "isStillSuspect": true,
-                    "id": 5
+                    "id": 5,
+                    "age": "Unknown"
                 }
             ]
         }

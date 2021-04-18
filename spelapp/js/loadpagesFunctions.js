@@ -20,6 +20,8 @@ function loadProfilePage() {
 
 function loadSuspectPage() {
   resetMainDiv();
+  contentDiv.classList.remove('content-div-flex');
+  contentDiv.classList.add('content-div-grid');
   suspects = STATE.user.suspects;
 
   for (let i = 0; i < suspects.length; i++) {
@@ -32,6 +34,7 @@ function loadSuspectPage() {
       "image": suspects[i].image,
       "isStillSuspect": suspects[i].isStillSuspect,
       "id": suspects[i].id,
+      "age": suspects[i].age,
     });
 
     contentDiv.append(suspect.createHTML());
@@ -40,5 +43,7 @@ function loadSuspectPage() {
 
 function loadNotesPage() {
   resetMainDiv();
+  contentDiv.classList.remove('content-div-grid');
+  contentDiv.classList.add('content-div-flex');
   console.log('notespage');
 }

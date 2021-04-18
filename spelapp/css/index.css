@@ -7,9 +7,6 @@
 }
 
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 
   background-color: var(--mainBGColor);
 
@@ -36,6 +33,10 @@ body {
 
 #main-div {
   display: none;
+  width: 75vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
 }
 
 @keyframes hideElement {
@@ -43,3 +44,79 @@ body {
     color: rgba(230, 230, 230, 0);
   }
 }
+
+/*Content-div*/
+#content-div {
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 20px;
+
+  width: 75vw;
+  height: 80vh;
+
+  padding: 10px;
+}
+.content-div-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+
+  overflow-y: scroll;
+}
+
+/* Suspect cards*/
+.suspect-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  border: 2px solid black;
+  border-radius: 10px;
+
+  padding: 5px;
+
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/*Suspect image*/
+.suspect-image-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 70%;
+}
+
+.suspect-image {
+  width: 100%;
+}
+
+.suspect-name {
+  width: 100%;
+  background-color: var(--mainBGColor);
+  color: white;
+  font-size: 1.3rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*Suspect Info*/
+.suspect-info-div {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+}
+
+.suspect-info-div > div {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+
+
+/*Suspect Notes*/
