@@ -19,13 +19,16 @@ const userReq = new Request(requestLink + '?userId=' + STATE.userId);
 fetch(userReq)
   .then(response => response.json())
   .then(user => {
-    user = {
-      "username": user.username,
-      "suspects": user.suspects
-    };
-
-    STATE.user = user;
-
-    console.log(STATE.user);
+    try {
+      user = {
+        "username": user.username,
+        "suspects": user.suspects
+      };
+      STATE.user = user;
+  
+      console.log(STATE.user);
+    } catch (error) {
+      console.log(error);
+    }
   })
 

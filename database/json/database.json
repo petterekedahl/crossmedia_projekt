@@ -15,7 +15,8 @@
                     "nationality": "None",
                     "notes": "",
                     "image": "..\/images\/",
-                    "isStillSuspect": true
+                    "isStillSuspect": true,
+                    "id": 0
                 },
                 {
                     "name": "None",
@@ -24,7 +25,8 @@
                     "nationality": "None",
                     "notes": "",
                     "image": "..\/images\/",
-                    "isStillSuspect": true
+                    "isStillSuspect": true,
+                    "id": 1
                 },
                 {
                     "name": "None",
@@ -33,7 +35,8 @@
                     "nationality": "None",
                     "notes": "",
                     "image": "..\/images\/",
-                    "isStillSuspect": true
+                    "isStillSuspect": true,
+                    "id": 2
                 },
                 {
                     "name": "None",
@@ -42,7 +45,8 @@
                     "nationality": "None",
                     "notes": "",
                     "image": "..\/images\/",
-                    "isStillSuspect": true
+                    "isStillSuspect": true,
+                    "id": 3
                 },
                 {
                     "name": "None",
@@ -51,7 +55,8 @@
                     "nationality": "None",
                     "notes": "",
                     "image": "..\/images\/",
-                    "isStillSuspect": true
+                    "isStillSuspect": true,
+                    "id": 4
                 },
                 {
                     "name": "None",
@@ -60,16 +65,8 @@
                     "nationality": "None",
                     "notes": "",
                     "image": "..\/images\/",
-                    "isStillSuspect": true
-                },
-                {
-                    "name": "None",
-                    "height": "None",
-                    "alibi": "None",
-                    "nationality": "None",
-                    "notes": "",
-                    "image": "..\/images\/",
-                    "isStillSuspect": true
+                    "isStillSuspect": true,
+                    "id": 5
                 }
             ]
         }
