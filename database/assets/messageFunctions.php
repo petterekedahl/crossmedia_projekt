@@ -1,11 +1,4 @@
 <?php
-$databaseLink = '../json/database.json';
-$database = [];
-
-if(file_exists($databaseLink)) {
-  $database = json_decode(file_get_contents($databaseLink), true);
-}
-
 function errorMessagePhp($statusCode = 400, $error = "Bad request") {
   http_response_code($statusCode);
   header("Location: $error");

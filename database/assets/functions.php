@@ -1,6 +1,5 @@
 <?php
 session_start();
-// $databaseLink = '../json/database.json';
 
 function getHighestId($database, $key) {
   $highestId = 0;
@@ -68,7 +67,7 @@ function isMethodAllowed($method) {
 
 function getUser($database, $userId) {
   foreach ($database["users"] as $user) {
-    if($userId === $user["id"]) {
+    if ($userId == $user["id"]) {
       return $user;
     }
   }

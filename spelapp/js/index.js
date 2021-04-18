@@ -14,3 +14,18 @@ setTimeout(() => {
   }, 1500);
 }, 500);
 
+const requestLink = "../../database/api.php";
+const userReq = new Request(requestLink + '?userId=' + STATE.userId);
+fetch(userReq)
+  .then(response => response.json())
+  .then(user => {
+    user = {
+      "username": user.username,
+      "suspects": user.suspects
+    };
+
+    STATE.user = user;
+
+    console.log(STATE.user);
+  })
+

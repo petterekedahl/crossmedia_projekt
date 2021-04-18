@@ -1,17 +1,16 @@
 <?php
 session_start();
-$databaseLink = '/json/database.json';
+$databaseLink = './json/database.json';
 $database = [];
-
-$loginUrlIndexGame = "../../spelapp/index.php";
-
-require_once("../assets/functions.php");
-require_once("../assets/messageFunctions.php");
-require_once("../assets/defaultData.php");
 
 if(file_exists($databaseLink)) {
   $database = json_decode(file_get_contents($databaseLink), true);
 }
+
+$loginUrlIndexGame = "../../spelapp/index.php";
+
+require_once "./assets/functions.php";
+require_once "./assets/messageFunctions.php";
 
 $method = $_SERVER["REQUEST_METHOD"];
 
@@ -25,7 +24,10 @@ if ($method == "GET" && isset($_GET["userId"])) {
     errorMessagePhp(406, "$loginUrlIndexGame?error=100");
   }
 
-  
+  http_response_code(200);
+  header("Content-Type: application/json");
+  echo json_encode($user);
+  exit();
 }
 
 ?>
