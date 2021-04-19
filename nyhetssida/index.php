@@ -24,11 +24,13 @@
             </div>           
         </header>
         <main>
-            <div id="newsFeed">
-                <div id="senasteNytt"></div>
-                <div id="news"></div>
+            <div id="newsContainer">
+                <div id="newsFeed">
+                    <div id="senasteNytt"></div>
+                    <div id="news"></div>
+                </div>
+                <div id="sideBar"></div>
             </div>
-            <div id="sideBar"></div>
         </main>
         <footer></footer>
         <script src="resources.js"></script>

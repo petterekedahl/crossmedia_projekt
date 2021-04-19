@@ -146,6 +146,26 @@ nav {
 
 main {
     display: flex;
+    justify-content: center;
+}
+
+#newsContainer {
+    flex-basis: 60%;
+    display: flex;
+}
+
+#newsFeed {
+    flex-basis: 73%;
+}
+
+#sideBar {
+    flex-basis: 20%;
+}
+
+#senasteNytt {
+    height: 10vh;
+    border: 1px solid black;
+
 }
 
 
