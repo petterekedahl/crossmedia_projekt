@@ -4,7 +4,6 @@
     --fontFam: sans-serif;
 }
 
-
 * {
     margin: 0;
     padding: 0;
@@ -44,6 +43,7 @@ header {
     background-color: var(--navBkg);
     flex-basis: 40%;
     width: 100vw;
+    justify-content: center;
 }
 
 #prenDiv {
@@ -98,6 +98,27 @@ header {
     border: 1px solid var(--navBkg);
     font-weight: bold;
     font-size: 50px;
+}
+
+#nav, #datumContainer {
+    color: white;
+}
+
+#datumContainer {
+    flex-basis: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+#navWrap {
+    width: 60%;
+    display: flex;
+}
+
+nav {
+    flex-grow: 1;
 }
 
 main {

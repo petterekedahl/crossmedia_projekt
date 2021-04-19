@@ -124,3 +124,40 @@ const articles = [
 ];
 
 const months = ["Januari", "Februari", "Mars", "April", "Maj", "Juni", "Juli", "Augusti", "September", "Oktober", "November", "December"];
+
+const days = ["Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag", "Lördag", "Söndag"];
+
+//get the current date for the newsPage
+let currentDate = new Date();
+//date is an object, so I make it into a string and split it by the comma
+let currentDateString = currentDate.toDateString();
+currentDateString = currentDateString.split(" ");
+let currentWeekDay = currentDateString[0];
+let currentMonth = currentDate.getMonth();
+currentMonth = months[currentMonth];
+let currentDay = currentDateString[2];
+let currentYear = currentDateString[3];
+
+switch(currentWeekDay) {
+    case "Mon":
+        currentWeekDay = days[0];
+        break;
+    case "Tue":
+        currentWeekDay = days[1];
+        break;
+    case "Wed":
+        currentWeekDay = days[2];
+        break;
+    case "Thu":
+        currentWeekDay = days[3];
+        break;
+    case "Fri":
+        currentWeekDay = days[4];
+        break;
+    case "Sat":
+        currentWeekDay = days[5];
+        break;
+    case "Sun":
+        currentWeekDay = days[6];
+        break;
+}
