@@ -11,7 +11,7 @@
                 <div id="logo">Logotyp</div>
                 <div id="prenDiv">
                     <div id="abonnera">
-                        <div>Prenumerera</div>
+                        <div>PRENUMERERA</div>
                         <div>+</div>
                     </div>
                 </div> 
@@ -24,7 +24,10 @@
             </div>           
         </header>
         <main>
-            <div id="newsFeed"></div>
+            <div id="newsFeed">
+                <div id="senasteNytt"></div>
+                <div id="news"></div>
+            </div>
             <div id="sideBar"></div>
         </main>
         <footer></footer>

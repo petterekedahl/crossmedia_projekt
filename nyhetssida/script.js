@@ -10,7 +10,7 @@ const today = `${currentWeekDay}, ${currentDay} ${currentMonth} ${currentYear}`;
 function createNavItems(item){
     let nNavItem = document.createElement("div");
     nNavItem.classList.add("navItem");
-    nNavItem.innerHTML = item;
+    nNavItem.innerHTML = item.toUpperCase();
     return nNavItem;
 }
 

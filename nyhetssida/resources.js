@@ -1,5 +1,6 @@
 "use strict";
 
+//all the articles
 const articles = [
     {
         title: "16 000 avvisade vid gränsen - inresereglerna lättas",
@@ -123,8 +124,10 @@ const articles = [
     }
 ];
 
+//the categories for the navigation bar
 const categories = ["Nyheter", "Sport", "Underhållning", "Mat & Hälsa", "Teknik"];
 
+//the months and weekdays for the date
 const months = ["Januari", "Februari", "Mars", "April", "Maj", "Juni", "Juli", "Augusti", "September", "Oktober", "November", "December"];
 
 const days = ["Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag", "Lördag", "Söndag"];
@@ -161,5 +164,8 @@ switch(currentWeekDay) {
         break;
     case "Sun":
         currentWeekDay = days[6];
+        break;
+    case "default":
+        currentWeekDay = "Date unavailable";
         break;
 }

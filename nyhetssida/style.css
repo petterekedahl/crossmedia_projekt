@@ -2,6 +2,7 @@
     --prenVar: #EED0A8;
     --navBkg: #C7392B;
     --fontFam: sans-serif;
+    --navHov: #ca6258;
 }
 
 * {
@@ -131,7 +132,20 @@ nav {
     align-items: center;
 }
 
+.navItem:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    /* background-color: var(--navHov); */
+}
+
+#abonnera:hover > div {
+    cursor: pointer;
+    background-color: var(--navBkg);
+    color: white;
+}
+
 main {
     display: flex;
 }
+
 
