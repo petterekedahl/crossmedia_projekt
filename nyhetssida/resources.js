@@ -12,7 +12,7 @@ const articles = [
         title: "Var är liket? Man stal sin döda mors kropp",
         text: "Sonen skulle ta ett sista farväl och fick kistan med sin döda mors kropp kört till sitt hem. När begravningsbyrån sedan hämtade kistan tillbaka upptäckte man att kistan var tom.",
         category: "Brott",
-        justNu: false
+        justNu: true
     },
     {
         title: "Nu har domen kommit för 23-årig kvinna angående människohandel",
@@ -134,7 +134,7 @@ const days = ["Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag", "Lördag", "S�
 
 //get the current date for the newsPage
 let currentDate = new Date();
-//date is an object, so I make it into a string and split it by the comma
+//date is made into a string and split it by the comma
 let currentDateString = currentDate.toDateString();
 currentDateString = currentDateString.split(" ");
 let currentWeekDay = currentDateString[0];
