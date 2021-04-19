@@ -123,6 +123,8 @@ const articles = [
     }
 ];
 
+const categories = ["Nyheter", "Sport", "Underhållning", "Mat & Hälsa", "Teknik"];
+
 const months = ["Januari", "Februari", "Mars", "April", "Maj", "Juni", "Juli", "Augusti", "September", "Oktober", "November", "December"];
 
 const days = ["Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag", "Lördag", "Söndag"];

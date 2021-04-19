@@ -18,7 +18,7 @@
             </div>
             <div id="navContainer">
                 <div id="navWrap">
-                    <nav></nav>
+                    <nav id="nav"></nav>
                     <div id="datumContainer"></div>
                 </div>
             </div>           
