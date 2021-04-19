@@ -147,6 +147,8 @@ nav {
 main {
     display: flex;
     justify-content: center;
+    margin-top: 3vh;
+    /* height: 88vh; */
 }
 
 #newsContainer {
@@ -159,13 +161,20 @@ main {
 }
 
 #sideBar {
-    flex-basis: 20%;
+    flex-basis: 25%;
+    position: sticky;
+    margin-left: 2%;
+    border: 1px solid red;
+    height: 75vh;
 }
 
 #senasteNytt {
-    height: 10vh;
+    height: 15vh;
     border: 1px solid black;
+}
 
+#news {
+    
 }
 
 
