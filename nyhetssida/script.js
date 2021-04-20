@@ -1,6 +1,7 @@
 "use strict";
 
 //------------------Variables---------------------//
+const logo = document.getElementById("logo");
 const navContainer = document.getElementById("nav");
 const dateContainer = document.getElementById("datumContainer");
 const newsContainer = document.getElementById("news");
@@ -16,7 +17,6 @@ function createNavItems(item){
     return nNavItem;
 }
 
-//slå ihop de 2, bara att först anropa det med sista elementet, plocka bort och sedan köra för resten
 
 //fixa lådorna och en "läs mer.."
 
@@ -26,25 +26,36 @@ function createNavItems(item){
 
 //göra det mobilanpassat
 
-function createNewsArticle(article) {
-    let nDiv = document.createElement("div");
+function createNews(article, container = newsContainer) {
+    let nDiv = document.createElement("a");
+    nDiv.setAttribute("href", `articlePage.php?id=${article.id}`);
     nDiv.classList.add("article");
     let nTitle = document.createElement("h2");
-    nTitle.innerText = article.justNu ? `Just nu: ${article.title}` : article.title;
+    let nSpan = document.createElement("span");
+    nSpan.classList.add("newArticle");
+    nSpan.innerText = "Just nu:";
+    nTitle.innerText = article.title;
+    if (article.justNu !== false) {
+        nTitle.prepend(nSpan);
+    }
+    // nTitle.innerText = article.justNu ? `${nSpan} ${article.title}` : article.title;
     let nRegress = document.createElement("p");
-    nRegress.innerText = article.text;
-    nDiv.append(nTitle, nRegress);
-    return nDiv;
+    nRegress.innerText = article.text;  
+    if (article.image !== false) {
+        let nImg = document.createElement("img"); 
+        nImg.setAttribute("src", article.image);
+        nDiv.append(nTitle, nImg, nRegress);
+    } else {
+        nDiv.append(nTitle, nRegress);
+    }
+    container.append(nDiv);
 }
 
-function createJustNow(article) {
-    let nRubrik = document.createElement("h2");
-    nRubrik.innerText = `Just nu: ${article.title}`;
-    let nRegress = document.createElement("p");
-    nRegress.innerText = article.text;
-    justNowContainer.append(nRubrik, nRegress);
-    articles.splice(articles.length - 1, 1);
-}
+//---------------Event handlers------------------//
+// logo.addEventListener("click", () => {
+//     location.reload();
+// });
+
 
 //-----------------Direct Code-------------------//
 
@@ -56,9 +67,10 @@ categories.forEach(category => {
     navContainer.append(createNavItems(category));
 });
 
-createJustNow(articles[articles.length - 1])
-
+//creates the senaste-nytt-news and removes it from the array
+createNews(articles[articles.length - 1], justNowContainer);
+articles.splice(articles.length - 1, 1);
+//creates the rest of the articles
 articles.forEach(article => {
-    newsContainer.append(createNewsArticle(article));
+    createNews(article);
 });
-

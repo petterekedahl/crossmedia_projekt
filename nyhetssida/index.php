@@ -2,37 +2,31 @@
 <html>
     <head>
         <link rel='stylesheet' href='style.css'>
+        <link rel='stylesheet' href='includes/css/nav.css'>
+        <link rel='stylesheet' href='includes/css/footer.css'>
         <meta charset='utf-8'>
         <title>Njet News</title>
     </head>
     <body>
-        <header>
-            <div id="logoContainer">
-                <div id="logo">Logotyp</div>
-                <div id="prenDiv">
-                    <div id="abonnera">
-                        <div>PRENUMERERA</div>
-                        <div>+</div>
-                    </div>
-                </div> 
-            </div>
-            <div id="navContainer">
-                <div id="navWrap">
-                    <nav id="nav"></nav>
-                    <div id="datumContainer"></div>
-                </div>
-            </div>           
-        </header>
+        <?php include_once("includes/navigation.php");?>
+        <div id="placeholder"></div>
         <main>
             <div id="newsContainer">
                 <div id="newsFeed">
                     <div id="senasteNytt"></div>
                     <div id="news"></div>
                 </div>
-                <div id="sideBar"></div>
+                <div id="sideBar">
+                    <div id="newsPlus">
+                        <h3>NYHETER PLUS:</h3>
+                    </div>
+                    <div id="newestNews">
+                        <h3>Senaste nytt</h3>
+                    </div>
+                </div>
             </div>
         </main>
-        <footer></footer>
+        <?php include_once("includes/footer.php");?>
         <script src="resources.js"></script>
         <script src='script.js'></script>
     </body>
