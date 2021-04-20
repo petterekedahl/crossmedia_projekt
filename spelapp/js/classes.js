@@ -12,7 +12,11 @@ class Suspect {
   }
 
   createHTML() {
+    const noSuspectDiv = document.createElement('div');
     const card = document.createElement('div');
+    const cardInner = document.createElement('div');
+    const cardFront = document.createElement('div');
+    const cardBack = document.createElement('div');
     const imageDiv = document.createElement('div');
     const image = document.createElement('img');
     const nameDiv = document.createElement('div');
@@ -20,6 +24,9 @@ class Suspect {
     const noteDiv = document.createElement('div');
 
     const notesButton = document.createElement('button');
+    const noSuspectButton = document.createElement('button');
+
+    noSuspectDiv.classList.add('suspect-is-suspect');
 
     // Set image div
     image.setAttribute('src', this.image);
@@ -85,16 +92,74 @@ class Suspect {
     notesButton.textContent = 'Your notes:';
     notesButton.id = this.id + "suspect-note-button";
 
-    noteDiv.append(notesButton);
+    noteDiv.append(notesButton, noSuspectButton);
     notesButton.classList.add('notes-button');
+    noSuspectButton.classList.add(`no-suspect-button`);
+    noSuspectButton.textContent = 'No interest';
 
-    // Fill the card
-    card.append(imageDiv, infoDiv, noteDiv);
+    // Fill the cardFront
+    cardFront.append(imageDiv, infoDiv, noteDiv);
 
-    card.classList.add('suspect-card');
-    card.id = this.id + "suspect";
+    //Fill card back
+    const yourNotes = document.createElement('div');
+    const notesTitle = document.createElement('h3');
+    const doneButton = document.createElement('button');
+
+    notesTitle.textContent = 'Your Notes';
+    yourNotes.setAttribute('contenteditable', true);
+    doneButton.textContent = 'Done';
+
+    cardBack.append(notesTitle, yourNotes, doneButton);
+
+    cardFront.classList.add('suspect-card-front');
+    cardFront.id = this.id + "suspect";
     if(!this.isStillSuspect)
-      card.classList.add('not-a-suspect');
+      noSuspectDiv.classList.add('suspect-is-no-suspect');
+
+    cardBack.classList.add('suspect-card-back');
+    cardInner.classList.add('suspect-card-inner');
+    card.classList.add('suspect-card');
+    
+    cardInner.append(cardFront, cardBack);
+    card.append(noSuspectDiv, cardInner);
+
+    notesButton.addEventListener('click', () => {
+      cardInner.style.transform = 'rotateY(-180deg)';
+    })
+
+    doneButton.addEventListener('click', () => {
+      cardInner.style.transform = 'rotateY(0deg)';
+
+      STATE.user.suspects.forEach(suspect => {
+        if (this.id == suspect.id) {
+          suspect.notes = yourNotes.textContent;
+          // postToDatabase();
+        }
+      })
+    })
+
+    noSuspectButton.addEventListener('click', () => {
+      STATE.user.suspects.forEach(suspect => {
+        if (this.id == suspect.id) {
+          suspect.isStillSuspect != suspect.isStillSuspect;
+          noSuspectDiv.classList.toggle('suspect-is-no-suspect');
+
+          const addSuspect = document.createElement('button');
+          addSuspect.classList.add('add-suspect-button');
+          addSuspect.textContent = 'Add suspect';
+          setTimeout(() => {
+            noSuspectDiv.append(addSuspect);
+            addSuspect.addEventListener('click', () => {
+              suspect.isStillSuspect != suspect.isStillSuspect;
+              noSuspectDiv.classList.toggle('suspect-is-no-suspect');
+              noSuspectDiv.innerHTML = '';
+              // postToDatabase();
+            })
+          }, 500);
+          // postToDatabase();
+        }
+      })
+    })
 
     return card;
   }

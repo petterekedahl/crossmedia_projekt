@@ -65,18 +65,59 @@ body {
 }
 
 /* Suspect cards*/
+
 .suspect-card {
+  background-color: transparent;
+  perspective: 1000px;
+}
+
+.suspect-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: 2px solid black;
+  border-radius: 10px;
+
+  transition: transform 0.8s ease;
+  transform-style: preserve-3d;
+}
+
+.suspect-card-front, .suspect-card-back {
+  height: 100%;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 
-  border: 2px solid black;
-  border-radius: 10px;
+  top: 0;
 
   padding: 5px;
 
   font-family: Arial, Helvetica, sans-serif;
+
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.suspect-card-front {
+  background-color: white;
+}
+
+.suspect-card-back {
+  background-color: white;
+  transform: rotateY(180deg);
+}
+
+.suspect-card-back > div {
+  height: 70%;
+  width: 80%;
+
+  border: 1px solid black;
 }
 
 /*Suspect image*/
@@ -85,7 +126,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 70%;
+  width: 60%;
 }
 
 .suspect-image {
@@ -117,6 +158,24 @@ body {
   align-items: center;
 }
 
-
-
 /*Suspect Notes*/
+
+/*Is suspect a suspect still styles*/
+.suspect-is-no-suspect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 10;
+
+  transition: all 0.5s ease;
+
+  display: grid;
+  place-items: center;
+}
+
+.add-suspect-button {
+  display: flex;
+}
