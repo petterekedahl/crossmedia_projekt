@@ -69,6 +69,7 @@ body {
 .suspect-card {
   background-color: transparent;
   perspective: 1000px;
+  border-radius: 10px;
 }
 
 .suspect-card-inner {
@@ -82,6 +83,8 @@ body {
   border: 2px solid black;
   border-radius: 10px;
 
+  box-shadow: 2px 2px rgba(0, 0, 0, 0.4);
+
   transition: transform 0.8s ease;
   transform-style: preserve-3d;
 }
@@ -89,6 +92,7 @@ body {
 .suspect-card-front, .suspect-card-back {
   height: 100%;
   width: 100%;
+  border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -126,11 +130,11 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 60%;
+  height: 60%;
 }
 
 .suspect-image {
-  width: 100%;
+  height: 100%;
 }
 
 .suspect-name {
