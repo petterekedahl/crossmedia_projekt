@@ -21,12 +21,12 @@ function createNavItems(item){
     return nNavItem;
 }
 
+//menues sort function
 
-//fixa lådorna och en "läs mer.."
-
+//senaste nytt & plusartiklar
+// ---> frågor: ska vi verkligen ha en button med senaste nytt iom att artiklarna bara upprepar sig konstant
+ 
 //både prenumerera och läs mer --> pop up med info om tekniskt fel samt fält för epost-adress
-
-//foxa en articlesida för de som funkar? eller för alla?
 
 //göra det mobilanpassat
 
