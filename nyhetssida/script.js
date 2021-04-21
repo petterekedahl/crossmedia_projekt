@@ -7,6 +7,10 @@ const dateContainer = document.getElementById("datumContainer");
 const newsContainer = document.getElementById("news");
 const justNowContainer = document.getElementById("senasteNytt");
 const today = `${currentWeekDay} ${currentDay} ${currentMonth} ${currentYear}`;
+let currentPage = location.pathname;
+currentPage = currentPage.split("/");
+currentPage = currentPage[currentPage.length - 1];
+const indexPage = "index.php";
 
 
 //------------------Functions--------------------//
@@ -67,10 +71,13 @@ categories.forEach(category => {
     navContainer.append(createNavItems(category));
 });
 
-//creates the senaste-nytt-news and removes it from the array
-createNews(articles[articles.length - 1], justNowContainer);
-articles.splice(articles.length - 1, 1);
-//creates the rest of the articles
-articles.forEach(article => {
-    createNews(article);
-});
+
+if (currentPage === indexPage) {
+    //creates the senaste-nytt-news and removes it from the array
+    createNews(articles[articles.length - 1], justNowContainer);
+    articles.splice(articles.length - 1, 1);
+    //creates the rest of the articles
+    articles.forEach(article => {
+        createNews(article);
+    });
+}

@@ -23,5 +23,6 @@
             let currentArt = <?= $_GET['id']; ?>;
             makeArticlePage(currentArt);
         </script>
+        <script src="script.js"></script>
     </body>
 </html>
