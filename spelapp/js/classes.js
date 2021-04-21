@@ -88,7 +88,7 @@ class Suspect {
     infoDiv.append(ageDiv, heightDiv, alibiDiv, nationalityDiv);
     infoDiv.classList.add('suspect-info-div');
 
-    // Notes
+    // front card buttons
     notesButton.textContent = 'Your notes:';
     notesButton.id = this.id + "suspect-note-button";
 
@@ -96,6 +96,8 @@ class Suspect {
     notesButton.classList.add('notes-button');
     noSuspectButton.classList.add(`no-suspect-button`);
     noSuspectButton.textContent = 'No interest';
+
+    noteDiv.classList.add('suspect-card-front-div');
 
     // Fill the cardFront
     cardFront.append(imageDiv, infoDiv, noteDiv);
@@ -141,7 +143,7 @@ class Suspect {
     noSuspectButton.addEventListener('click', () => {
       STATE.user.suspects.forEach(suspect => {
         if (this.id == suspect.id) {
-          suspect.isStillSuspect != suspect.isStillSuspect;
+          suspect.isStillSuspect = false;
           noSuspectDiv.classList.toggle('suspect-is-no-suspect');
 
           const addSuspect = document.createElement('button');
@@ -150,7 +152,7 @@ class Suspect {
           setTimeout(() => {
             noSuspectDiv.append(addSuspect);
             addSuspect.addEventListener('click', () => {
-              suspect.isStillSuspect != suspect.isStillSuspect;
+              suspect.isStillSuspect = true;
               noSuspectDiv.classList.toggle('suspect-is-no-suspect');
               noSuspectDiv.innerHTML = '';
               // postToDatabase();

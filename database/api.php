@@ -24,6 +24,13 @@ if ($method == "GET" && isset($_GET["userId"])) {
     errorMessagePhp(406, "$loginUrlIndexGame?error=100");
   }
 
+  $user = [
+    "username" => $user["username"],
+    "suspects" => $user["suspects"],
+    "notes" => $user["notes"],
+    "id" => $user["id"]
+  ];
+
   http_response_code(200);
   header("Content-Type: application/json");
   echo json_encode($user);

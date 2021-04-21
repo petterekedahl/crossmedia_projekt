@@ -20,10 +20,11 @@ fetch(userReq)
   .then(response => response.json())
   .then(user => {
     try {
-      user = {
-        "username": user.username,
-        "suspects": user.suspects
-      };
+      // user = {
+      //   "username": user.username,
+      //   "suspects": user.suspects,
+      //   "notes": user.notes
+      // };
       STATE.user = user;
   
       console.log(STATE.user);

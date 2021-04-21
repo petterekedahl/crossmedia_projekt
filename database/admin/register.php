@@ -43,7 +43,8 @@ if(isset($_POST["username"]) && isset($_POST['email']) && isset($_POST["password
     "email" => $email,
     "emailRecieve" => $_POST["register-email-agree"],
     "TnC" => $_POST["register-tnc-agree"],
-    "suspects" => $defaultSuspects
+    "suspects" => $defaultSuspects,
+    "notes" => []
   ];
 
   $database["users"][] = $newUser;
