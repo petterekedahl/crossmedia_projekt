@@ -3,16 +3,79 @@
         {
             "id": 0,
             "username": "Petter",
-            "password": "$2y$10$KzDsV88MU6qCk08jXoW8ruNCtSBGqvBexDaA80b\/HivSgVjfRRGVm",
-            "email": "petter@ekedahl.se"
-        },
-        {
-            "id": 1,
-            "username": "Petter1",
-            "password": "$2y$10$aZKkTuiItwShESWBlLrD1.c4uJMqw5Kqobj3Ep3lpKVbDDza2KujK",
-            "email": "petter@ekedahl.se1",
+            "password": "$2y$10$oJEuDISDzk0wMy15Hc1kKOfvkaWvkZ4AsDbWHZIJ6AB2AvH3XF1\/O",
+            "email": "petter.ekedahl@gmail.com",
             "emailRecieve": "on",
-            "TnC": "on"
+            "TnC": "on",
+            "notes": [],
+            "suspects": [
+                {
+                    "name": "Unknown",
+                    "height": "Unknown",
+                    "alibi": "Unknown",
+                    "nationality": "Unknown",
+                    "notes": "",
+                    "image": "..\/images\/",
+                    "isStillSuspect": true,
+                    "id": 0,
+                    "age": "Unknown"
+                },
+                {
+                    "name": "Unknown",
+                    "height": "Unknown",
+                    "alibi": "Unknown",
+                    "nationality": "Unknown",
+                    "notes": "",
+                    "image": "..\/images\/",
+                    "isStillSuspect": true,
+                    "id": 1,
+                    "age": "Unknown"
+                },
+                {
+                    "name": "Unknown",
+                    "height": "Unknown",
+                    "alibi": "Unknown",
+                    "nationality": "Unknown",
+                    "notes": "",
+                    "image": "..\/images\/",
+                    "isStillSuspect": true,
+                    "id": 2,
+                    "age": "Unknown"
+                },
+                {
+                    "name": "Unknown",
+                    "height": "Unknown",
+                    "alibi": "Unknown",
+                    "nationality": "Unknown",
+                    "notes": "",
+                    "image": "..\/images\/",
+                    "isStillSuspect": true,
+                    "id": 3,
+                    "age": "Unknown"
+                },
+                {
+                    "name": "Unknown",
+                    "height": "Unknown",
+                    "alibi": "Unknown",
+                    "nationality": "Unknown",
+                    "notes": "",
+                    "image": "..\/images\/",
+                    "isStillSuspect": true,
+                    "id": 4,
+                    "age": "Unknown"
+                },
+                {
+                    "name": "Unknown",
+                    "height": "Unknown",
+                    "alibi": "Unknown",
+                    "nationality": "Unknown",
+                    "notes": "",
+                    "image": "..\/images\/",
+                    "isStillSuspect": true,
+                    "id": 5,
+                    "age": "Unknown"
+                }
+            ]
         }
     ]
 }

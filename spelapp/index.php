@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(!isset($_SESSION['username'])) {
-  header("Location: /pages/login.php");
+  header("Location: ./spelapp/pages/login.php");
 };
 ?>
 <!DOCTYPE html>
@@ -25,6 +25,10 @@ if(!isset($_SESSION['username'])) {
     ?>
   </main>
 </body>
+<script src="./js/state.js"></script>
+<script>
+  STATE.userId = <?php echo $_SESSION["userId"]?>
+</script>
 <script src="./js/navigation.js"></script>
 <script src="./js/classes.js"></script>
 <script src="./js/loadpagesFunctions.js"></script>

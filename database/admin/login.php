@@ -7,6 +7,8 @@ require_once "../assets/messageFunctions.php";
 $databaseLink = "../json/database.json";
 $database = [];
 
+$loginUrlGame = "../../spelapp/pages/login.php";
+
 if(file_exists($databaseLink)) {
   $database = json_decode(file_get_contents($databaseLink), true);
 };
@@ -23,19 +25,22 @@ if ($method == "POST") {
     $user = validateUser($database, $username, $password);
 
     if(!$user) {
-      errorMessage(401, "Could not find username.");
+      errorMessagePhp(401, $loginUrlGame + "?error=0");
       exit();
     }
 
     if(!getHashedPassword($password, $user["password"])) {
-      errorMessage(401, "Username and password do not match.");
+      errorMessagePhp(401, $loginUrlGame + "?error=1");
       exit();
     }
 
+    $userId = $user["id"];
+
     $_SESSION["isLoggedIn"] = true;
     $_SESSION["username"] = $username;
+    $_SESSION["userId"] = $user["id"];
 
-    header("Location: ../../spelapp/index.php");
+    header("Location: ../../spelapp/index.php?user=$userId");
     exit();
   }
 }

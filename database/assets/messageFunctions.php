@@ -1,22 +1,27 @@
 <?php
-$databaseLink = '../json/database.json';
-$database = [];
-
-if(file_exists($databaseLink)) {
-  $database = json_decode(file_get_contents($databaseLink), true);
-}
-
-function errorMessage($statusCode = 400, $error = "Bad request") {
+function errorMessagePhp($statusCode = 400, $error = "Bad request") {
   http_response_code($statusCode);
-  header("Content-Type: Application/json");
-  echo json_encode(["error" => $error]);
+  header("Location: $error");
   exit();
 }
 
-function send($statusCode = 200, $message = "Success") {
+function sendPhp($statusCode = 200, $message = "Success") {
+  http_response_code($statusCode);
+  header("Location: $message");
+  exit();
+}
+
+function errorMessageJS($statusCode = 400, $error = "Bad request") {
   http_response_code($statusCode);
   header("Content-Type: Application/json");
-  echo json_encode([ "data" => $message ]);
+  echo json_encode(["error" => [$message]]);
+  exit();
+}
+
+function sendJS($stateCode = 200, $message = "Success") {
+  http_response_code($statusCode);
+  header("Content-Type: Application/json");
+  echo json_encode(["data" => [$message]]);
   exit();
 }
 ?>

@@ -1,5 +1,5 @@
 <?php
-// $databaseLink = '../json/database.json';
+session_start();
 
 function getHighestId($database, $key) {
   $highestId = 0;
@@ -59,9 +59,18 @@ function isEmailTaken($database, $email) {
 
 function isMethodAllowed($method) {
   if (!in_array($method, ["GET", "POST", "PATCH", "DELETE"])) {
-    errorMessage(405, "Your method is not allowed");
+    errorMessage(405, "?error=405");
     return false;
   }
   return true;
+}
+
+function getUser($database, $userId) {
+  foreach ($database["users"] as $user) {
+    if ($userId == $user["id"]) {
+      return $user;
+    }
+  }
+  return false;
 }
 ?>
