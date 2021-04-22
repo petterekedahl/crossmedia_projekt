@@ -18,17 +18,19 @@
                 </div>
                 <div id="sideBar">
                     <div id="newsPlus">
-                        <h3>NYHETER PLUS:</h3>
+                        <h3>Väder</h3>
+                        <h2>Vädret just nu i Malmö, Sverige:</h2>
                     </div>
                     <div id="newestNews">
-                        <h3>Senaste nytt</h3>
+                        <h3>Mest klickade nyheter</h3>
                     </div>
                 </div>
             </div>
         </main>
         <?php include_once("includes/footer.php");?>
         <script src="resources.js"></script>
-        <script src='script.js'></script>
+        <script src="script.js"></script>
+        <script src="ajax.js"></script>
     </body>
 </html>
 

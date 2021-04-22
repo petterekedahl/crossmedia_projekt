@@ -8,7 +8,8 @@ const articles = [
         text: "Fram till nu har det varit svårt för danskar att ta sig över Öresundsbron till Malmö efter att gränsen hade stängts. Sverige lättar nu på dessa regler så länge man kan visa upp ett negativt covid-test.",
         category: "Sverige",
         justNu: false,
-        image: false
+        image: false,
+        mostViewed: false
     },
     {
         id: 1,
@@ -16,7 +17,8 @@ const articles = [
         text: "Sonen skulle ta ett sista farväl och fick kistan med sin döda mors kropp kört till sitt hem. När begravningsbyrån sedan hämtade kistan tillbaka upptäckte man att kistan var tom.",
         category: "Brott",
         justNu: true,
-        image: "images/coffin_stockImage.jpg"
+        image: "images/coffin_stockImage.jpg",
+        mostViewed: false
     },
     {
         id: 2,
@@ -24,7 +26,8 @@ const articles = [
         text: "Rättegången angående storskalig prosititution har avslutats och nu har en kvinna och en man dömts för människohandel vid Malmö Tingsrätt. Båda ska efter avtjänat straff utvisas från Sverige.",
         category: "Brott",
         justNu: false,
-        image: false
+        image: false,
+        mostViewed: false
     },
     {
         id: 3,
@@ -32,7 +35,8 @@ const articles = [
         text: "Många barn står inför ett digitalt påsklov. Malmö stad satsar i år på digitala aktiviteter och i vissa fall även utomhusaktiviteter för barnen i Malmö.",
         category: "Sverige",
         justNu: false,
-        image: false
+        image: false,
+        mostViewed: false
     },
     {
         id: 4,
@@ -40,7 +44,8 @@ const articles = [
         text: "Demonstrationerna angående pandemin och relaterade restriktioner har varit lugnare än förväntat. Ett 30-tal personer avslägsnades.",
         category: "Sverige",
         justNu: false,
-        image: false
+        image: false,
+        mostViewed: false
     },
     {
         id: 5,
@@ -48,7 +53,8 @@ const articles = [
         text: "Natten till torsdagen försvann den 80-åriga palmen från Trelleborgs centralstation. Invånarna är upprörda över att en palm spårlöst kan försvinna utan att någon vet vart den tagit vägen.",
         category: "Sverige",
         justNu: false,
-        image: "images/palm_stockImage.jpg"
+        image: "images/palm_stockImage.jpg",
+        mostViewed: false
     },
     {
         id: 6,
@@ -56,7 +62,8 @@ const articles = [
         text: "Efterfrågan på Playstation 5 är fortsatt höga men ännu kan inte efterfrågan mötas av speltillverkarna. När nästa release blir vågar inte butikerna gå ut med.",
         category: "Teknik",
         justNu: false,
-        image: false
+        image: false,
+        mostViewed: false
     },
     {
         id: 7,
@@ -64,7 +71,8 @@ const articles = [
         text: "Hur länge håller egentligen honung? Kan vatten bli gammalt? Honung är faktiskt det enda livsmedelt som inte blir gammalt, det kan kristalliseras men kan överleva flera tusentals år i rätt miljö.",
         category: "Mat & Hälsa",
         justNu: false,
-        image: "images/honey_stockImage.jpg"
+        image: "images/honey_stockImage.jpg",
+        mostViewed: false
     },
     {
         id: 8,
@@ -72,7 +80,8 @@ const articles = [
         text: "Ny månad, nya möjligheter! Har du fortfarande inte hittat kärleken? Frukta ej, vi kan hjälpa dig på traven!",
         category: "Underhållning",
         justNu: false,
-        image: "images/zodiacs_stockImage.jpg"
+        image: "images/zodiacs_stockImage.jpg",
+        mostViewed: false
     },
     {
         id: 9,
@@ -80,7 +89,8 @@ const articles = [
         text: "Visste du att en kackerlacka kan leva i flera veckor utan huvud? Se därför till att mosa hela kackerlackan! Honan förökar sig snabbt, efter befruktning tar det endast tre till fem veckor innan hon lägger 30-40 ägg som kläcks efter ett dygn.",
         category: "Hushåll",
         justNu: false,
-        image: false
+        image: false,
+        mostViewed: false
     },
     {
         id: 10,
@@ -88,7 +98,8 @@ const articles = [
         text: "Anfallaren kritiserar SvFF kring utvisningen förra helgen och riskerar avstängning. Anfallaren fick en smäll mot ena foten under matchen, men fick inte med sig en frispark och skrek då ”jävla sopa” till domaren, vilket gjorde att han fick rött kort.",
         category: "Sport",
         justNu: false,
-        image: false
+        image: false,
+        mostViewed: false
     },
     {
         id: 11,
@@ -96,7 +107,8 @@ const articles = [
         text: 'Alexander Isak kommer gå om Erling Braut Haaland i utvecklingen, menar Erik Edman. Isak kör på i Real Sociedad och under årets säsong har svensken noterats för tolv mål på 24 ligamatcher. Han har också haft rykten kring sig att Barcelona vill knyta till sig honom. "Hela Norge kommer kasta fryspizza på mig nu, men om 3 år är Alexander Isak en bättre spelare än honom!", skrev Edman.',
         category: "Sport",
         justNu: false,
-        image: false
+        image: false,
+        mostViewed: false
     },
     {
         id: 12,
@@ -104,7 +116,8 @@ const articles = [
         text: "Dejan Kulusevski stod för en miss, som ledde fram till Torinos 2-1 mål mot Juventus i derbyt. Ett totalt hjärnsläpp av svensken, som kommer gräva ner sig i flera dagar. Derby della Mole är ett hett lokalderby i staden Torino.",
         category: "Sport",
         justNu: false,
-        image: "images/soccer_stockImage.jpg"
+        image: "images/soccer_stockImage.jpg",
+        mostViewed: false
     },
     {
         id: 13,
@@ -112,7 +125,8 @@ const articles = [
         text: 'Halmstads BK slog ut Sporting CP i Uefa-cupen 2005. HBK var placerade i mitten av allsvenskan, medans Sporting kom från en final i Europa. Det var en jätteskräll för svensk fotboll, men som fick stora konsekvenser. Dåvarande tränaren och nuvarande tränaren för svenska landslaget Janne Andersson uttalade sig kring matchen: ”Det var kanske den största skrällen jag varit med om..”',
         category: "Sport",
         justNu: false,
-        image: false
+        image: false,
+        mostViewed: false
     },
     {
         id: 14,
@@ -120,7 +134,8 @@ const articles = [
         text: 'Ett vasst solomål av svensken gav ny seger till Buffalo. ”Det känns skönt” säger svensken i en intervju…',
         category: "Sport",
         justNu: false,
-        image: false
+        image: false,
+        mostViewed: false
     },
     {
         id: 15,
@@ -128,7 +143,8 @@ const articles = [
         text: "I vårt test är den överlägset krispiga vinnaren en lövtunn spanjor med tryffelsmak.",
         category: "Mat & Hälsa",
         justNu: false,
-        image: false
+        image: false,
+        mostViewed: false
     },
     {
         id: 16,
@@ -136,7 +152,8 @@ const articles = [
         text: "Mia Gahne: Fetthalten i en krämig burrata är inget för veklingar.",
         category: "Mat & Hälsa",
         justNu: false,
-        image: "images/burrata_stockImage.jpg"
+        image: "images/burrata_stockImage.jpg",
+        mostViewed: false
     },
     {
         id: 17,
@@ -144,7 +161,8 @@ const articles = [
         text: "Bolaget överväger att överklaga vissa av villkoren i tillståndet.",
         category: "Ekonomi",
         justNu: false,
-        image: false
+        image: false,
+        mostViewed: false
     },
     {
         id: 18,
@@ -152,7 +170,8 @@ const articles = [
         text: "George Polychronidis bygger stereoförstärkare till kunder över hela världen.",
         category: "Teknik",
         justNu: false,
-        image: "images/amplifier_stockImage.jpg"
+        image: "images/amplifier_stockImage.jpg",
+        mostViewed: false
     },
     {
         id: 19,
@@ -160,7 +179,8 @@ const articles = [
         text: `"Studenter gillar Ben & Jerry's, så jag tror Lund är en perfekt stad".`,
         category: "Ekonomi",
         justNu: true,
-        image: false
+        image: false,
+        mostViewed: false
     }
 ];
 
