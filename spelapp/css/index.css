@@ -260,3 +260,52 @@ body {
     grid-auto-rows: 75%;
   }
 }
+
+/* Notes page CSS */
+#note-container {
+
+}
+
+.note-container-div {
+
+}
+
+.notes-top-controll {
+
+}
+
+.notes-top-controll > h1 {
+
+}
+
+.note-add-button {
+
+}
+
+.notes {
+
+}
+
+.note-info-div {
+
+}
+
+.note-title {
+
+}
+
+.note-date {
+
+}
+
+.note-container.active {
+
+}
+
+.notes-delete-button {
+
+}
+
+.notes-active-buttons {
+
+}

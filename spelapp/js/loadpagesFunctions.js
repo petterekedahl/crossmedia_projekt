@@ -45,5 +45,49 @@ function loadNotesPage() {
   resetMainDiv();
   contentDiv.classList.remove('content-div-grid');
   contentDiv.classList.add('content-div-flex');
-  console.log('notespage');
+
+  const notesInfoTop = document.createElement('div');
+  const noteh1 = document.createElement('h1');
+  const noteAddButton = document.createElement('button');
+
+  notesInfoTop.classList.add('notes-top-controll');
+  noteAddButton.classList.add('note-add-button');
+
+  noteh1.textContent = 'Notes';
+  noteAddButton.textContent = '+';
+  
+  notesInfoTop.append(noteh1, noteAddButton);
+
+  const allNotesContainer = document.createElement('div');
+
+  contentDiv.append(notesInfoTop, allNotesContainer);
+
+  allNotesContainer.id = "note-container";
+
+  noteAddButton.addEventListener('click', () => {
+    let highestId = 0;
+    STATE.user.notes.forEach(user => {
+      if (highestId <= user.id) {
+        highestId == user.id + 1;
+      }
+    });
+
+    const newNote = {
+      notes: '',
+      id: highestId,
+      date: new Date(),
+      title: 'New Note'
+    }
+
+    STATE.user.notes.push(newNote);
+
+    addNewNote = new Notes({
+      title: newNote.title,
+      id: newNote.id,
+      notes: newNote.notes,
+      date: newNote.date
+    });
+    
+    allNotesContainer.prepend(addNewNote.createHTML());
+  })
 }

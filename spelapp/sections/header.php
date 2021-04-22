@@ -1,5 +1,6 @@
 <nav>
   <div id="nav-div">
+    <img src="./images/Seal_of_the_MPP1.png">
     <div>
       <div class="nav-button active" id="nav-home">HOME</div>
       <div class="nav-slidein-div active-slidein-div"></div>

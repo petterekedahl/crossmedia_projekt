@@ -166,3 +166,87 @@ class Suspect {
     return card;
   }
 }
+
+class Notes {
+  constructor(data) {
+    this.notes = data.notes,
+    this.title = data.title
+    this.date = data.date
+    this.id = data.id;
+  }
+
+  createHTML() {
+    const note = document.createElement('div');
+    const noteContainer = document.createElement('div');
+    const noteInfoDiv = document.createElement('div');
+    const noteTitle = document.createElement('div');
+    const noteDate = document.createElement('div');
+
+    note.classList.add('note-container-div');
+    noteContainer.classList.add('notes');
+    noteInfoDiv.classList.add('note-info-div');
+    noteTitle.classList.add('note-title');
+    noteDate.classList.add('note-date');
+
+    noteInfoDiv.append(noteTitle, noteDate);
+    note.append(noteInfoDiv, noteContainer);
+
+    noteTitle.textContent = this.title;
+    noteDate.textContent = this.date;
+    noteContainer.textContent = this.notes;
+
+    let isNoteOpen = false;
+
+    note.addEventListener('click', () => {
+      note.classList.toggle('note-container-active');
+
+      const notesButtonDiv = document.createElement('div');
+      const noteDeleteButt = document.createElement('button');
+      const noteSaveButt = document.createElement('button');
+
+      notesDeleteButt.textContent = 'Delete';
+      noteSaveButt.textContent = 'Save';
+      
+      if (!isNoteOpen) {
+        noteTitle.setAttribute("contenteditable", true);
+        noteContainer.setAttribute("contenteditable", true);
+      }
+  
+      noteDeleteButt.classList.add('notes-delete-button');
+      noteSaveButt.classList.add('note-save-button');
+      notesButtonDiv.classList.toggle('notes-active-buttons');
+
+      notesButtonDiv.append(noteDeleteButt, noteSaveButt);
+
+      noteDeleteButt.addEventListener('click', (event) => {
+        event.stopPropagation();
+
+        STATE.user.notes.map((note, index) => {
+          if (this.id == note.id) {
+            STATE.notes.splice(index, 1);
+          }
+        })
+        note.innerHTML = '';
+
+        const allNotesContainer = document.querySelector('#note-container');
+        allNotesContainer.removeChild(note);
+      });
+
+      noteSaveButt.addEventListener('click', (event) => {
+        event.stopPropagation();
+
+        STATE.user.notes.forEach(note => {
+          if (this.id == note.id) {
+            note.notes = noteContainer.textContent;
+            note.title = noteTitle.textContent;
+
+            noteTitle.removeAttribute("contenteditable", false);
+            noteContainer.setAttribute("contenteditable", false);
+          }
+        })
+      });
+    });
+
+    return note;
+  }
+}
