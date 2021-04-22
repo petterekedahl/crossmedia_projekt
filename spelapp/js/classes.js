@@ -213,7 +213,7 @@ class Notes {
       }
   
       noteDeleteButt.classList.add('notes-delete-button');
-      noteSaveButt.classList.add('note-save-button');
+      noteSaveButt.classList.add('notes-save-button');
       notesButtonDiv.classList.toggle('notes-active-buttons');
 
       notesButtonDiv.append(noteDeleteButt, noteSaveButt);

@@ -72,10 +72,12 @@ function loadNotesPage() {
       }
     });
 
+    const d = new Date()
+    
     const newNote = {
       notes: '',
       id: highestId,
-      date: new Date(),
+      date: `${d.getMonth()+1}/${d.getDate()}/${d.getFullYear()}`,
       title: 'New Note'
     }
 

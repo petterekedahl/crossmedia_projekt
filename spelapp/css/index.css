@@ -262,43 +262,78 @@ body {
 }
 
 /* Notes page CSS */
-#note-container {
-
-}
-
-.note-container-div {
-
-}
 
 .notes-top-controll {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
+  height: 15%;
+  padding: 5%;
+
+  border-bottom: 2px solid black
 }
 
 .notes-top-controll > h1 {
-
+  font-family: var(--fontHeaders);
 }
 
 .note-add-button {
+  height: 5vw;
+  width: 5vw;
+  
+  border: 2px solid black;
+  border-radius: 50%;
 
+  font-family: var(--fontHeaders);
+  font-size: 1rem;
+
+  transition: all 0.3s ease;
+}
+
+.note-add-button:hover {
+  cursor: pointer;
+  
+  font-size: 1.3rem;
+
+  transition: all 0.3s ease;
+}
+
+#note-container {
+  padding: 5%;
+}
+
+.note-container-div {
+  border-bottom: 2px solid black;
+
+  margin: 2px 0 0 2px;
 }
 
 .notes {
+  margin-bottom: 2vh;
+  border: 1px solid black;
+  
+  height: 3vh;
 
+  word-wrap: break-word;
 }
 
 .note-info-div {
-
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
 }
 
 .note-title {
-
+  font-family: var(--fontHeaders);
 }
 
 .note-date {
-
+  font-family: var(--fontContentText);
 }
 
-.note-container.active {
+.note-container-active {
 
 }
 
