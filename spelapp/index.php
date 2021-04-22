@@ -30,6 +30,7 @@ if(!isset($_SESSION['username'])) {
   STATE.userId = <?php echo $_SESSION["userId"]?>
 </script>
 <script src="./js/navigation.js"></script>
+<script src="./js/functions.js"></script>
 <script src="./js/classes.js"></script>
 <script src="./js/loadpagesFunctions.js"></script>
 <script src="./js/index.js"></script>

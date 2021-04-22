@@ -75,7 +75,7 @@ function loadNotesPage() {
     const d = new Date()
     
     const newNote = {
-      notes: '',
+      notes: 'Your notes...',
       id: highestId,
       date: `${d.getMonth()+1}/${d.getDate()}/${d.getFullYear()}`,
       title: 'New Note'
@@ -89,7 +89,21 @@ function loadNotesPage() {
       notes: newNote.notes,
       date: newNote.date
     });
+
+    postToDatabase('POST', 'add note');
     
     allNotesContainer.prepend(addNewNote.createHTML());
+  })
+
+  STATE.user.notes.sort((a, b) => { a.date < b.date ? -1:1});
+  STATE.user.notes.forEach(note => {
+    oldNote = new Notes ({
+      title: note.title,
+      notes: note.notes,
+      date: note.date,
+      id: note.id,
+    })
+
+    allNotesContainer.append(oldNote.createHTML());
   })
 }

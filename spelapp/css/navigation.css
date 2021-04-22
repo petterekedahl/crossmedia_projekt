@@ -71,7 +71,7 @@ a:visited {
   border-bottom: 2px solid white;
 }
 
-img {
+#nav-div > img {
   width: 20vh;
   margin-left: 5%;
 }
