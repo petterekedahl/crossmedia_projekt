@@ -135,7 +135,7 @@ class Suspect {
       STATE.user.suspects.forEach(suspect => {
         if (this.id == suspect.id) {
           suspect.notes = yourNotes.textContent;
-          postToDatabase('PUT');
+          postToDatabase('PUT', 'change suspect note', suspect);
         }
       })
     })
@@ -155,10 +155,10 @@ class Suspect {
               suspect.isStillSuspect = true;
               noSuspectDiv.classList.toggle('suspect-is-no-suspect');
               noSuspectDiv.innerHTML = '';
-              postToDatabase('PUT', 'suspect back');
+              postToDatabase('PUT', 'suspect is suspect', suspect);
             })
           }, 500);
-          postToDatabase('PUT', 'no suspect');
+          postToDatabase('PUT', 'no suspect', suspect);
         }
       })
     })
@@ -242,6 +242,7 @@ class Notes {
         STATE.user.notes.map((note, index) => {
           if (this.id == note.id) {
             STATE.user.notes.splice(index, 1);
+            postToDatabase('DELETE', 'delete notes', note);
           }
         })
         note.innerHTML = '';
@@ -249,7 +250,6 @@ class Notes {
         const allNotesContainer = document.querySelector('#note-container');
         noteContainer.classList.toggle('notes-active');
         allNotesContainer.removeChild(note);
-        postToDatabase('PUT', 'delete notes');
       });
 
       noteSaveButt.addEventListener('click', (event) => {
@@ -262,6 +262,7 @@ class Notes {
 
             noteTitle.removeAttribute("contenteditable", false);
             noteContainer.setAttribute("contenteditable", false);
+            postToDatabase('PUT', 'save your notes', note);
           }
         })
         noteContainer.classList.toggle('notes-active');
@@ -272,7 +273,6 @@ class Notes {
         noteContainer.setAttribute("contenteditable", false);
         note.removeChild(notesButtonDiv);
         isNoteOpen = false;
-        postToDatabase('PUT', 'save notes');
       });
     });
 

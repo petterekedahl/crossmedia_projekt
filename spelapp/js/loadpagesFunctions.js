@@ -90,7 +90,7 @@ function loadNotesPage() {
       date: newNote.date
     });
 
-    postToDatabase('POST', 'add note');
+    postToDatabase('POST', 'add note', addNewNote);
     
     allNotesContainer.prepend(addNewNote.createHTML());
   })
