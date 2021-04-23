@@ -202,9 +202,11 @@ class Notes {
       note.classList.toggle('note-container-active');
       noteContainer.addEventListener('click', (event) => {
         event.stopPropagation();
+        noteContainer.textContent = '';
       })
       noteTitle.addEventListener('click', (event) => {
         event.stopPropagation();
+        noteTitle.textContent = '';
       })
 
       let notesButtonDiv = document.createElement('div');
