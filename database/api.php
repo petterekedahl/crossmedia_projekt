@@ -14,7 +14,14 @@ require_once("./assets/messageFunctions.php");
 
 $method = $_SERVER["REQUEST_METHOD"];
 
+// Checks if request method is okay
 if (!isMethodAllowed($method)) die();
+
+// Makes a copy of the database before any changes are made
+if ($method != 'GET') {
+  $jsonDatabaseCopy = json_encode($database, JSON_PRETTY_PRINT);
+  file_put_contents('./json/databaseCopy.json', $jsonDatabaseCopy);
+}
 
 if ($method == "GET" && isset($_GET["userId"])) {
   $userId = $_GET["userId"];
@@ -38,23 +45,61 @@ if ($method == "GET" && isset($_GET["userId"])) {
 }
 
 if ($method == 'PUT') {
-  $input = file_get_contents('php://input');
-  var_dump($input);
+  $payload = json_decode(file_get_contents('php://input'), true);
+  $databaseLength = count($database["users"]);
+
+  // var_dump($payload);
+
+  for($i = 0; $i < $databaseLength; $i++) {
+    if ($database["users"][$i]["id"] == $payload["userId"]) {
+      // var_dump("userId");
+      if ($payload["action"] == 'save your notes') {
+        $updatedNote = [
+          "date" => $payload['payload']['date'],
+          "id" => $payload['payload']['id'],
+          "notes" => $payload['payload']['notes'],
+          "title" => $payload['payload']['title']
+        ];
+        // var_dump("action");
+        $userNotesLength = count($database["users"][$i]["notes"]);
+        for ($j = 0; $j < $userNotesLength; $j++) {
+          if ($database["users"][$i]["notes"]["id"] == $payload["payload"]["id"]) {
+            // var_dump("note");
+            $database["users"][$i]["notes"] = $updatedNote;
+          }
+        } // end for loop
+        
+      } // end if payload action
+      $user = [
+        "username" => $database["users"][$i]["username"],
+        "suspects" => $database["users"][$i]["suspects"],
+        "notes" => $database["users"][$i]["notes"],
+        "id" => $database["users"][$i]["id"]
+      ];
+    } // end if user id
+  }
+
+  $jsonDatabase = json_encode($database, JSON_PRETTY_PRINT);
+  file_put_contents('./json/database.json', $jsonDatabase);
+  http_response_code(200);
+  header("Content-Type: application/json");
+  echo json_encode($user);
+  exit();
 }
 
 if ($method == 'POST') {
-  $input = json_decode(file_get_contents('php://input'), true);
+  $payload = json_decode(file_get_contents('php://input'), true);
 
   $databaseLength = count($database["users"]);
 
   for($i = 0; $i < $databaseLength; $i++) {
-    if ($database["users"][$i]["id"] == $input["userId"]) {
-      if ($input["action"] == 'add note') {
+    if ($database["users"][$i]["id"] == $payload["userId"]) {
+      if ($payload["action"] == 'add note') {
         $newNote = [
-          "date" => $input['payload']['date'],
-          "id" => $input['payload']['id'],
-          "notes" => $input['payload']['notes'],
-          "title" => $input['payload']['title']
+          "date" => $payload['payload']['date'],
+          "id" => $payload['payload']['id'],
+          "notes" => $payload['payload']['notes'],
+          "title" => $payload['payload']['title']
         ];
 
         array_push($database["users"][$i]["notes"], $newNote);

@@ -34,7 +34,7 @@ function postToDatabase(method, action, data = STATE.user) {
       .then(response => response.json())
       .then(user => {
         try {
-          console.log(user);
+          
         }catch(error) {
           console.log(error);
         }

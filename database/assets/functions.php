@@ -58,7 +58,7 @@ function isEmailTaken($database, $email) {
 }
 
 function isMethodAllowed($method) {
-  if (!in_array($method, ["GET", "POST", "PATCH", "DELETE"])) {
+  if (!in_array($method, ["GET", "POST", "PUT", "DELETE"])) {
     errorMessage(405, "?error=405");
     return false;
   }
