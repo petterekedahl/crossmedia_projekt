@@ -52,7 +52,6 @@ if ($method == 'PUT') {
 
   for($i = 0; $i < $databaseLength; $i++) {
     if ($database["users"][$i]["id"] == $payload["userId"]) {
-      // var_dump("userId");
       if ($payload["action"] == 'save your notes') {
         $updatedNote = [
           "date" => $payload['payload']['date'],
@@ -60,16 +59,34 @@ if ($method == 'PUT') {
           "notes" => $payload['payload']['notes'],
           "title" => $payload['payload']['title']
         ];
-        // var_dump("action");
+
         $userNotesLength = count($database["users"][$i]["notes"]);
         for ($j = 0; $j < $userNotesLength; $j++) {
-          if ($database["users"][$i]["notes"]["id"] == $payload["payload"]["id"]) {
-            // var_dump("note");
-            $database["users"][$i]["notes"] = $updatedNote;
+          if ($database["users"][$i]["notes"][$j]["id"] == $payload["payload"]["id"]) {
+            $database["users"][$i]["notes"][$j] = $updatedNote;
           }
         } // end for loop
-        
-      } // end if payload action
+      } // end if payload action save notes
+      if ($payload["action"] == 'suspect change') {
+        $updatedSuspect = [
+          "name" => $payload["payload"]['name'],
+          "height" => $payload["payload"]['height'],
+          "alibi" => $payload["payload"]['alibi'],
+          "nationality" => $payload["payload"]['nationality'],
+          "notes" => $payload["payload"]['notes'],
+          "image" => $payload["payload"]['image'],
+          "isStillSuspect" => $payload["payload"]['isStillSuspect'],
+          "id" => $payload["payload"]['id'],
+          "age" => $payload["payload"]['age']
+        ];
+
+        $userSuspectsLength = count($database["users"][$i]["suspects"]);
+        for ($j = 0; $j < $userSuspectsLength; $j++) {
+          if ($database["users"][$i]["suspects"][$j]["id"] == $payload["payload"]['id']) {
+            $database["users"][$i]["suspects"][$j] = $updatedSuspect;
+          }
+        }
+      } // end payload action suspect change
       $user = [
         "username" => $database["users"][$i]["username"],
         "suspects" => $database["users"][$i]["suspects"],

@@ -135,7 +135,7 @@ class Suspect {
       STATE.user.suspects.forEach(suspect => {
         if (this.id == suspect.id) {
           suspect.notes = yourNotes.textContent;
-          postToDatabase('PUT', 'change suspect note', suspect);
+          postToDatabase('PUT', 'suspect change', suspect);
         }
       })
     })
@@ -155,10 +155,10 @@ class Suspect {
               suspect.isStillSuspect = true;
               noSuspectDiv.classList.toggle('suspect-is-no-suspect');
               noSuspectDiv.innerHTML = '';
-              postToDatabase('PUT', 'suspect is suspect', suspect);
+              postToDatabase('PUT', 'suspect change', suspect);
             })
           }, 500);
-          postToDatabase('PUT', 'no suspect', suspect);
+          postToDatabase('PUT', 'suspect change', suspect);
         }
       })
     })
