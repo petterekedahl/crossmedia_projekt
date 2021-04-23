@@ -257,8 +257,8 @@ class Notes {
 
         STATE.user.notes.map((note, index) => {
           if (this.id == note.id) {
+            postToDatabase('DELETE', 'delete note', note);
             STATE.user.notes.splice(index, 1);
-            postToDatabase('DELETE', 'delete notes', note);
           }
         })
         note.innerHTML = '';

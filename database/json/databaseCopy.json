@@ -51,7 +51,7 @@
                     "nationality": "Unknown",
                     "notes": "",
                     "image": "..\/images\/",
-                    "isStillSuspect": false,
+                    "isStillSuspect": true,
                     "id": 2,
                     "age": "Unknown"
                 },

@@ -40,4 +40,21 @@ function postToDatabase(method, action, data = STATE.user) {
         }
       })
   }
+
+  if (method == 'DELETE') {
+    const putReq = new Request(API, {
+      method: 'DELETE',
+      headers: {'Content-Type': 'Application/json'},
+      body: JSON.stringify(payload)
+    })
+    fetch(putReq)
+      .then(response => response.json())
+      .then(response => {
+        try {
+           console.log('Post deleted')
+        }catch(error) {
+          console.log(error);
+        }
+      })
+  }
 }

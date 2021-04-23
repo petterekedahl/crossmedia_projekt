@@ -48,8 +48,6 @@ if ($method == 'PUT') {
   $payload = json_decode(file_get_contents('php://input'), true);
   $databaseLength = count($database["users"]);
 
-  // var_dump($payload);
-
   for($i = 0; $i < $databaseLength; $i++) {
     if ($database["users"][$i]["id"] == $payload["userId"]) {
       if ($payload["action"] == 'save your notes') {
@@ -136,6 +134,40 @@ if ($method == 'POST') {
   header("Content-Type: application/json");
   echo json_encode($user);
   exit();
+}
+
+if ($method == 'DELETE') {
+  $payload = json_decode(file_get_contents('php://input'), true);
+  $databaseLength = count($database["users"]);
+
+  for($i = 0; $i < $databaseLength; $i++) {
+    if ($database["users"][$i]["id"] == $payload["userId"]) {
+      if ($payload["action"] == 'delete note') {
+  
+        $userNotesLength = count($database["users"][$i]["notes"]);
+        for ($j = 0; $j < $userNotesLength; $j++) {
+          if ($database["users"][$i]["notes"][$j]["id"] == $payload["payload"]["id"]) {
+              array_splice($database["users"][$i]["notes"], $j, 1);
+          }
+        } // end for loop
+      } // end if payload action delete note
+        
+      $user = [
+        "username" => $database["users"][$i]["username"],
+        "suspects" => $database["users"][$i]["suspects"],
+        "notes" => $database["users"][$i]["notes"],
+        "id" => $database["users"][$i]["id"]
+      ];
+    } // end if user id
+  }
+  
+  $jsonDatabase = json_encode($database, JSON_PRETTY_PRINT);
+  file_put_contents('./json/database.json', $jsonDatabase);
+  http_response_code(200);
+  header("Content-Type: application/json");
+  echo json_encode($user);
+  exit();
+  
 }
 
 ?>
