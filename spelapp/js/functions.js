@@ -2,8 +2,8 @@ const API = '../../database/api.php';
 
 function postToDatabase(method, action, data = STATE.user) {
   const payload = {
-    userId = STATE.userId,
-    payload = { ...data },
+    userId: STATE.userId,
+    payload: { ...data },
     action
   }
   
@@ -32,9 +32,9 @@ function postToDatabase(method, action, data = STATE.user) {
     })
     fetch(putReq)
       .then(response => response.json())
-      .then(response => {
+      .then(user => {
         try {
-          console.log(response);
+          console.log(user);
         }catch(error) {
           console.log(error);
         }

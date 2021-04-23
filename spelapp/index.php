@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(!isset($_SESSION['username'])) {
-  header("Location: ./spelapp/pages/login.php");
+  header("Location: ./pages/login.php");
 };
 ?>
 <!DOCTYPE html>

@@ -66,9 +66,9 @@ function loadNotesPage() {
 
   noteAddButton.addEventListener('click', () => {
     let highestId = 0;
-    STATE.user.notes.forEach(user => {
-      if (highestId <= user.id) {
-        highestId == user.id + 1;
+    STATE.user.notes.forEach(note => {
+      if (highestId <= note.id) {
+        highestId = note.id + 1;
       }
     });
 

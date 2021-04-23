@@ -7,7 +7,14 @@
             "email": "petter.ekedahl@gmail.com",
             "emailRecieve": "on",
             "TnC": "on",
-            "notes": [],
+            "notes": [
+                {
+                    "date": "4\/23\/2021",
+                    "id": 0,
+                    "notes": "Your notes...",
+                    "title": "New Note"
+                }
+            ],
             "suspects": [
                 {
                     "name": "Unknown",
