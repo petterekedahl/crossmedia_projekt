@@ -17,7 +17,7 @@
                 {
                     "date": "4\/23\/2021",
                     "id": 1,
-                    "notes": "Your notes...",
+                    "notes": "Test note",
                     "title": "New Note"
                 }
             ],
@@ -51,7 +51,7 @@
                     "nationality": "Unknown",
                     "notes": "",
                     "image": "..\/images\/",
-                    "isStillSuspect": true,
+                    "isStillSuspect": false,
                     "id": 2,
                     "age": "Unknown"
                 },

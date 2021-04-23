@@ -115,8 +115,24 @@ class Suspect {
 
     cardFront.classList.add('suspect-card-front');
     cardFront.id = this.id + "suspect";
-    if(!this.isStillSuspect)
+
+    if(!this.isStillSuspect) {
       noSuspectDiv.classList.add('suspect-is-no-suspect');
+      const addSuspect = document.createElement('button');
+      addSuspect.classList.add('add-suspect-button');
+      addSuspect.textContent = 'Add suspect';
+      noSuspectDiv.append(addSuspect);
+      STATE.user.suspects.forEach(suspect => { 
+        if (this.id == suspect.id) {
+          addSuspect.addEventListener('click', () => {
+            suspect.isStillSuspect = true;
+            noSuspectDiv.classList.toggle('suspect-is-no-suspect');
+            noSuspectDiv.innerHTML = '';
+            postToDatabase('PUT', 'suspect change', suspect);
+          })
+        }
+      })
+    }
 
     cardBack.classList.add('suspect-card-back');
     cardInner.classList.add('suspect-card-inner');
@@ -202,11 +218,9 @@ class Notes {
       note.classList.toggle('note-container-active');
       noteContainer.addEventListener('click', (event) => {
         event.stopPropagation();
-        noteContainer.textContent = '';
       })
       noteTitle.addEventListener('click', (event) => {
         event.stopPropagation();
-        noteTitle.textContent = '';
       })
 
       let notesButtonDiv = document.createElement('div');
