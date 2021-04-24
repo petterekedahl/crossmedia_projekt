@@ -11,7 +11,7 @@
                 {
                     "date": "4\/23\/2021",
                     "id": 0,
-                    "notes": "Your notasdes...",
+                    "notes": "Hejhej",
                     "title": "Hej"
                 }
             ],
@@ -56,7 +56,7 @@
                     "nationality": "Unknown",
                     "notes": "",
                     "image": "..\/images\/",
-                    "isStillSuspect": true,
+                    "isStillSuspect": false,
                     "id": 3,
                     "age": "Unknown"
                 },
