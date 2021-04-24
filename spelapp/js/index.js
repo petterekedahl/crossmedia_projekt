@@ -11,6 +11,7 @@ setTimeout(() => {
     welcomeDiv.style.display = 'none';
     mainDiv.style.display = 'flex';
     loadNavClicks();
+    loadHomePage();
   }, 1500);
 }, 500);
 
