@@ -15,7 +15,7 @@ nav {
 }
 
 #nav-div {
-  height: 40%;
+  height: 50%;
   padding-left: 10%;
   overflow: hidden;
   display: flex;
@@ -69,4 +69,9 @@ a:visited {
 .active-slidein-div {
   margin-left: 0;
   border-bottom: 2px solid white;
+}
+
+#nav-div > img {
+  width: 20vh;
+  margin-left: 5%;
 }

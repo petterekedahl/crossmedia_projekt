@@ -69,6 +69,16 @@ $defaultSuspects = [
   "isStillSuspect" => true,
   "id" => 6,
   "age" => "Unknown"
+  ],
+  ["name" => 'Unknown',
+  "height" => 'Unknown',
+  "alibi" => 'Unknown',
+  "nationality" => 'Unknown',
+  "notes" => '',
+  "image" => '../images/',
+  "isStillSuspect" => true,
+  "id" => 7,
+  "age" => "Unknown"
   ]
 ];
 ?>

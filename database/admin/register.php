@@ -50,7 +50,7 @@ if(isset($_POST["username"]) && isset($_POST['email']) && isset($_POST["password
   $database["users"][] = $newUser;
 
   updateDatabase($database);
-  header("Location: ../spelapp/index.php");
+  header("Location: ../../spelapp/index.php");
   exit();
 }
 ?>

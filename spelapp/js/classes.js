@@ -31,7 +31,7 @@ class Suspect {
     // Set image div
     image.setAttribute('src', this.image);
     nameDiv.textContent = this.name;
-    imageDiv.append(image, nameDiv);
+    imageDiv.append(image);
     imageDiv.classList.add('suspect-image-div');
     nameDiv.classList.add('suspect-name');
     image.classList.add('suspect-image');
@@ -85,7 +85,7 @@ class Suspect {
     nationalitySpan.classList.add('natio-span');
     nationalityP.classList.add('natio-p');
 
-    infoDiv.append(ageDiv, heightDiv, alibiDiv, nationalityDiv);
+    infoDiv.append(nameDiv, ageDiv, heightDiv, alibiDiv, nationalityDiv);
     infoDiv.classList.add('suspect-info-div');
 
     // front card buttons
@@ -115,8 +115,24 @@ class Suspect {
 
     cardFront.classList.add('suspect-card-front');
     cardFront.id = this.id + "suspect";
-    if(!this.isStillSuspect)
+
+    if(!this.isStillSuspect) {
       noSuspectDiv.classList.add('suspect-is-no-suspect');
+      const addSuspect = document.createElement('button');
+      addSuspect.classList.add('add-suspect-button');
+      addSuspect.textContent = 'Add suspect';
+      noSuspectDiv.append(addSuspect);
+      STATE.user.suspects.forEach(suspect => { 
+        if (this.id == suspect.id) {
+          addSuspect.addEventListener('click', () => {
+            suspect.isStillSuspect = true;
+            noSuspectDiv.classList.toggle('suspect-is-no-suspect');
+            noSuspectDiv.innerHTML = '';
+            postToDatabase('PUT', 'suspect change', suspect);
+          })
+        }
+      })
+    }
 
     cardBack.classList.add('suspect-card-back');
     cardInner.classList.add('suspect-card-inner');
@@ -135,7 +151,7 @@ class Suspect {
       STATE.user.suspects.forEach(suspect => {
         if (this.id == suspect.id) {
           suspect.notes = yourNotes.textContent;
-          // postToDatabase();
+          postToDatabase('PUT', 'suspect change', suspect);
         }
       })
     })
@@ -155,14 +171,127 @@ class Suspect {
               suspect.isStillSuspect = true;
               noSuspectDiv.classList.toggle('suspect-is-no-suspect');
               noSuspectDiv.innerHTML = '';
-              // postToDatabase();
+              postToDatabase('PUT', 'suspect change', suspect);
             })
           }, 500);
-          // postToDatabase();
+          postToDatabase('PUT', 'suspect change', suspect);
         }
       })
     })
 
     return card;
+  }
+}
+
+class Notes {
+  constructor(data) {
+    this.notes = data.notes,
+    this.title = data.title
+    this.date = data.date
+    this.id = data.id;
+  }
+
+  createHTML() {
+    const note = document.createElement('div');
+    const noteContainer = document.createElement('div');
+    const noteInfoDiv = document.createElement('div');
+    const noteTitle = document.createElement('div');
+    const noteDate = document.createElement('div');
+
+    note.classList.add('note-container-div');
+    noteContainer.classList.add('notes');
+    noteInfoDiv.classList.add('note-info-div');
+    noteTitle.classList.add('note-title');
+    noteDate.classList.add('note-date');
+
+    noteInfoDiv.append(noteTitle, noteDate);
+    note.append(noteInfoDiv, noteContainer);
+
+    noteTitle.textContent = this.title;
+    noteDate.textContent = this.date;
+    noteContainer.textContent = this.notes;
+
+    let isNoteOpen = false;
+
+    note.addEventListener('click', (event) => {
+      event.stopPropagation();
+      note.classList.toggle('note-container-active');
+      noteContainer.addEventListener('click', (event) => {
+        event.stopPropagation();
+      })
+      noteTitle.addEventListener('click', (event) => {
+        event.stopPropagation();
+      })
+
+      let notesButtonDiv = document.createElement('div');
+      const noteDeleteButt = document.createElement('button');
+      const noteSaveButt = document.createElement('button');
+      const noteCancelButt = document.createElement('button');
+
+      noteDeleteButt.textContent = 'Delete';
+      noteCancelButt.textContent = 'Cancel';
+      noteSaveButt.textContent = 'Save';
+      
+      if (!isNoteOpen) {
+        noteTitle.setAttribute("contenteditable", true);
+        noteContainer.setAttribute("contenteditable", true);
+        notesButtonDiv.append(noteDeleteButt, noteSaveButt, noteCancelButt);
+        note.append(notesButtonDiv);
+        isNoteOpen = true;
+      } else {
+        notesButtonDiv = document.querySelector('.notes-active-buttons');
+        noteTitle.setAttribute("contenteditable", false);
+        noteContainer.setAttribute("contenteditable", false);
+        note.removeChild(notesButtonDiv);
+        isNoteOpen = false;
+      }
+  
+      noteDeleteButt.classList.add('notes-delete-button');
+      noteSaveButt.classList.add('notes-save-button');
+      notesButtonDiv.classList.toggle('notes-active-buttons');
+      noteContainer.classList.toggle('notes-active');
+      noteTitle.classList.toggle('note-title-active');
+
+      noteDeleteButt.addEventListener('click', (event) => {
+        event.stopPropagation();
+
+        STATE.user.notes.map((note, index) => {
+          if (this.id == note.id) {
+            postToDatabase('DELETE', 'delete note', note);
+            STATE.user.notes.splice(index, 1);
+          }
+        })
+        note.innerHTML = '';
+
+        const allNotesContainer = document.querySelector('#note-container');
+        noteContainer.classList.toggle('notes-active');
+        allNotesContainer.removeChild(note);
+      });
+
+      noteSaveButt.addEventListener('click', (event) => {
+        event.stopPropagation();
+
+        STATE.user.notes.forEach(note => {
+          if (this.id == note.id) {
+            note.notes = noteContainer.textContent;
+            note.title = noteTitle.textContent;
+
+            noteTitle.removeAttribute("contenteditable", false);
+            noteContainer.setAttribute("contenteditable", false);
+            postToDatabase('PUT', 'save your notes', note);
+          }
+        })
+        noteContainer.classList.toggle('notes-active');
+        noteTitle.classList.toggle('note-title-active');
+
+        notesButtonDiv = document.querySelector('.notes-active-buttons');
+        noteTitle.setAttribute("contenteditable", false);
+        noteContainer.setAttribute("contenteditable", false);
+        note.removeChild(notesButtonDiv);
+        isNoteOpen = false;
+      });
+    });
+
+    return note;
   }
 }
