@@ -5,7 +5,38 @@ function resetMainDiv() {
 
 function loadHomePage() {
   resetMainDiv();
-  console.log('homepage');
+  contentDiv.classList.remove('content-div-grid');
+  contentDiv.classList.add('content-div-flex');
+
+  const homeContainer = document.createElement('div');
+  const homeImage = document.createElement('img');
+  const homeTitle = document.createElement('h2');
+  const homePContainer = document.createElement('div');
+  const homeP1 = document.createElement('p');
+  const homeP2 = document.createElement('p');
+  const homeP3 = document.createElement('p');
+  const homeSinc = document.createElement('p');
+  const homeUs = document.createElement('p');
+
+  homePContainer.append(homeP1, homeP2, homeP3, homeSinc, homeUs);
+  homeContainer.append(homeImage, homeTitle, homePContainer);
+
+  homeContainer.classList.add('home-container-div');
+
+  homeImage.classList.add('home-image');
+  homeImage.src = pageContents.homepage.image;
+
+  homeTitle.classList.add('home-title');
+  homeTitle.textContent = pageContents.homepage.title;
+
+  homePContainer.classList.add('home-text-container');
+  homeP1.textContent = pageContents.homepage.p1;
+  homeP2.textContent = pageContents.homepage.p2;
+  homeP3.textContent = pageContents.homepage.p3;
+  homeSinc.textContent = pageContents.homepage.sincerly;
+  homeUs.textContent = pageContents.homepage.us;
+  
+  contentDiv.append(homeContainer);
 }
 
 function loadInformationPage() {

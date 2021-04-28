@@ -7,7 +7,6 @@
 }
 
 body {
-
   background-color: var(--mainBGColor);
 
   height: 100vh;
@@ -46,14 +45,12 @@ body {
   }
 }
 
-/*Content-div*/
+/*CONTENT DIV ----------------------------------------------*/
 #content-div {
-  background-color: white;
-  border: 2px solid black;
   border-radius: 20px;
 
   width: 75vw;
-  height: 80vh;
+  height: 90vh;
 
   padding: 10px;
 }
@@ -66,7 +63,12 @@ body {
   overflow-y: scroll;
 }
 
-/* Suspect cards*/
+.content-div-flex {
+  background-color: white;
+  border: 2px solid black;
+}
+
+/* SUSPECT CARDS ---------------------------------------------*/
 
 .suspect-card {
   background-color: transparent;
@@ -82,7 +84,7 @@ body {
   justify-content: center;
   align-items: center;
 
-  border: 2px solid black;
+  border: 2px solid white;
   border-radius: 10px;
 
   box-shadow: 2px 2px rgba(0, 0, 0, 0.4);
@@ -271,7 +273,7 @@ body {
   }
 }
 
-/* Notes page CSS */
+/* NOTES PAGE -------------------------------------------------- */
 
 .notes-top-controll {
   display: flex;
@@ -371,10 +373,6 @@ body {
   transition: all 0.3s ease;
 }
 
-.note-container-active {
-
-}
-
 .notes-delete-button {
   height: 5vh;
 }
@@ -404,4 +402,40 @@ body {
   border-radius: 10px;
 
   transition: all 0.3s ease;
+}
+
+/* HOME PAGE -----------------------------------------------*/
+
+.home-container-div {
+  height: 100%;
+  width: 100%;
+
+  padding: 1%;
+
+  overflow-y: scroll;
+
+  font-family: var(--fontContentText);
+}
+
+.home-image {
+  width: 22%;
+  margin-left: calc(50% - (25% / 2));
+}
+
+.home-title {
+
+}
+
+.home-text-container {
+  width: 100%;
+}
+
+.home-text-container > p {
+  margin: 0.8rem 0.8rem 0 0;
+
+  font-size: 1rem;
+}
+
+.home-text-container > p:last-child {
+  font-weight: bold;
 }
