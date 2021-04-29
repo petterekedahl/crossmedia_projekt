@@ -14,3 +14,31 @@ const pageContents = {
     us: "Ministry of Private Protection"
   }
 }
+
+const interrogationArray = [
+  {
+    name: 'Berg, Hulda',
+    date: '2021-04-29',
+    src: './interrogation-records/mall-interrogation-record.pdf'
+  },
+  {
+    name: 'Deuretzbacher, Melanie',
+    date: '2021-04-29',
+    src: './interrogation-records/mall-interrogation-record.pdf'
+  },
+  {
+    name: 'Nilsson, Sebastian',
+    date: '2021-04-29',
+    src: './interrogation-records/mall-interrogation-record.pdf'
+  },
+  {
+    name: 'Hansson, Joanna',
+    date: '2021-04-29',
+    src: './interrogation-records/mall-interrogation-record.pdf'
+  },
+  {
+    name: 'Ekedahl, Petter',
+    date: '2021-04-29',
+    src: './interrogation-records/mall-interrogation-record.pdf'
+  },
+]

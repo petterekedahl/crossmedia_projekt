@@ -66,6 +66,7 @@ body {
 .content-div-flex {
   background-color: white;
   border: 2px solid black;
+  overflow-y: scroll;
 }
 
 /* SUSPECT CARDS ---------------------------------------------*/

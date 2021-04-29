@@ -295,3 +295,73 @@ class Notes {
     return note;
   }
 }
+
+class InterrogationRecord {
+  constructor(data) {
+    this.src = data.src,
+    this.date = data.date,
+    this.name = data.name
+  }
+
+  createHTML() {
+    const interContainer = document.createElement('div');
+    const recordContainer = document.createElement('div');
+
+    //Header
+    const upper = document.createElement('h2');
+    const lower = document.createElement('div');
+
+    const seeMoreButton = document.createElement('button');
+    seeMoreButton.textContent = 'Click to see more.';
+    seeMoreButton.classList.add('see-more-interrogation');
+
+    upper.innerHTML =`
+      Interrogation record - <span>${this.name}</span>
+    `;
+    lower.innerHTML =`
+      Published: <span>${this.date}</span>.
+    `;
+    lower.append(seeMoreButton);
+
+    const embedPdf = document.createElement('embed');
+    embedPdf.setAttribute('type', 'application/pdf');
+    embedPdf.setAttribute('src', this.src);
+    embedPdf.setAttribute('height', '0px');
+    embedPdf.setAttribute('width', '100%');
+
+    recordContainer.append(upper, lower, embedPdf);
+
+    seeMoreButton.addEventListener('click', (event) => {
+      event.stopPropagation();
+
+      if (seeMoreButton.className.includes('seeMore-active')) {
+        seeMoreButton.classList.remove('seeMore-active');
+        seeMoreButton.textContent = 'Click to see more.';
+
+        embedPdf.style.height = '0px';
+
+        embedPdf.classList.remove('pdf-showing');
+      } else {
+        const otherEmbedPdf = document.querySelector('.pdf-showing');
+        const otherButton = document.querySelector('.seeMore-active');
+        if (otherEmbedPdf && otherButton) {
+          otherEmbedPdf.style.height = '0px';
+          otherEmbedPdf.classList.remove('pdf-showing');
+
+          otherButton.textContent = 'Click to see more.';
+          otherButton.classList.remove('seeMore-active');
+        }
+        
+        seeMoreButton.classList.add('seeMore-active');
+        seeMoreButton.textContent = 'Close preview.';
+
+        embedPdf.style.height = '500px';
+
+        embedPdf.classList.add('pdf-showing');
+      }
+    })
+
+    interContainer.append(recordContainer);
+    return interContainer;
+  }
+}
