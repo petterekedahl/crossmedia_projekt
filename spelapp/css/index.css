@@ -442,17 +442,18 @@ body {
   font-weight: bold;
 }
 
-/*Information page*/
+/*Information page ------------------------------------------------------------------*/
 
-/*Interrogation section*/
+/*Notifacation section--------------------------------*/
+.notification-section {
+
+}
+
+/*Interrogation section------------------------------*/
 
 #informationPageSplit {
   width: 100%;
-  border: 3px solid black;
-}
-
-.notification-section {
-
+  border: 2px solid black;
 }
 
 .interrogation-section {
@@ -461,7 +462,11 @@ body {
 
 /*The information just above all the records*/
 .interrogation-information {
+  margin: 0.8rem 0 0.8rem 0;
 
+  font-family: var(--fontContentText);
+  font-size:1rem;
+  font-weight: bold;
 }
 /*Box with all the records*/
 .interrogations-container {
@@ -474,7 +479,8 @@ body {
 }
 /*Contains the title and name in same div*/
 .inter-record-upper-info {
-
+  font-size: 1.3rem;
+  font-family: var(--fontHeaders);
 }
 /*Name*/
 .inter-record-upper-info > span{
@@ -483,24 +489,37 @@ body {
 
 /*Contains publish, date and button in same div*/
 .inter-record-lower-info {
-
+  font-family: var(--fontContentText);
+  font-weight: bold;
 }
 /*Date*/
 .inter-record-lower-info > span{
-
+ font-weight: normal;
 }
 
 /*record button click to see...*/
 .see-more-interrogation {
-
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  font-size: 1rem;
 }
 
+.see-more-interrogation:hover {
+  text-decoration: underline;
+}
+
+embed {
+  transition: height 300ms ease;
+}
 /*Embed is showing pdf*/
 .pdf-showing {
+  margin: 1rem auto 1rem;
 
+  transition: height 300ms ease;
 }
 
-/*See more button is clicked*/
+/* See more button is clicked
 .seeMore-active {
 
-}
+} */

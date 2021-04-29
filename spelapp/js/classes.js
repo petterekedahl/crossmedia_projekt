@@ -347,6 +347,7 @@ class InterrogationRecord {
 
         embedPdf.classList.remove('pdf-showing');
       } else {
+        interContainer.scrollIntoView();
         const otherEmbedPdf = document.querySelector('.pdf-showing');
         const otherButton = document.querySelector('.seeMore-active');
         if (otherEmbedPdf && otherButton) {
@@ -368,5 +369,12 @@ class InterrogationRecord {
 
     interContainer.append(recordContainer);
     return interContainer;
+  }
+}
+
+class Notification {
+  constructor(data) {
+    this.title = data.title,
+    this.content = data.content
   }
 }
