@@ -307,6 +307,8 @@ class InterrogationRecord {
     const interContainer = document.createElement('div');
     const recordContainer = document.createElement('div');
 
+    interContainer.classList.add('interrogations-container');
+    recordContainer.classList.add('inter-record-container');
     //Header
     const upper = document.createElement('h2');
     const lower = document.createElement('div');
@@ -322,6 +324,9 @@ class InterrogationRecord {
       Published: <span>${this.date}</span>.
     `;
     lower.append(seeMoreButton);
+
+    upper.classList.add('inter-record-upper-info');
+    lower.classList.add('inter-record-lower-info');
 
     const embedPdf = document.createElement('embed');
     embedPdf.setAttribute('type', 'application/pdf');
@@ -351,7 +356,7 @@ class InterrogationRecord {
           otherButton.textContent = 'Click to see more.';
           otherButton.classList.remove('seeMore-active');
         }
-        
+
         seeMoreButton.classList.add('seeMore-active');
         seeMoreButton.textContent = 'Close preview.';
 

@@ -42,10 +42,16 @@ function loadHomePage() {
 function loadInformationPage() {
   resetMainDiv();
   const newsNotifications = document.createElement('div');
+  const pageSplit = document.createElement('div');
   const interrigationZone = document.createElement('div');
+
+  pageSplit.id = 'informationPageSplit';
+  newsNotifications.classList.add('notification-section');
+  interrigationZone.classList.add('interrogation-section');
 
   const interrigationHeader = document.createElement('p');
   interrigationHeader.textContent = 'Below you will find information such as interrogation records and more that might help the inverstigation.';
+  interrigationHeader.classList.add('interrogation-information');
 
   interrigationZone.append(interrigationHeader);
 
@@ -59,7 +65,7 @@ function loadInformationPage() {
    interrigationZone.append(interRecord.createHTML());
  }
 
-  contentDiv.append(newsNotifications, interrigationZone);
+  contentDiv.append(newsNotifications, pageSplit, interrigationZone);
 }
 
 function loadProfilePage() {

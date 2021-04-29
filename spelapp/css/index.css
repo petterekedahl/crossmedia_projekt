@@ -441,3 +441,66 @@ body {
 .home-text-container > p:last-child {
   font-weight: bold;
 }
+
+/*Information page*/
+
+/*Interrogation section*/
+
+#informationPageSplit {
+  width: 100%;
+  border: 3px solid black;
+}
+
+.notification-section {
+
+}
+
+.interrogation-section {
+
+}
+
+/*The information just above all the records*/
+.interrogation-information {
+
+}
+/*Box with all the records*/
+.interrogations-container {
+
+}
+
+/*The individual records container*/
+.inter-record-container {
+
+}
+/*Contains the title and name in same div*/
+.inter-record-upper-info {
+
+}
+/*Name*/
+.inter-record-upper-info > span{
+
+}
+
+/*Contains publish, date and button in same div*/
+.inter-record-lower-info {
+
+}
+/*Date*/
+.inter-record-lower-info > span{
+
+}
+
+/*record button click to see...*/
+.see-more-interrogation {
+
+}
+
+/*Embed is showing pdf*/
+.pdf-showing {
+
+}
+
+/*See more button is clicked*/
+.seeMore-active {
+
+}
