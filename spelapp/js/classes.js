@@ -328,31 +328,47 @@ class InterrogationRecord {
     upper.classList.add('inter-record-upper-info');
     lower.classList.add('inter-record-lower-info');
 
-    const embedPdf = document.createElement('embed');
-    embedPdf.setAttribute('type', 'application/pdf');
-    embedPdf.setAttribute('src', this.src);
-    embedPdf.setAttribute('height', '0px');
-    embedPdf.setAttribute('width', '100%');
-
-    recordContainer.append(upper, lower, embedPdf);
+    recordContainer.append(upper, lower);
 
     seeMoreButton.addEventListener('click', (event) => {
       event.stopPropagation();
+
+      const embedPdf = document.createElement('embed');
 
       if (seeMoreButton.className.includes('seeMore-active')) {
         seeMoreButton.classList.remove('seeMore-active');
         seeMoreButton.textContent = 'Click to see more.';
 
         embedPdf.style.height = '0px';
+        embedPdf.style.margin = '0px';
+
+        const existingPdf = document.querySelector('.pdf-showing');
+        if(existingPdf) recordContainer.removeChild(existingPdf);
 
         embedPdf.classList.remove('pdf-showing');
       } else {
         interContainer.scrollIntoView();
+
+        embedPdf.setAttribute('type', 'application/pdf');
+        embedPdf.setAttribute('src', this.src);
+        embedPdf.setAttribute('height', '0px');
+        embedPdf.setAttribute('width', '100%');
+        
+        recordContainer.append(embedPdf);
+
         const otherEmbedPdf = document.querySelector('.pdf-showing');
         const otherButton = document.querySelector('.seeMore-active');
         if (otherEmbedPdf && otherButton) {
           otherEmbedPdf.style.height = '0px';
           otherEmbedPdf.classList.remove('pdf-showing');
+
+          const otherRecContainer = document.querySelectorAll('.inter-record-container')
+
+          for (let i = 0; i < otherRecContainer.length; i++) {
+            if(otherRecContainer[i] == otherEmbedPdf.parentNode) {
+              otherRecContainer[i].removeChild(otherEmbedPdf)
+            }
+          }
 
           otherButton.textContent = 'Click to see more.';
           otherButton.classList.remove('seeMore-active');
