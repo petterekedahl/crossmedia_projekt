@@ -91,7 +91,6 @@ main {
     background-color: var(--navHov);
 }
 
-
 a {
     text-decoration: none;
     color: black;
@@ -103,8 +102,8 @@ a {
     margin-right: 1%;
 }
 
-#newsPlus, #newestNews {
-    flex-basis: 48%;
+#newestNews {
+    flex-grow: 1;
     border: 1px solid black;
     padding: 1vw;
 }
@@ -113,18 +112,13 @@ a {
     font-size: 1.5vw;
 }
 
-#sideBar #newsPlus h3 {
-    text-align: center;
-    color: var(--navBkg);
-    font-size: 1.7vw;
-}
-
 #articleBody {
-    display: block;
+    display: flex;
     min-height: 64vh;
     width: var(--wrapperWidth);
     margin-left: auto;
     margin-right: auto;
+    border: 1px solid black;
 }
 
 #articleBody span:hover {
@@ -134,9 +128,57 @@ a {
 
 #articleBody h1, #articleBody p {
     margin-bottom: 2vh;
+    padding-left: 1vw;
 }
 
 #articleBody .articleImage {
     margin-bottom: 2vh;
-    width: var(--wrapperWidth);
+    width: 100%;
+}
+
+#articleBody #sideBar {
+    height: 63vh;
+}
+
+#newsFeed.articleNewsFeed {
+    flex-basis: 70%;
+    padding: 3vw 0;
+}
+
+#newsPlus {
+    padding: 1vw;
+    justify-content: center;
+}
+
+#newsPlus h4 {
+    font-weight: lighter;
+}
+
+#newsPlus h4.fat {
+    font-weight: bold;
+}
+
+.weatherDiv, #newsPlus {
+    display: flex;
+    align-items: center;
+}
+
+.mini {
+    font-size: 9px;
+}
+
+#newsFeed h2 {
+    font-size: 2vw;
+}
+
+.sortedContainer {
+    border: 1px solid black;
+    padding: 0 2vw;
+}
+
+.sortedContainer a.article {
+    border-bottom: 2px solid var(--navBkg);
+    padding-bottom: 3vh;
+    padding-top: 3vh;
+    display: block;
 }

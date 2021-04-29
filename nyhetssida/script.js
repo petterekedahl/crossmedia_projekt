@@ -1,16 +1,26 @@
 "use strict";
 
+//TO DO:
+// - både prenumerera och läs mer --> pop up med info om tekniskt fel samt länk till spelplattformen
+// - anpassa artikelsidan till designen
+// - footern
+// - mestlästa och sidebar på bägge sidor -- sidebar: fixed!
+// - göra det mobilanpassat
+
 //------------------Variables---------------------//
 const logo = document.getElementById("logo");
 const navContainer = document.getElementById("nav");
 const dateContainer = document.getElementById("datumContainer");
 const newsContainer = document.getElementById("news");
+const newsWrap = document.getElementById("newsFeed");
 const justNowContainer = document.getElementById("senasteNytt");
 const today = `${currentWeekDay} ${currentDay} ${currentMonth} ${currentYear}`;
 let currentPage = location.pathname;
 currentPage = currentPage.split("/");
 currentPage = currentPage[currentPage.length - 1];
 const indexPage = "index.php";
+let navItems;
+let currentFilter;
 
 
 //------------------Functions--------------------//
@@ -20,15 +30,6 @@ function createNavItems(item){
     nNavItem.innerHTML = item.toUpperCase();
     return nNavItem;
 }
-
-//menues sort function
-
-//senaste nytt & plusartiklar
-// ---> frågor: ska vi verkligen ha en button med senaste nytt iom att artiklarna bara upprepar sig konstant
- 
-//både prenumerera och läs mer --> pop up med info om tekniskt fel samt fält för epost-adress
-
-//göra det mobilanpassat
 
 function createNews(article, container = newsContainer) {
     let nDiv = document.createElement("a");
@@ -55,11 +56,11 @@ function createNews(article, container = newsContainer) {
     container.append(nDiv);
 }
 
-//---------------Event handlers------------------//
-// logo.addEventListener("click", () => {
-//     location.reload();
-// });
-
+function createMostViewed(article) {
+    if (article.mostViewed !== false) {
+        
+    }
+}
 
 //-----------------Direct Code-------------------//
 
@@ -71,6 +72,9 @@ categories.forEach(category => {
     navContainer.append(createNavItems(category));
 });
 
+//save all the navItems
+navItems = document.querySelectorAll(".navItem");
+
 
 if (currentPage === indexPage) {
     //creates the senaste-nytt-news and removes it from the array
@@ -81,3 +85,27 @@ if (currentPage === indexPage) {
         createNews(article);
     });
 }
+
+//---------------Event handlers------------------//
+
+//when clicking on nav, only load articles with the category
+navItems.forEach(navItem => {
+    navItem.addEventListener("click", (event) => {
+        navItems.forEach(it => {
+            it.style.removeProperty("color");
+            it.style.removeProperty("text-decoration");
+        });
+        event.target.style.color = "black";
+        event.target.style.textDecoration = "underline";
+        newsWrap.innerHTML = "";
+        let nContainer = document.createElement("div");
+        nContainer.classList.add("sortedContainer");
+        newsWrap.append(nContainer);
+        // console.log(event.target.innerText.toLowerCase());
+        articles.filter((article) => {
+            if (article.category === event.target.innerText.toLowerCase()){
+                createNews(article, nContainer);
+            }
+        });
+    });
+});

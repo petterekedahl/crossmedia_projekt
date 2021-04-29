@@ -23,6 +23,8 @@ header {
     align-items: center;
     text-decoration: none;
     color: black;
+    display: flex;
+    align-items: flex-end;
 }
 
 #logo:hover {
@@ -31,6 +33,10 @@ header {
 
 #logo:visited {
     color: black;
+}
+
+#logotype {
+    width:25vw;
 }
 
 #navContainer {

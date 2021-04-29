@@ -1,6 +1,6 @@
 "use strict";
 
-const mainArticlePage = document.getElementById("articleBody");
+const mainArticlePage = document.getElementById("newsFeed");
 
 function makeArticlePage(articleID){
     let currentArticle = articles.find(article => article.id == articleID);

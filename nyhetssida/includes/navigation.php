@@ -1,6 +1,8 @@
 <header>
     <div id="logoContainer">
-        <a href="index.php" id="logo">Logotyp</a>
+        <a href="index.php" id="logo">
+            <img id="logotype" src="images/SenasteNyttLogo.png" alt="Logotyp"> 
+        </a>
         <div id="prenDiv">
             <div id="abonnera">
                 <div>PRENUMERERA</div>

@@ -17,13 +17,7 @@
                     <div id="news"></div>
                 </div>
                 <div id="sideBar">
-                    <div id="newsPlus">
-                        <h3>Väder</h3>
-                        <h2>Vädret just nu i Malmö, Sverige:</h2>
-                    </div>
-                    <div id="newestNews">
-                        <h3>Mest klickade nyheter</h3>
-                    </div>
+                    <?php include_once("includes/sideBar.php");?>
                 </div>
             </div>
         </main>

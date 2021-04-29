@@ -15,6 +15,10 @@
         <?php include_once("includes/navigation.php");?>
         <div id="placeholder"></div>
         <main id="articleBody">
+            <div id="newsFeed" class="articleNewsFeed"></div>
+            <div id="sideBar">
+                <?php include_once("includes/sideBar.php");?>
+            </div>
         </main>
         <?php include_once("includes/footer.php");?>
         <script src="resources.js"></script>
@@ -24,5 +28,6 @@
             makeArticlePage(currentArt);
         </script>
         <script src="script.js"></script>
+        <script src="ajax.js"></script>
     </body>
 </html>
