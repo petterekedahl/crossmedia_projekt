@@ -138,11 +138,12 @@ body {
   align-items: center;
   flex-direction: column;
   height: 60%;
-  width: 50%;
+  width: 100%;
 }
 
 .suspect-image {
   height: 100%;
+  width: 100%;
 }
 
 .suspect-name {
