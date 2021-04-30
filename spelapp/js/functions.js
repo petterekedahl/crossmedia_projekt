@@ -17,6 +17,13 @@ function postToDatabase(method, action, data = STATE.user) {
       .then(response => response.json())
       .then(response => {
         try {
+          if(response.guesses > 0 && response.finalGuessId) {
+            console.log("Correct guess - you've won!");
+          }
+          if(response.guesses > 0 && !response.finalGuessId) {
+            console.log('Guess was wrong, good bye, or try to hack us ;)');
+            window.location.replace ('../../database/admin/logout.php');
+          }
           console.log(response);
         }catch(error) {
           console.log(error);
@@ -32,9 +39,9 @@ function postToDatabase(method, action, data = STATE.user) {
     })
     fetch(putReq)
       .then(response => response.json())
-      .then(user => {
+      .then(data => {
         try {
-          
+          console.log(data);
         }catch(error) {
           console.log(error);
         }

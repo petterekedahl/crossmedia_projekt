@@ -35,7 +35,11 @@ if ($method == "GET" && isset($_GET["userId"])) {
     "username" => $user["username"],
     "suspects" => $user["suspects"],
     "notes" => $user["notes"],
-    "id" => $user["id"]
+    "id" => $user["id"],
+    "finalGuessId" => $user["finalGuessId"],
+    "guesses" => $user["guesses"],
+    "clue1" => $user["clue1"],
+    "clue2" => $user["clue2"],
   ];
 
   http_response_code(200);
@@ -85,11 +89,45 @@ if ($method == 'PUT') {
           }
         }
       } // end payload action suspect change
+
+      if ($payload["action"] == 'guess-suspect') {
+
+        $correctSuspect = 1;
+        if ($payload["payload"]["finalGuessId"]) {
+          $updatedUser = [
+            "username" => $payload["payload"]["username"],
+            "suspects" => $payload["payload"]["suspects"],
+            "notes" => $payload["payload"]["notes"],
+            "id" => $payload["payload"]["id"],
+            "finalGuessId" => true,
+            "guesses" => $payload["payload"]["guesses"],
+            "clue1" => $payload["payload"]["clue1"],
+            "clue2" => $payload["payload"]["clue2"],
+          ];
+        } else {
+          $updatedUser = [
+            "username" => $payload["payload"]["username"],
+            "suspects" => $payload["payload"]["suspects"],
+            "notes" => $payload["payload"]["notes"],
+            "id" => $payload["payload"]["id"],
+            "finalGuessId" => false,
+            "guesses" => $payload["payload"]["guesses"],
+            "clue1" => $payload["payload"]["clue1"],
+            "clue2" => $payload["payload"]["clue2"],
+          ];
+        }
+
+        $database["users"][$i] = $updatedUser;
+      } // end action guess-suspect
       $user = [
         "username" => $database["users"][$i]["username"],
         "suspects" => $database["users"][$i]["suspects"],
         "notes" => $database["users"][$i]["notes"],
-        "id" => $database["users"][$i]["id"]
+        "id" => $database["users"][$i]["id"],
+        "finalGuessId" => $database["users"][$i]["finalGuessId"],
+        "guesses" => $database["users"][$i]["guesses"],
+        "clue1" => $database["users"][$i]["clue1"],
+        "clue2" => $database["users"][$i]["clue2"],
       ];
     } // end if user id
   }
@@ -120,10 +158,14 @@ if ($method == 'POST') {
         array_push($database["users"][$i]["notes"], $newNote);
       }
       $user = [
-        "username" => $database["users"][$i]["username"],
-        "suspects" => $database["users"][$i]["suspects"],
-        "notes" => $database["users"][$i]["notes"],
-        "id" => $database["users"][$i]["id"]
+        "username" => $user["username"],
+        "suspects" => $user["suspects"],
+        "notes" => $user["notes"],
+        "id" => $user["id"],
+        "finalGuessId" => $user["finalGuessId"],
+        "guesses" => $user["guesses"],
+        "clue1" => $user["clue1"],
+        "clue2" => $user["clue2"],
       ];
     }
   }
@@ -156,7 +198,11 @@ if ($method == 'DELETE') {
         "username" => $database["users"][$i]["username"],
         "suspects" => $database["users"][$i]["suspects"],
         "notes" => $database["users"][$i]["notes"],
-        "id" => $database["users"][$i]["id"]
+        "id" => $database["users"][$i]["id"],
+        "finalGuessId" => $user["finalGuessId"],
+        "guesses" => $user["guesses"],
+        "clue1" => $user["clue1"],
+        "clue2" => $user["clue2"],
       ];
     } // end if user id
   }

@@ -1,20 +1,7 @@
 {
     "users": [
         {
-            "id": 0,
             "username": "Petter",
-            "password": "$2y$10$oJEuDISDzk0wMy15Hc1kKOfvkaWvkZ4AsDbWHZIJ6AB2AvH3XF1\/O",
-            "email": "petter.ekedahl@gmail.com",
-            "emailRecieve": "on",
-            "TnC": "on",
-            "notes": [
-                {
-                    "date": "4\/23\/2021",
-                    "id": 0,
-                    "notes": "Hejhej",
-                    "title": "Hej"
-                }
-            ],
             "suspects": [
                 {
                     "name": "Unknown",
@@ -56,7 +43,7 @@
                     "nationality": "Unknown",
                     "notes": "",
                     "image": "..\/images\/",
-                    "isStillSuspect": false,
+                    "isStillSuspect": true,
                     "id": 3,
                     "age": "Unknown"
                 },
@@ -82,7 +69,20 @@
                     "id": 5,
                     "age": "Unknown"
                 }
-            ]
+            ],
+            "notes": [
+                {
+                    "date": "4\/23\/2021",
+                    "id": 0,
+                    "notes": "Hejhej",
+                    "title": "Hej"
+                }
+            ],
+            "id": 0,
+            "finalGuessId": false,
+            "guesses": 0,
+            "clue1": false,
+            "clue2": false
         }
     ]
 }
