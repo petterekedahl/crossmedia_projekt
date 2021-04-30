@@ -13,6 +13,26 @@ body {
   width: 100vw;
 }
 
+.wrong-answer-pop {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 40vh;
+  width: 60vw;
+
+  border: 3px solid black;
+  border-radius: 10px;
+
+  z-index: 100;
+}
+
 .spel-welcome-div {
   height: 100vh;
   width: 100vw;

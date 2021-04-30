@@ -1,6 +1,10 @@
 {
     "users": [
         {
+            "password": "$2y$10$oJEuDISDzk0wMy15Hc1kKOfvkaWvkZ4AsDbWHZIJ6AB2AvH3XF1\/O",
+            "email": "petter.ekedahl@gmail.com",
+            "emailRecieve": null,
+            "TnC": null,
             "username": "Petter",
             "suspects": [
                 {
@@ -80,7 +84,7 @@
             ],
             "id": 0,
             "finalGuessId": false,
-            "guesses": 0,
+            "guesses": 1,
             "clue1": false,
             "clue2": false
         }

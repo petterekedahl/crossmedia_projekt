@@ -93,8 +93,12 @@ if ($method == 'PUT') {
       if ($payload["action"] == 'guess-suspect') {
 
         $correctSuspect = 1;
-        if ($payload["payload"]["finalGuessId"]) {
+        if ($payload["payload"]["finalGuessId"] == $correctSuspect) {
           $updatedUser = [
+            "password" => $database['users'][$i]['password'],
+            "email" => $database['users'][$i]['email'],
+            "emailRecieve" => $database['users'][$i]["register-email-agree"],
+            "TnC" => $database['users'][$i]["register-tnc-agree"],
             "username" => $payload["payload"]["username"],
             "suspects" => $payload["payload"]["suspects"],
             "notes" => $payload["payload"]["notes"],
@@ -106,6 +110,10 @@ if ($method == 'PUT') {
           ];
         } else {
           $updatedUser = [
+            "password" => $database['users'][$i]['password'],
+            "email" => $database['users'][$i]['email'],
+            "emailRecieve" => $database['users'][$i]["register-email-agree"],
+            "TnC" => $database['users'][$i]["register-tnc-agree"],
             "username" => $payload["payload"]["username"],
             "suspects" => $payload["payload"]["suspects"],
             "notes" => $payload["payload"]["notes"],
