@@ -295,3 +295,129 @@ class Notes {
     return note;
   }
 }
+
+class InterrogationRecord {
+  constructor(data) {
+    this.src = data.src,
+    this.date = data.date,
+    this.name = data.name
+  }
+
+  createHTML() {
+    const interContainer = document.createElement('div');
+    const recordContainer = document.createElement('div');
+
+    interContainer.classList.add('interrogations-container');
+    recordContainer.classList.add('inter-record-container');
+    //Header
+    const upper = document.createElement('h2');
+    const lower = document.createElement('div');
+
+    const seeMoreButton = document.createElement('button');
+    seeMoreButton.textContent = 'Click to see more.';
+    seeMoreButton.classList.add('see-more-interrogation');
+
+    upper.innerHTML =`
+      Interrogation record - <span>${this.name}</span>
+    `;
+    lower.innerHTML =`
+      Published: <span>${this.date}</span>.
+    `;
+    lower.append(seeMoreButton);
+
+    upper.classList.add('inter-record-upper-info');
+    lower.classList.add('inter-record-lower-info');
+
+    recordContainer.append(upper, lower);
+
+    seeMoreButton.addEventListener('click', (event) => {
+      event.stopPropagation();
+
+      const embedPdf = document.createElement('embed');
+      const containerElement = document.querySelector('#content-div');
+      const toTop = interContainer.offsetTop - (interContainer.offsetHeight / 2);
+
+      containerElement.scrollTo({
+        top: toTop,
+        left: 0,
+        behavior: 'smooth' 
+      });
+
+      if (seeMoreButton.className.includes('seeMore-active')) {
+        seeMoreButton.classList.remove('seeMore-active');
+        seeMoreButton.textContent = 'Click to see more.';
+
+        embedPdf.style.height = '0px';
+        embedPdf.style.margin = '0px';
+
+        const existingPdf = document.querySelector('.pdf-showing');
+        if(existingPdf) recordContainer.removeChild(existingPdf);
+
+        embedPdf.classList.remove('pdf-showing');
+      } else {
+        embedPdf.setAttribute('type', 'application/pdf');
+        embedPdf.setAttribute('src', this.src);
+        embedPdf.setAttribute('height', '0px');
+        embedPdf.setAttribute('width', '100%');
+        
+        recordContainer.append(embedPdf);
+
+        const otherEmbedPdf = document.querySelector('.pdf-showing');
+        const otherButton = document.querySelector('.seeMore-active');
+        if (otherEmbedPdf && otherButton) {
+          otherEmbedPdf.style.height = '0px';
+          otherEmbedPdf.classList.remove('pdf-showing');
+
+          const otherRecContainer = document.querySelectorAll('.inter-record-container')
+
+          for (let i = 0; i < otherRecContainer.length; i++) {
+            if(otherRecContainer[i] == otherEmbedPdf.parentNode) {
+              otherRecContainer[i].removeChild(otherEmbedPdf)
+            }
+          }
+
+          otherButton.textContent = 'Click to see more.';
+          otherButton.classList.remove('seeMore-active');
+        }
+
+        seeMoreButton.classList.add('seeMore-active');
+        seeMoreButton.textContent = 'Close preview.';
+
+        embedPdf.style.height = '500px';
+
+        embedPdf.classList.add('pdf-showing');
+      }
+    })
+
+    interContainer.append(recordContainer);
+    return interContainer;
+  }
+}
+
+class Notification {
+  constructor(data) {
+    this.title = data.title,
+    this.content = data.content,
+    this.location = data.location
+  }
+
+  createHTML() {
+    const notiDiv = document.createElement('div');
+    const title = document.createElement('h2');
+    const content = document.createElement('div');
+
+    notiDiv.classList.add('notification-container');
+
+    title.textContent = this.title;
+    title.classList.add('notification-title');
+    
+    content.innerHTML = `
+      <p>${this.content}</p>
+      <a href='http://maps.google.com/maps?q=${this.location.split(' ').join('')}' target='_blank'><span>Location: </span>${this.location}</a>
+    `;
+    content.classList.add('notification-content-container');
+
+    notiDiv.append(title, content);
+    return notiDiv;
+  }
+}

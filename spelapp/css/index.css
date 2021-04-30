@@ -66,6 +66,7 @@ body {
 .content-div-flex {
   background-color: white;
   border: 2px solid black;
+  overflow-y: scroll;
 }
 
 /* SUSPECT CARDS ---------------------------------------------*/
@@ -138,11 +139,12 @@ body {
   align-items: center;
   flex-direction: column;
   height: 60%;
-  width: 50%;
+  width: 100%;
 }
 
 .suspect-image {
   height: 100%;
+  width: 100%;
 }
 
 .suspect-name {
@@ -439,3 +441,114 @@ body {
 .home-text-container > p:last-child {
   font-weight: bold;
 }
+
+/*Information page ------------------------------------------------------------------*/
+
+/*Notifacation section--------------------------------*/
+.notification-section {
+
+}
+
+.notification-container {
+  padding: 2%;
+  border: 1px solid black;
+  border-radius: 10px;
+
+  margin-bottom: 0.7rem;
+}
+
+.notification-title {
+  font-family: var(--fontHeaders);
+}
+
+.notification-content-container {
+  font-family: var(--fontContentText);
+}
+
+.notification-content-container > p {
+  margin: 0.7rem 0 0.7rem 0;
+}
+
+.notification-content-container > a {
+  margin-bottom: 0.7rem;
+  cursor: pointer;
+}
+
+.notification-content-container > a:hover {
+  text-decoration: underline;
+}
+
+/*Interrogation section------------------------------*/
+
+#informationPageSplit {
+  width: 100%;
+  border: 2px solid black;
+}
+
+.interrogation-section {
+
+}
+
+/*The information just above all the records*/
+.interrogation-information {
+  margin: 0.8rem 0 0.8rem 0;
+
+  font-family: var(--fontContentText);
+  font-size:1rem;
+  font-weight: bold;
+}
+/*Box with all the records*/
+.interrogations-container {
+
+}
+
+/*The individual records container*/
+.inter-record-container {
+  border-bottom: 2px solid black;
+}
+/*Contains the title and name in same div*/
+.inter-record-upper-info {
+  font-size: 1.3rem;
+  font-family: var(--fontHeaders);
+}
+/*Name*/
+.inter-record-upper-info > span{
+
+}
+
+/*Contains publish, date and button in same div*/
+.inter-record-lower-info {
+  font-family: var(--fontContentText);
+  font-weight: bold;
+}
+/*Date*/
+.inter-record-lower-info > span{
+ font-weight: normal;
+}
+
+/*record button click to see...*/
+.see-more-interrogation {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.see-more-interrogation:hover {
+  text-decoration: underline;
+}
+
+embed {
+  transition: height 300ms ease;
+}
+/*Embed is showing pdf*/
+.pdf-showing {
+  margin: 1rem auto 1rem;
+
+  transition: height 300ms ease;
+}
+
+/* See more button is clicked
+.seeMore-active {
+
+} */

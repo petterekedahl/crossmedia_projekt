@@ -1,6 +1,7 @@
 const contentDiv = document.getElementById('content-div');
 function resetMainDiv() {
   contentDiv.innerHTML = '';
+  contentDiv.classList.remove('content-investigation-div');
 }
 
 function loadHomePage() {
@@ -41,11 +42,50 @@ function loadHomePage() {
 
 function loadInformationPage() {
   resetMainDiv();
-  console.log('infopage');
+  const newsNotifications = document.createElement('div');
+  const pageSplit = document.createElement('div');
+  const interrigationZone = document.createElement('div');
+
+  pageSplit.id = 'informationPageSplit';
+  newsNotifications.classList.add('notification-section');
+  interrigationZone.classList.add('interrogation-section');
+
+  const interrigationHeader = document.createElement('p');
+  interrigationHeader.textContent = 'Below you will find information such as interrogation records and more that might help the inverstigation.';
+  interrigationHeader.classList.add('interrogation-information');
+
+  interrigationZone.append(interrigationHeader);
+
+  if (notifications.length) {
+    for (let i = 0; i < notifications.length; i++) {
+      const notication = new Notification({
+        title: notifications[i].title,
+        content: notifications[i].content,
+        location: notifications[i].location,
+      })
+
+      newsNotifications.append(notication.createHTML());
+    }
+  }
+
+  for (let i = 0; i < interrogationArray.length; i++) {
+    const interRecord = new InterrogationRecord({
+      src: interrogationArray[i].src,
+      date: interrogationArray[i].date,
+      name: interrogationArray[i].name
+   })
+
+   interrigationZone.append(interRecord.createHTML());
+ }
+
+  contentDiv.append(newsNotifications, pageSplit, interrigationZone);
 }
 
-function loadProfilePage() {
+function loadInvestigationPage() {
   resetMainDiv();
+  contentDiv.classList.remove('content-div-flex');
+  contentDiv.classList.add('content-investigation-div');
+  contentDiv.classList.add('content-div-grid');
   console.log('profilepage');
 }
 

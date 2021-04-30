@@ -10,7 +10,7 @@
       <div class="nav-slidein-div"></div>
     </div>
     <div>
-      <div class="nav-button" id="nav-profile">YOUR PROFILE</div>
+      <div class="nav-button" id="nav-investigation">INVESTIGATION</div>
       <div class="nav-slidein-div"></div>
     </div>
     <div>
