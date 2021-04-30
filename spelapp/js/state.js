@@ -1,7 +1,7 @@
 const STATE = {
   userId: null,
   user: {},
-}
+};
 
 const pageContents = {
   homepage: {
@@ -13,7 +13,7 @@ const pageContents = {
     sincerly: "Sincerly,",
     us: "Ministry of Private Protection"
   }
-}
+};
 
 const interrogationArray = [
   {
@@ -41,4 +41,17 @@ const interrogationArray = [
     date: '2021-04-29',
     src: './interrogation-records/mall-interrogation-record.pdf'
   },
-]
+];
+
+const notifications = [
+  {
+    title: 'Investigation at Crime scene',
+    content: 'We need help to investigate the crime scene for the murder commited on 21-05-15. At the scene you will find a house to the east with a company name written onto it, we need to know how many "." is in that name. Enter your answer on the "Investigation page" to lead the investigation forward.',
+    location: "55.603149510241586, 13.000445868824446"
+  }, 
+  {
+    title: 'Investigation at Crime scene',
+    content: 'We need help to investigate the crime scene for the murder commited on 21-05-15. At the scene you will find a house to the east with a company name written onto it, we need to know how many "." is in that name. Enter your answer on the "Investigation page" to lead the investigation forward.',
+    location: "55.603149510241586, 13.000445868824446"
+  }
+];

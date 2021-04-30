@@ -334,6 +334,14 @@ class InterrogationRecord {
       event.stopPropagation();
 
       const embedPdf = document.createElement('embed');
+      const containerElement = document.querySelector('#content-div');
+      const toTop = interContainer.offsetTop - (interContainer.offsetHeight / 2);
+
+      containerElement.scrollTo({
+        top: toTop,
+        left: 0,
+        behavior: 'smooth' 
+      });
 
       if (seeMoreButton.className.includes('seeMore-active')) {
         seeMoreButton.classList.remove('seeMore-active');
@@ -347,8 +355,6 @@ class InterrogationRecord {
 
         embedPdf.classList.remove('pdf-showing');
       } else {
-        interContainer.scrollIntoView();
-
         embedPdf.setAttribute('type', 'application/pdf');
         embedPdf.setAttribute('src', this.src);
         embedPdf.setAttribute('height', '0px');
@@ -391,6 +397,27 @@ class InterrogationRecord {
 class Notification {
   constructor(data) {
     this.title = data.title,
-    this.content = data.content
+    this.content = data.content,
+    this.location = data.location
+  }
+
+  createHTML() {
+    const notiDiv = document.createElement('div');
+    const title = document.createElement('h2');
+    const content = document.createElement('div');
+
+    notiDiv.classList.add('notification-container');
+
+    title.textContent = this.title;
+    title.classList.add('notification-title');
+    
+    content.innerHTML = `
+      <p>${this.content}</p>
+      <a href='http://maps.google.com/maps?q=${this.location.split(' ').join('')}' target='_blank'><span>Location: </span>${this.location}</a>
+    `;
+    content.classList.add('notification-content-container');
+
+    notiDiv.append(title, content);
+    return notiDiv;
   }
 }

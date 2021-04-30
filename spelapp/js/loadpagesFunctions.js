@@ -1,6 +1,7 @@
 const contentDiv = document.getElementById('content-div');
 function resetMainDiv() {
   contentDiv.innerHTML = '';
+  contentDiv.classList.remove('content-investigation-div');
 }
 
 function loadHomePage() {
@@ -55,8 +56,20 @@ function loadInformationPage() {
 
   interrigationZone.append(interrigationHeader);
 
- for (let i = 0; i < interrogationArray.length; i++) {
-   let interRecord = new InterrogationRecord({
+  if (notifications.length) {
+    for (let i = 0; i < notifications.length; i++) {
+      const notication = new Notification({
+        title: notifications[i].title,
+        content: notifications[i].content,
+        location: notifications[i].location,
+      })
+
+      newsNotifications.append(notication.createHTML());
+    }
+  }
+
+  for (let i = 0; i < interrogationArray.length; i++) {
+    const interRecord = new InterrogationRecord({
       src: interrogationArray[i].src,
       date: interrogationArray[i].date,
       name: interrogationArray[i].name
@@ -68,8 +81,11 @@ function loadInformationPage() {
   contentDiv.append(newsNotifications, pageSplit, interrigationZone);
 }
 
-function loadProfilePage() {
+function loadInvestigationPage() {
   resetMainDiv();
+  contentDiv.classList.remove('content-div-flex');
+  contentDiv.classList.add('content-investigation-div');
+  contentDiv.classList.add('content-div-grid');
   console.log('profilepage');
 }
 

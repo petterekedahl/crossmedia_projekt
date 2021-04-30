@@ -449,6 +449,35 @@ body {
 
 }
 
+.notification-container {
+  padding: 2%;
+  border: 1px solid black;
+  border-radius: 10px;
+
+  margin-bottom: 0.7rem;
+}
+
+.notification-title {
+  font-family: var(--fontHeaders);
+}
+
+.notification-content-container {
+  font-family: var(--fontContentText);
+}
+
+.notification-content-container > p {
+  margin: 0.7rem 0 0.7rem 0;
+}
+
+.notification-content-container > a {
+  margin-bottom: 0.7rem;
+  cursor: pointer;
+}
+
+.notification-content-container > a:hover {
+  text-decoration: underline;
+}
+
 /*Interrogation section------------------------------*/
 
 #informationPageSplit {
@@ -475,7 +504,7 @@ body {
 
 /*The individual records container*/
 .inter-record-container {
-
+  border-bottom: 2px solid black;
 }
 /*Contains the title and name in same div*/
 .inter-record-upper-info {
@@ -502,7 +531,7 @@ body {
   background-color: transparent;
   border: 0;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 
 .see-more-interrogation:hover {

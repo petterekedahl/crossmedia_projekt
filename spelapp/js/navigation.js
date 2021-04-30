@@ -1,8 +1,6 @@
 function loadNavClicks() {
   const navLinks = document.querySelectorAll('#nav-div > div');
 
-  
-  
   for (let i = 0; i < navLinks.length; i++) {
     whatPageToLoad = 0;
     navLinks[i].addEventListener('click', () => {
@@ -21,7 +19,7 @@ function loadNavClicks() {
           loadInformationPage();
           break;
         case 2:
-          loadProfilePage();
+          loadInvestigationPage();
           break;
         case 3:
           loadSuspectPage();
