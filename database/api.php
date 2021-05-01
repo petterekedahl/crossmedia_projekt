@@ -164,6 +164,79 @@ if ($method == 'PUT') {
 
         $database["users"][$i] = $updatedUser;
       } // end action guess-suspect
+      if ($payload['payload']['action'] == 'submit-clue') {
+        if ($payload['payload']["clue1"] && $payload['payload']['clue1'] == $clues['clue1']['answer']) {
+          $updatedUser = [
+            "password" => $database['users'][$i]['password'],
+            "email" => $database['users'][$i]['email'],
+            "emailRecieve" => $database['users'][$i]["register-email-agree"],
+            "TnC" => $database['users'][$i]["register-tnc-agree"],
+            "username" => $payload["payload"]["username"],
+            "suspects" => $payload["payload"]["suspects"],
+            "notes" => $payload["payload"]["notes"],
+            "id" => $payload["payload"]["id"],
+            "finalGuessId" => false,
+            "guesses" => $payload["payload"]["guesses"],
+            "clue1" => $clues["clue1"]["correct"],
+            "clue2" => $payload["payload"]["clue2"],
+          ];
+        }
+
+        if ($payload['payload']["clue1"] && $payload['payload']['clue1'] != $clues['clue1']['answer']) {
+          $updatedUser = [
+            "password" => $database['users'][$i]['password'],
+            "email" => $database['users'][$i]['email'],
+            "emailRecieve" => $database['users'][$i]["register-email-agree"],
+            "TnC" => $database['users'][$i]["register-tnc-agree"],
+            "username" => $payload["payload"]["username"],
+            "suspects" => $payload["payload"]["suspects"],
+            "notes" => $payload["payload"]["notes"],
+            "id" => $payload["payload"]["id"],
+            "finalGuessId" => false,
+            "guesses" => $payload["payload"]["guesses"],
+            "clue1" => $clues["clue1"]["incorrect"],
+            "clue2" => $payload["payload"]["clue2"],
+          ];
+        }
+
+        if ($payload['payload']['clue2'] && $payload['payload']['clue2'] == $clues['clue2']['answer']) {
+          $updatedUser = [
+            "password" => $database['users'][$i]['password'],
+            "email" => $database['users'][$i]['email'],
+            "emailRecieve" => $database['users'][$i]["register-email-agree"],
+            "TnC" => $database['users'][$i]["register-tnc-agree"],
+            "username" => $payload["payload"]["username"],
+            "suspects" => $payload["payload"]["suspects"],
+            "notes" => $payload["payload"]["notes"],
+            "id" => $payload["payload"]["id"],
+            "finalGuessId" => false,
+            "guesses" => $payload["payload"]["guesses"],
+            "clue1" => $payload["payload"]["clue1"],
+            "clue2" => $clues['clue2']['correct'],
+          ];
+        }
+        if ($payload['payload']["clue2"] && $payload['payload']['clue2'] != $clues['clue2']['answer']) {
+          $updatedUser = [
+            "password" => $database['users'][$i]['password'],
+            "email" => $database['users'][$i]['email'],
+            "emailRecieve" => $database['users'][$i]["register-email-agree"],
+            "TnC" => $database['users'][$i]["register-tnc-agree"],
+            "username" => $payload["payload"]["username"],
+            "suspects" => $payload["payload"]["suspects"],
+            "notes" => $payload["payload"]["notes"],
+            "id" => $payload["payload"]["id"],
+            "finalGuessId" => false,
+            "guesses" => $payload["payload"]["guesses"],
+            "clue1" => $payload["payload"]["clue1"],
+            "clue2" => $clues["clue2"]["incorrect"],
+          ];
+        }
+      }
+      $jsonDatabase = json_encode($database, JSON_PRETTY_PRINT);
+      file_put_contents('./json/database.json', $jsonDatabase);
+      //Gets the content in the database again so that the client will be sent an updated version of it's values.
+      $database = json_decode(file_get_contents($databaseLink), true);
+
       $user = [
         "username" => $database["users"][$i]["username"],
         "suspects" => $database["users"][$i]["suspects"],
@@ -177,8 +250,6 @@ if ($method == 'PUT') {
     } // end if user id
   }
 
-  $jsonDatabase = json_encode($database, JSON_PRETTY_PRINT);
-  file_put_contents('./json/database.json', $jsonDatabase);
   http_response_code(200);
   header("Content-Type: application/json");
   echo json_encode($user);
