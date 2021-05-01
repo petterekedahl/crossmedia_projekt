@@ -164,6 +164,7 @@ if ($method == 'PUT') {
 
         $database["users"][$i] = $updatedUser;
       } // end action guess-suspect
+      
       if ($payload['payload']['action'] == 'submit-clue') {
         if ($payload['payload']["clue1"] && $payload['payload']['clue1'] == $clues['clue1']['answer']) {
           $updatedUser = [
@@ -231,7 +232,7 @@ if ($method == 'PUT') {
             "clue2" => $clues["clue2"]["incorrect"],
           ];
         }
-      }
+      }//End of if submit clue
       $jsonDatabase = json_encode($database, JSON_PRETTY_PRINT);
       file_put_contents('./json/database.json', $jsonDatabase);
       //Gets the content in the database again so that the client will be sent an updated version of it's values.
