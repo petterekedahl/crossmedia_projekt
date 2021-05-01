@@ -17,7 +17,7 @@ function postToDatabase(method, action, data = STATE.user) {
       .then(response => response.json())
       .then(response => {
         try {
-          STATE.user = { ...response };
+          STATE.user = response;
           if(response.guesses > 0 && response.finalGuessId) {
             console.log("Correct guess - you've won!");
           }
