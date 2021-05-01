@@ -32,18 +32,41 @@ if ($method == "GET" && isset($_GET["userId"])) {
     errorMessagePhp(406, "$loginUrlIndexGame?error=100");
   }
 
-  if ($user["clue1"]) {
-    $user = [
-      "username" => $user["username"],
-      "suspects" => $user["suspects"],
-      "notes" => $user["notes"],
-      "id" => $user["id"],
-      "finalGuessId" => $user["finalGuessId"],
-      "guesses" => $user["guesses"],
-      "clue1" => $clues["clue1"]["correct"],
-      "clue2" => $user["clue2"],
-    ];
-  } else if ($user["clue2"]) {
+  //Vet inte om detta behövs.. Tror inte det.
+  // if ($user["clue1"]) {
+  //   $user = [
+  //     "username" => $user["username"],
+  //     "suspects" => $user["suspects"],
+  //     "notes" => $user["notes"],
+  //     "id" => $user["id"],
+  //     "finalGuessId" => $user["finalGuessId"],
+  //     "guesses" => $user["guesses"],
+  //     "clue1" => $clues["clue1"]["correct"],
+  //     "clue2" => $user["clue2"],
+  //   ];
+  // } else if ($user["clue2"]) {
+  //   $user = [
+  //     "username" => $user["username"],
+  //     "suspects" => $user["suspects"],
+  //     "notes" => $user["notes"],
+  //     "id" => $user["id"],
+  //     "finalGuessId" => $user["finalGuessId"],
+  //     "guesses" => $user["guesses"],
+  //     "clue1" => $user["clue1"],
+  //     "clue2" => $clues["clue2"]["correct"],
+  //   ];
+  // } else if ($user["clue1"] && $user["clue2"]) {
+  //   $user = [
+  //     "username" => $user["username"],
+  //     "suspects" => $user["suspects"],
+  //     "notes" => $user["notes"],
+  //     "id" => $user["id"],
+  //     "finalGuessId" => $user["finalGuessId"],
+  //     "guesses" => $user["guesses"],
+  //     "clue1" => $clues["clue1"]["correct"],
+  //     "clue2" => $clues["clue2"]["correct"],
+  //   ];
+  // } else {
     $user = [
       "username" => $user["username"],
       "suspects" => $user["suspects"],
@@ -52,31 +75,9 @@ if ($method == "GET" && isset($_GET["userId"])) {
       "finalGuessId" => $user["finalGuessId"],
       "guesses" => $user["guesses"],
       "clue1" => $user["clue1"],
-      "clue2" => $clues["clue2"]["correct"],
-    ];
-  } else if ($user["clue1"] && $user["clue2"]) {
-    $user = [
-      "username" => $user["username"],
-      "suspects" => $user["suspects"],
-      "notes" => $user["notes"],
-      "id" => $user["id"],
-      "finalGuessId" => $user["finalGuessId"],
-      "guesses" => $user["guesses"],
-      "clue1" => $clues["clue1"]["correct"],
-      "clue2" => $clues["clue2"]["correct"],
-    ];
-  } else {
-    $user = [
-      "username" => $user["username"],
-      "suspects" => $user["suspects"],
-      "notes" => $user["notes"],
-      "id" => $user["id"],
-      "finalGuessId" => $user["finalGuessId"],
-      "guesses" => $user["guesses"],
-      "clue1" => $user["clue1"],
       "clue2" => $user["clue2"],
     ];
-  }
+  // }
 
   http_response_code(200);
   header("Content-Type: application/json");
