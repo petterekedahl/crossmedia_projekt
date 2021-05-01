@@ -97,6 +97,15 @@ function loadInvestigationPage() {
     <p>Choose wisely, you only got one guess since we don't have time for play.</p>
   `;
 
+  for (let i = 0; i < 2; i++) {
+    let newClueSubmit = new ClueSubmitter({
+      content: STATE.user[`clue${i+1}`],
+      id: i,
+    })
+
+    cluesDiv.append(newClueSubmit.createHTML());
+  }
+
   const guessSuspects = document.createElement('div');
   guessDiv.append(guessSuspects);
 

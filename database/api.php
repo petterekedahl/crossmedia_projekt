@@ -164,9 +164,9 @@ if ($method == 'PUT') {
 
         $database["users"][$i] = $updatedUser;
       } // end action guess-suspect
-      
-      if ($payload['payload']['action'] == 'submit-clue') {
-        if ($payload['payload']["clue1"] && $payload['payload']['clue1'] == $clues['clue1']['answer']) {
+
+      if ($payload['action'] == 'submit-clue') {
+        if ($payload['payload']['clue1'] == $clues['clue1']['answer']) {
           $updatedUser = [
             "password" => $database['users'][$i]['password'],
             "email" => $database['users'][$i]['email'],
@@ -183,7 +183,7 @@ if ($method == 'PUT') {
           ];
         }
 
-        if ($payload['payload']["clue1"] && $payload['payload']['clue1'] != $clues['clue1']['answer']) {
+        if ($payload['payload']["clue1"] != false && $payload['payload']['clue1'] != $clues['clue1']['answer']) {
           $updatedUser = [
             "password" => $database['users'][$i]['password'],
             "email" => $database['users'][$i]['email'],
@@ -200,7 +200,7 @@ if ($method == 'PUT') {
           ];
         }
 
-        if ($payload['payload']['clue2'] && $payload['payload']['clue2'] == $clues['clue2']['answer']) {
+        if ($payload['payload']['clue2'] == $clues['clue2']['answer']) {
           $updatedUser = [
             "password" => $database['users'][$i]['password'],
             "email" => $database['users'][$i]['email'],
@@ -216,7 +216,7 @@ if ($method == 'PUT') {
             "clue2" => $clues['clue2']['correct'],
           ];
         }
-        if ($payload['payload']["clue2"] && $payload['payload']['clue2'] != $clues['clue2']['answer']) {
+        if ($payload['payload']["clue2"] != false && $payload['payload']['clue2'] != $clues['clue2']['answer']) {
           $updatedUser = [
             "password" => $database['users'][$i]['password'],
             "email" => $database['users'][$i]['email'],
@@ -232,11 +232,8 @@ if ($method == 'PUT') {
             "clue2" => $clues["clue2"]["incorrect"],
           ];
         }
+        $database["users"][$i] = $updatedUser;
       }//End of if submit clue
-      $jsonDatabase = json_encode($database, JSON_PRETTY_PRINT);
-      file_put_contents('./json/database.json', $jsonDatabase);
-      //Gets the content in the database again so that the client will be sent an updated version of it's values.
-      $database = json_decode(file_get_contents($databaseLink), true);
 
       $user = [
         "username" => $database["users"][$i]["username"],
@@ -251,6 +248,8 @@ if ($method == 'PUT') {
     } // end if user id
   }
 
+  $jsonDatabase = json_encode($database, JSON_PRETTY_PRINT);
+  file_put_contents('./json/database.json', $jsonDatabase);
   http_response_code(200);
   header("Content-Type: application/json");
   echo json_encode($user);
