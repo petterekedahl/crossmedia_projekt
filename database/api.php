@@ -11,6 +11,7 @@ $loginUrlIndexGame = "../../spelapp/index.php";
 
 require_once("./assets/functions.php");
 require_once("./assets/messageFunctions.php");
+require_once("./spelapp.php");
 
 $method = $_SERVER["REQUEST_METHOD"];
 
@@ -31,16 +32,51 @@ if ($method == "GET" && isset($_GET["userId"])) {
     errorMessagePhp(406, "$loginUrlIndexGame?error=100");
   }
 
-  $user = [
-    "username" => $user["username"],
-    "suspects" => $user["suspects"],
-    "notes" => $user["notes"],
-    "id" => $user["id"],
-    "finalGuessId" => $user["finalGuessId"],
-    "guesses" => $user["guesses"],
-    "clue1" => $user["clue1"],
-    "clue2" => $user["clue2"],
-  ];
+  if ($user["clue1"]) {
+    $user = [
+      "username" => $user["username"],
+      "suspects" => $user["suspects"],
+      "notes" => $user["notes"],
+      "id" => $user["id"],
+      "finalGuessId" => $user["finalGuessId"],
+      "guesses" => $user["guesses"],
+      "clue1" => $clues["clue1"]["correct"],
+      "clue2" => $user["clue2"],
+    ];
+  } else if ($user["clue2"]) {
+    $user = [
+      "username" => $user["username"],
+      "suspects" => $user["suspects"],
+      "notes" => $user["notes"],
+      "id" => $user["id"],
+      "finalGuessId" => $user["finalGuessId"],
+      "guesses" => $user["guesses"],
+      "clue1" => $user["clue1"],
+      "clue2" => $clues["clue2"]["correct"],
+    ];
+  } else if ($user["clue1"] && $user["clue2"]) {
+    $user = [
+      "username" => $user["username"],
+      "suspects" => $user["suspects"],
+      "notes" => $user["notes"],
+      "id" => $user["id"],
+      "finalGuessId" => $user["finalGuessId"],
+      "guesses" => $user["guesses"],
+      "clue1" => $clues["clue1"]["correct"],
+      "clue2" => $clues["clue2"]["correct"],
+    ];
+  } else {
+    $user = [
+      "username" => $user["username"],
+      "suspects" => $user["suspects"],
+      "notes" => $user["notes"],
+      "id" => $user["id"],
+      "finalGuessId" => $user["finalGuessId"],
+      "guesses" => $user["guesses"],
+      "clue1" => $user["clue1"],
+      "clue2" => $user["clue2"],
+    ];
+  }
 
   http_response_code(200);
   header("Content-Type: application/json");
@@ -166,14 +202,14 @@ if ($method == 'POST') {
         array_push($database["users"][$i]["notes"], $newNote);
       }
       $user = [
-        "username" => $user["username"],
-        "suspects" => $user["suspects"],
-        "notes" => $user["notes"],
-        "id" => $user["id"],
-        "finalGuessId" => $user["finalGuessId"],
-        "guesses" => $user["guesses"],
-        "clue1" => $user["clue1"],
-        "clue2" => $user["clue2"],
+        "username" => $database["users"][$i]["username"],
+        "suspects" => $database["users"][$i]["suspects"],
+        "notes" => $database["users"][$i]["notes"],
+        "id" => $database["users"][$i]["id"],
+        "finalGuessId" => $database["users"][$i]["finalGuessId"],
+        "guesses" => $database["users"][$i]["guesses"],
+        "clue1" => $database["users"][$i]["clue1"],
+        "clue2" => $database["users"][$i]["clue2"],
       ];
     }
   }
