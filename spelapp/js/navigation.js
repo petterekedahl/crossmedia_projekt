@@ -32,4 +32,31 @@ function loadNavClicks() {
       }
     })
   }
+
+  const burgerMenu = document.querySelector('#burger-menu');
+  const nav = document.querySelector('#navigation');
+
+  let isActive = false;
+  burgerMenu.addEventListener('click', (event) => {
+    event.stopPropagation();
+
+    const line1 = document.getElementById('burger1');
+    const line2 = document.getElementById('burger2');
+    const line3 = document.getElementById('burger3');
+
+    if (!isActive) {
+      isActive = true;
+      line1.style.transform = 'translateY(2vh) rotate(45deg)';
+      line3.style.transform = 'translateY(-2vh) rotate(-45deg)';
+      line2.style.opacity = '0';
+      nav.style.right = '0';
+    } else {
+      isActive = false;
+      line1.style.transform = 'translateY(0) rotate(0deg)';
+      line3.style.transform = 'translateY(0) rotate(0deg)';
+      line2.style.opacity = '1';
+      nav.style.right = '-100%';
+    }
+
+  })
 }

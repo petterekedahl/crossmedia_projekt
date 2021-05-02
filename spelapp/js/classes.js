@@ -634,9 +634,9 @@ class ClueSubmitter {
     clueInformation.classList.add('investigation-submit-info');
     
     if (this.id == 0) {
-      clueInformation.textContent = 'Here you can submit what you found at the crime scene.'
+      clueInformation.textContent = 'Submit your crime scene information here.'
     } else {
-      clueInformation.textContent = 'Here you can submit what you found at the second crime scene.'
+      clueInformation.textContent = 'Submit your information for the second crime scene here.'
     }
 
     div.append(title, clueInformation);
@@ -646,7 +646,7 @@ class ClueSubmitter {
       clueDiv.classList.add('investigation-clue-content');
       clueDiv.textContent = this.content;
 
-      clueInformation.textContent = 'Here what we found out about the murderer from the information you provided.'
+      clueInformation.textContent = "This is what we found out about the murderer from the information you provided.";
 
       div.append(clueDiv);
     } else {

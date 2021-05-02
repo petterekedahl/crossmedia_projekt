@@ -59,6 +59,12 @@ body {
   align-items: center;
 }
 
+@media (max-width: 800px) {
+  #main-div {
+    width: 100vw;
+  }
+}
+
 @keyframes hideElement {
   to {
     color: rgba(230, 230, 230, 0);
@@ -69,7 +75,7 @@ body {
 #content-div {
   border-radius: 20px;
 
-  width: 75vw;
+  width: 100%;
   height: 90vh;
 
   padding: 10px;
@@ -578,6 +584,17 @@ embed {
 
 }
 
+.investigation-guess-div h2 {
+  font-family: var(--fontHeaders);;
+}
+
+.investigation-guess-div p {
+  font-family: var(--fontContentText);
+  font-weight: bold;
+
+  margin-bottom: 2%;
+}
+
 .investigation-guess-div > div{
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -592,6 +609,9 @@ embed {
 
   border: 1px solid black;
   border-radius: 10px;
+  font-family: var(--fontContentText);
+
+  padding: 2%;
 }
 
 .investigation-guess-div .suspect-card-inner > div {
@@ -611,7 +631,7 @@ embed {
 }
 
 .investigation-guess-div .suspect-card-inner button {
-  background-color: rgba(0, 0, 0, 0);
+  background-color: rgba(255, 255, 255, 0);
   color: rgba(0, 0, 0, 1);
 
   width: 40%;
@@ -625,10 +645,81 @@ embed {
   cursor: pointer;
 }
 
+/*CLue submition*/
+
+.investigation-submit-button {
+  height: 4vw;
+  width: 15%;
+  border-radius: 10px;
+
+  background-color: rgba(255,255,255,0);
+  color: rgba(0, 0, 0, 1);
+}
+
+.investigation-submit-button:hover, .investigation-submit-button:focus {
+  background-color: rgba(0,0,0,0.7);
+  color: rgba(255, 255, 255, 1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  outline: none;
+}
+
+.investigation-submition-thankyou {
+  margin: 2vw 0 2vw 0;
+
+  font-weight: bold;
+}
+
+.investigation-submit-input {
+  width: 75%;
+  height: 5vw;
+  border-radius: 10px;
+
+  padding: 5px;
+
+  outline: none;
+
+  margin-right: 2%;
+  transition: all 200ms ease;
+}
+
+.investigation-submit-input:hover, .investigation-submit-input:focus {
+  outline: 2px solid black;
+  outline-offset: 1px;
+  border: none;
+  
+  transition: outline 200ms ease;
+}
+
+.investigation-clue-content {
+  margin: 2vw 0 2vw 0;
+
+  font-weight: bold;
+}
+
+.investigation-clue-submit-div div:nth-child(3) {
+
+}
+
+.investigation-clue-submit-div {
+  padding: 2%;
+
+  border: 2px solid black;
+  border-radius: 10px;
+
+  margin-bottom: 2vw;
+
+  font-family: var(--fontContentText);
+}
+
 @media (max-width: 1200px) {
   .investigation-guess-div > div {
     grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: 60%;
+  }
+
+  .investigation-clue-submit-div div:nth-child(3) {
+
   }
 }
 
@@ -637,6 +728,10 @@ embed {
     grid-template-columns: repeat(2, 1fr);
     grid-auto-rows: 65%;
   }
+
+  .investigation-clue-submit-div div:nth-child(3) {
+    display: block;
+  }
 }
 
 @media (max-width: 650px) {
@@ -644,21 +739,21 @@ embed {
     grid-template-columns: repeat(1, 1fr);
     grid-auto-rows: 75%;
   }
-}
 
-.investigation-submit-button {
-  width: 50px;
-  height: 50px;
-}
+  .investigation-clue-submit-div div:nth-child(3) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+  }
 
-.investigation-submition-thankyou {
+  .investigation-submit-input {
+    width: 100%;
+    margin-bottom: 1vw;
+  }
 
-}
-
-.investigation-submit-input {
-
-}
-
-.investigation-clue-content {
-  
+  .investigation-submit-button {
+    height: 5vw;
+    width: 25%;
+  }
 }

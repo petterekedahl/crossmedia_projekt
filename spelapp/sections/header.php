@@ -1,4 +1,9 @@
-<nav>
+<div id="burger-menu">
+  <div id="burger1" class="burger-line"></div>
+  <div id="burger2" class="burger-line"></div>
+  <div id="burger3" class="burger-line"></div>
+</div>
+<nav id="navigation">
   <div id="nav-div">
     <img src="./images/Seal_of_the_MPP1.png">
     <div>
