@@ -12,6 +12,8 @@ nav {
   padding: 5px;
 
   font-family: var(--fontHeaders);
+
+  z-index: 399;
 }
 
 #nav-div {
@@ -22,6 +24,8 @@ nav {
   justify-content: space-evenly;
   align-items: flex-start;
   flex-direction: column;
+
+  z-index: 400;
 }
 
 #nav-div > div {
