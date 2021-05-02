@@ -83,10 +83,50 @@ function loadInformationPage() {
 
 function loadInvestigationPage() {
   resetMainDiv();
-  contentDiv.classList.remove('content-div-flex');
+  contentDiv.classList.remove('content-div-grid');
   contentDiv.classList.add('content-investigation-div');
-  contentDiv.classList.add('content-div-grid');
-  console.log('profilepage');
+  contentDiv.classList.add('content-div-flex');
+
+  const cluesDiv = document.createElement('div');
+  const guessDiv = document.createElement('div');
+
+  cluesDiv.classList.add('investigation-clue-div');
+  guessDiv.classList.add('investigation-guess-div');
+  guessDiv.innerHTML = `
+    <h2>Submit your guess.</h2>
+    <p>Choose wisely, you only got one guess since we don't have time for play.</p>
+  `;
+
+  for (let i = 0; i < 2; i++) {
+    let newClueSubmit = new ClueSubmitter({
+      content: STATE.user[`clue${i+1}`],
+      id: i,
+    })
+
+    cluesDiv.append(newClueSubmit.createHTML());
+  }
+
+  const guessSuspects = document.createElement('div');
+  guessDiv.append(guessSuspects);
+
+  for (let i = 0; i < STATE.user.suspects.length; i++) {
+    if (STATE.user.suspects[i].isStillSuspect) {
+      const guessingSuspect = new SuspectGuess({
+        "name": STATE.user.suspects[i].name,
+        "height": STATE.user.suspects[i].height,
+        "alibi": STATE.user.suspects[i].alibi,
+        "nationality": STATE.user.suspects[i].nationality,
+        // "notes": suspects[i].notes,
+        "image": STATE.user.suspects[i].image,
+        // "isStillSuspect": suspects[i].isStillSuspect,
+        "id": STATE.user.suspects[i].id,
+        "age": STATE.user.suspects[i].age,
+      })
+      guessSuspects.append(guessingSuspect.createHTML());
+    }
+  }
+
+  contentDiv.append(cluesDiv, guessDiv);
 }
 
 function loadSuspectPage() {

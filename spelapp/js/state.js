@@ -55,3 +55,18 @@ const notifications = [
     location: "55.603149510241586, 13.000445868824446"
   }
 ];
+
+const addClues = [
+  {
+    id: 0,
+    action: 'clues-guess',
+    method: 'POST',
+    content: 'What information did you find at the crime scene?'
+  },
+  {
+    id: 1,
+    action: 'clues-guess',
+    method: 'POST',
+    content: 'What information did you find at the crime scene?'
+  },
+]

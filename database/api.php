@@ -11,6 +11,7 @@ $loginUrlIndexGame = "../../spelapp/index.php";
 
 require_once("./assets/functions.php");
 require_once("./assets/messageFunctions.php");
+require_once("./spelapp.php");
 
 $method = $_SERVER["REQUEST_METHOD"];
 
@@ -31,12 +32,52 @@ if ($method == "GET" && isset($_GET["userId"])) {
     errorMessagePhp(406, "$loginUrlIndexGame?error=100");
   }
 
-  $user = [
-    "username" => $user["username"],
-    "suspects" => $user["suspects"],
-    "notes" => $user["notes"],
-    "id" => $user["id"]
-  ];
+  //Vet inte om detta behövs.. Tror inte det.
+  // if ($user["clue1"]) {
+  //   $user = [
+  //     "username" => $user["username"],
+  //     "suspects" => $user["suspects"],
+  //     "notes" => $user["notes"],
+  //     "id" => $user["id"],
+  //     "finalGuessId" => $user["finalGuessId"],
+  //     "guesses" => $user["guesses"],
+  //     "clue1" => $clues["clue1"]["correct"],
+  //     "clue2" => $user["clue2"],
+  //   ];
+  // } else if ($user["clue2"]) {
+  //   $user = [
+  //     "username" => $user["username"],
+  //     "suspects" => $user["suspects"],
+  //     "notes" => $user["notes"],
+  //     "id" => $user["id"],
+  //     "finalGuessId" => $user["finalGuessId"],
+  //     "guesses" => $user["guesses"],
+  //     "clue1" => $user["clue1"],
+  //     "clue2" => $clues["clue2"]["correct"],
+  //   ];
+  // } else if ($user["clue1"] && $user["clue2"]) {
+  //   $user = [
+  //     "username" => $user["username"],
+  //     "suspects" => $user["suspects"],
+  //     "notes" => $user["notes"],
+  //     "id" => $user["id"],
+  //     "finalGuessId" => $user["finalGuessId"],
+  //     "guesses" => $user["guesses"],
+  //     "clue1" => $clues["clue1"]["correct"],
+  //     "clue2" => $clues["clue2"]["correct"],
+  //   ];
+  // } else {
+    $user = [
+      "username" => $user["username"],
+      "suspects" => $user["suspects"],
+      "notes" => $user["notes"],
+      "id" => $user["id"],
+      "finalGuessId" => $user["finalGuessId"],
+      "guesses" => $user["guesses"],
+      "clue1" => $user["clue1"],
+      "clue2" => $user["clue2"],
+    ];
+  // }
 
   http_response_code(200);
   header("Content-Type: application/json");
@@ -85,11 +126,124 @@ if ($method == 'PUT') {
           }
         }
       } // end payload action suspect change
+
+      if ($payload["action"] == 'guess-suspect') {
+
+        $correctSuspect = 1;
+        if ($payload["payload"]["finalGuessId"] == $correctSuspect) {
+          $updatedUser = [
+            "password" => $database['users'][$i]['password'],
+            "email" => $database['users'][$i]['email'],
+            "emailRecieve" => $database['users'][$i]["register-email-agree"],
+            "TnC" => $database['users'][$i]["register-tnc-agree"],
+            "username" => $payload["payload"]["username"],
+            "suspects" => $payload["payload"]["suspects"],
+            "notes" => $payload["payload"]["notes"],
+            "id" => $payload["payload"]["id"],
+            "finalGuessId" => true,
+            "guesses" => $payload["payload"]["guesses"],
+            "clue1" => $payload["payload"]["clue1"],
+            "clue2" => $payload["payload"]["clue2"],
+          ];
+        } else {
+          $updatedUser = [
+            "password" => $database['users'][$i]['password'],
+            "email" => $database['users'][$i]['email'],
+            "emailRecieve" => $database['users'][$i]["register-email-agree"],
+            "TnC" => $database['users'][$i]["register-tnc-agree"],
+            "username" => $payload["payload"]["username"],
+            "suspects" => $payload["payload"]["suspects"],
+            "notes" => $payload["payload"]["notes"],
+            "id" => $payload["payload"]["id"],
+            "finalGuessId" => false,
+            "guesses" => $payload["payload"]["guesses"],
+            "clue1" => $payload["payload"]["clue1"],
+            "clue2" => $payload["payload"]["clue2"],
+          ];
+        }
+
+        $database["users"][$i] = $updatedUser;
+      } // end action guess-suspect
+
+      if ($payload['action'] == 'submit-clue') {
+        if ($payload['payload']['clue1'] == $clues['clue1']['answer']) {
+          $updatedUser = [
+            "password" => $database['users'][$i]['password'],
+            "email" => $database['users'][$i]['email'],
+            "emailRecieve" => $database['users'][$i]["register-email-agree"],
+            "TnC" => $database['users'][$i]["register-tnc-agree"],
+            "username" => $payload["payload"]["username"],
+            "suspects" => $payload["payload"]["suspects"],
+            "notes" => $payload["payload"]["notes"],
+            "id" => $payload["payload"]["id"],
+            "finalGuessId" => false,
+            "guesses" => $payload["payload"]["guesses"],
+            "clue1" => $clues["clue1"]["correct"],
+            "clue2" => $payload["payload"]["clue2"],
+          ];
+        }
+
+        if ($payload['payload']["clue1"] != false && $payload['payload']['clue1'] != $clues['clue1']['answer']) {
+          $updatedUser = [
+            "password" => $database['users'][$i]['password'],
+            "email" => $database['users'][$i]['email'],
+            "emailRecieve" => $database['users'][$i]["register-email-agree"],
+            "TnC" => $database['users'][$i]["register-tnc-agree"],
+            "username" => $payload["payload"]["username"],
+            "suspects" => $payload["payload"]["suspects"],
+            "notes" => $payload["payload"]["notes"],
+            "id" => $payload["payload"]["id"],
+            "finalGuessId" => false,
+            "guesses" => $payload["payload"]["guesses"],
+            "clue1" => $clues["clue1"]["incorrect"],
+            "clue2" => $payload["payload"]["clue2"],
+          ];
+        }
+
+        if ($payload['payload']['clue2'] == $clues['clue2']['answer']) {
+          $updatedUser = [
+            "password" => $database['users'][$i]['password'],
+            "email" => $database['users'][$i]['email'],
+            "emailRecieve" => $database['users'][$i]["register-email-agree"],
+            "TnC" => $database['users'][$i]["register-tnc-agree"],
+            "username" => $payload["payload"]["username"],
+            "suspects" => $payload["payload"]["suspects"],
+            "notes" => $payload["payload"]["notes"],
+            "id" => $payload["payload"]["id"],
+            "finalGuessId" => false,
+            "guesses" => $payload["payload"]["guesses"],
+            "clue1" => $payload["payload"]["clue1"],
+            "clue2" => $clues['clue2']['correct'],
+          ];
+        }
+        if ($payload['payload']["clue2"] != false && $payload['payload']['clue2'] != $clues['clue2']['answer']) {
+          $updatedUser = [
+            "password" => $database['users'][$i]['password'],
+            "email" => $database['users'][$i]['email'],
+            "emailRecieve" => $database['users'][$i]["register-email-agree"],
+            "TnC" => $database['users'][$i]["register-tnc-agree"],
+            "username" => $payload["payload"]["username"],
+            "suspects" => $payload["payload"]["suspects"],
+            "notes" => $payload["payload"]["notes"],
+            "id" => $payload["payload"]["id"],
+            "finalGuessId" => false,
+            "guesses" => $payload["payload"]["guesses"],
+            "clue1" => $payload["payload"]["clue1"],
+            "clue2" => $clues["clue2"]["incorrect"],
+          ];
+        }
+        $database["users"][$i] = $updatedUser;
+      }//End of if submit clue
+
       $user = [
         "username" => $database["users"][$i]["username"],
         "suspects" => $database["users"][$i]["suspects"],
         "notes" => $database["users"][$i]["notes"],
-        "id" => $database["users"][$i]["id"]
+        "id" => $database["users"][$i]["id"],
+        "finalGuessId" => $database["users"][$i]["finalGuessId"],
+        "guesses" => $database["users"][$i]["guesses"],
+        "clue1" => $database["users"][$i]["clue1"],
+        "clue2" => $database["users"][$i]["clue2"],
       ];
     } // end if user id
   }
@@ -123,7 +277,11 @@ if ($method == 'POST') {
         "username" => $database["users"][$i]["username"],
         "suspects" => $database["users"][$i]["suspects"],
         "notes" => $database["users"][$i]["notes"],
-        "id" => $database["users"][$i]["id"]
+        "id" => $database["users"][$i]["id"],
+        "finalGuessId" => $database["users"][$i]["finalGuessId"],
+        "guesses" => $database["users"][$i]["guesses"],
+        "clue1" => $database["users"][$i]["clue1"],
+        "clue2" => $database["users"][$i]["clue2"],
       ];
     }
   }
@@ -156,7 +314,11 @@ if ($method == 'DELETE') {
         "username" => $database["users"][$i]["username"],
         "suspects" => $database["users"][$i]["suspects"],
         "notes" => $database["users"][$i]["notes"],
-        "id" => $database["users"][$i]["id"]
+        "id" => $database["users"][$i]["id"],
+        "finalGuessId" => $user["finalGuessId"],
+        "guesses" => $user["guesses"],
+        "clue1" => $user["clue1"],
+        "clue2" => $user["clue2"],
       ];
     } // end if user id
   }

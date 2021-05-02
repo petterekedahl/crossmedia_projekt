@@ -21,6 +21,14 @@ fetch(userReq)
   .then(response => response.json())
   .then(user => {
     try {
+      console.log(user.guesses, user.finalGuessId)
+      if(user.guesses > 0 && user.finalGuessId) {
+        console.log("Correct guess - you've won!");
+      }
+      if(user.guesses > 0 && !user.finalGuessId) {
+        console.log('Guess was wrong, good bye, or try to hack us ;)');
+        window.location.replace ('../../database/admin/logout.php');
+      }
       // user = {
       //   "username": user.username,
       //   "suspects": user.suspects,

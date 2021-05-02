@@ -17,6 +17,85 @@ function postToDatabase(method, action, data = STATE.user) {
       .then(response => response.json())
       .then(response => {
         try {
+          STATE.user = response;
+          if(response.guesses > 0 && response.finalGuessId) {
+            console.log("Correct guess - you've won!");
+          }
+          if(response.guesses > 0 && !response.finalGuessId) {
+            console.log('Guess was wrong, good bye, or try to hack us ;)');
+            // alert('You are up next.')
+            const wrongPopUp = document.createElement('div');
+            wrongPopUp.classList.add('wrong-answer-pop');
+
+            document.body.append(wrongPopUp);
+
+            
+            setTimeout(() => {
+              wrongPopUp.textContent = 'Y_'
+            }, 384)
+            setTimeout(() => {
+              wrongPopUp.textContent = 'Yo_'
+            }, 768)
+            setTimeout(() => {
+              wrongPopUp.textContent = 'You_'
+            }, 1152)
+            setTimeout(() => {
+              wrongPopUp.textContent = 'You _'
+            }, 1536)
+            setTimeout(() => {
+              wrongPopUp.textContent = 'You a_'
+            }, 1920)
+            setTimeout(() => {
+              wrongPopUp.textContent = 'You ar_'
+            }, 2304)
+            setTimeout(() => {
+              wrongPopUp.textContent = 'You are_'
+            }, 2688)
+            setTimeout(() => {
+              wrongPopUp.textContent = 'You are _'
+            }, 3072)
+            setTimeout(() => {
+              wrongPopUp.textContent = 'You are n_'
+            }, 3456)
+            setTimeout(() => {
+              wrongPopUp.textContent = 'You are ne_'
+            }, 3840)
+            setTimeout(() => {
+              wrongPopUp.textContent = 'You are nex_'
+            }, 4224)
+            setTimeout(() => {
+              wrongPopUp.textContent = 'You are nez_'
+            }, 4408)
+            setTimeout(() => {
+              wrongPopUp.textContent = 'You are ne_'
+            }, 4508)
+            setTimeout(() => {
+              wrongPopUp.textContent = 'You are nex_'
+            }, 4608)
+            setTimeout(() => {
+              wrongPopUp.textContent = 'You are next_'
+            }, 4992)
+            setTimeout(() => {
+              wrongPopUp.textContent = 'You are next._'
+            }, 5376)
+            setTimeout(() => {
+              wrongPopUp.textContent = 'You are next.'
+            }, 5760)
+            setTimeout(() => {
+              wrongPopUp.textContent = 'You are next._'
+            }, 6144)
+            setTimeout(() => {
+              wrongPopUp.textContent = 'You are next.'
+            }, 6528)
+            setTimeout(() => {
+              wrongPopUp.textContent = 'You are next._'
+            }, 6912)
+
+            setTimeout(() => {
+              wrongPopUp.parentNode.removeChild(wrongPopUp);
+              window.location.replace ('../../database/admin/logout.php');
+            }, 7000);
+          }
           console.log(response);
         }catch(error) {
           console.log(error);
@@ -32,9 +111,9 @@ function postToDatabase(method, action, data = STATE.user) {
     })
     fetch(putReq)
       .then(response => response.json())
-      .then(user => {
+      .then(data => {
         try {
-          
+          console.log(data);
         }catch(error) {
           console.log(error);
         }
