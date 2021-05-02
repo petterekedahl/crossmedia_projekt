@@ -1,6 +1,9 @@
 function loadNavClicks() {
   const navLinks = document.querySelectorAll('#nav-div > div');
 
+  const burgerMenu = document.querySelector('#burger-menu');
+  let isActive = false;
+
   for (let i = 0; i < navLinks.length; i++) {
     whatPageToLoad = 0;
     navLinks[i].addEventListener('click', () => {
@@ -14,18 +17,23 @@ function loadNavClicks() {
       switch (whatPageToLoad) {
         case 0:
           loadHomePage();
+          isActive = activateMenu(isActive)
           break;
         case 1:
           loadInformationPage();
+          isActive = activateMenu(isActive)
           break;
         case 2:
           loadInvestigationPage();
+          isActive = activateMenu(isActive)
           break;
         case 3:
           loadSuspectPage();
+          isActive = activateMenu(isActive)
           break;
         case 4:
           loadNotesPage();
+          isActive = activateMenu(isActive);
           break;
         default:
           break;
@@ -33,13 +41,9 @@ function loadNavClicks() {
     })
   }
 
-  const burgerMenu = document.querySelector('#burger-menu');
-  const nav = document.querySelector('#navigation');
-
-  let isActive = false;
-  burgerMenu.addEventListener('click', (event) => {
-    event.stopPropagation();
-
+  function activateMenu(isActive) {
+    console.log(isActive)
+    const nav = document.querySelector('#navigation');
     const line1 = document.getElementById('burger1');
     const line2 = document.getElementById('burger2');
     const line3 = document.getElementById('burger3');
@@ -57,6 +61,14 @@ function loadNavClicks() {
       line2.style.opacity = '1';
       nav.style.right = '-100%';
     }
+
+    return isActive;
+  }
+
+  burgerMenu.addEventListener('click', (event) => {
+    event.stopPropagation();
+
+    isActive = activateMenu(isActive);
 
   })
 }
