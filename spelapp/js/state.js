@@ -1,6 +1,7 @@
 const STATE = {
   userId: null,
   user: {},
+  end: null,
 };
 
 const pageContents = {

@@ -71,4 +71,53 @@ function loadNavClicks() {
     isActive = activateMenu(isActive);
 
   })
+
+  function timerCreation() {
+    const countDown = setInterval(() => {
+      // Get the local time of the user and get the remaining time between the two dates
+      const localTimeNow = new Date().getTime();
+      const timeLeft = STATE.end - localTimeNow;
+
+      // console.log(localTimeNow);
+      // console.log(STATE.end);
+
+      // console.log(timeLeft);
+
+      // Calculating days, hours, minutes, seconds to the Event day
+      const times = [
+        { hours: Math.floor(timeLeft % (1000 * 60 * 60 * 24) / (1000 * 60 * 60)) },
+        { minutes: Math.floor(timeLeft % (1000 * 60 * 60) / (1000 * 60)) },
+        { seconds: Math.floor(timeLeft % (1000 * 60) / 1000) },
+      ];
+
+      // Checking if times.objects is below 10 or 0 to add an extra 0
+      for (let i = 0; i < times.length; i += 1) {
+        if (times[i].hours < 10) {
+          times[i].hours = `0${times[i].hours}`;
+        }
+        if (times[i].minutes < 10) {
+          times[i].minutes = `0${times[i].minutes}`;
+        }
+        if (times[i].seconds < 10) {
+          times[i].seconds = `0${times[i].seconds}`;
+        }
+        if (times[i].hours === 0) {
+          times[i].hours = '00';
+        }
+        if (times[i].minutes === 0) {
+          times[i].minutes = '00';
+        }
+        if (times[i].seconds === 0) {
+          times[i].seconds = '00';
+        }
+      }
+
+      // Add result to the website
+      document.getElementById('timer-hour').textContent = times[0].hours;
+      document.getElementById('timer-minute').textContent = times[1].minutes;
+      document.getElementById('timer-seconds').textContent = times[2].seconds;
+    }, 1000);
+  }
+
+  timerCreation()
 }

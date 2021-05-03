@@ -30,5 +30,23 @@
       <a href="../../database/admin/logout.php">LOG OUT</a>
       <div class="nav-slidein-div"></div>
     </div>
+    <div id="navigation-timer">
+      <p>TIME LEFT:</p>
+      <div id="timer-container">
+        <div>
+        <span id="timer-hour-text">HOURS</span>
+        <span id="timer-hour">xx</span>
+        </div>
+        <div>
+        <span id="timer-minute-text">MINUTES</span>
+        <span id="timer-minute">xx</span>
+        </div>
+        <div>
+        <span id="timer-seconds-text">SECONDS</span>
+        <span id="timer-seconds">xx</span>
+        </div>
+      </div>
+    </div>
+    <p id="navigation-information">Remember: the information on this website is confidential and may not be shared under any circumstances.</p>
   </div>
 </nav>
