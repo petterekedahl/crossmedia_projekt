@@ -47,7 +47,7 @@
                     "nationality": "Unknown",
                     "notes": "",
                     "image": "..\/images\/",
-                    "isStillSuspect": true,
+                    "isStillSuspect": false,
                     "id": 3,
                     "age": "Unknown"
                 },
@@ -83,10 +83,10 @@
                 }
             ],
             "id": 0,
-            "finalGuessId": false,
-            "guesses": 0,
-            "clue1": false,
-            "clue2": false
+            "finalGuessId": true,
+            "guesses": 2,
+            "clue1": "Thank you for your work, the information you provided help us find out important information about the suspect. The murderer is a female.",
+            "clue2": "Thank you for your work, the information you provided help us find out important information about the suspect. The murderer is a clown woopiwoopi."
         }
     ]
 }

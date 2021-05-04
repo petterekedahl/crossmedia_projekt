@@ -669,7 +669,7 @@ class ClueSubmitter {
           STATE.user.clue2 = input.value;
         }
 
-        submitionDiv.innerHTML = `<p class="investigation-submition-thankyou">Thank you for your submition, we will post what we find out here whenever we have looked through your submition.</p>`
+        submitionDiv.innerHTML = `<p class="investigation-submition-thankyou">Thank you for your submition, we will post what we find out here whenever we have looked through your submission.</p>`
 
         postToDatabase('PUT', 'submit-clue');
       })
