@@ -50,11 +50,13 @@ function loadInformationPage() {
   newsNotifications.classList.add('notification-section');
   interrigationZone.classList.add('interrogation-section');
 
-  const interrigationHeader = document.createElement('p');
-  interrigationHeader.textContent = 'Below you will find information such as interrogation records and more that might help the inverstigation.';
+  const interrigationHeader = document.createElement('div');
+  interrigationHeader.innerHTML = `
+  <h2>INFORMATION</h2>
+  <p>Below you will find information such as interrogation records and more that might help the inverstigation.</p>`;
   interrigationHeader.classList.add('interrogation-information');
 
-  interrigationZone.append(interrigationHeader);
+  contentDiv.append(interrigationHeader);
 
   if (notifications.length) {
     for (let i = 0; i < notifications.length; i++) {

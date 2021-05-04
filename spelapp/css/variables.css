@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ruda&display=swap');
 
 :root {
   --mainBGColor: rgb(58, 57, 57);
-  --fontHeaders: 'Dela Gothic One';
+  --fontHeaders: 'Ruda', sans-serif;
   --fontContentText: arial;
 
   --headerFontSize: 28px;

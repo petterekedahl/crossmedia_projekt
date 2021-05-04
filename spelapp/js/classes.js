@@ -318,7 +318,7 @@ class InterrogationRecord {
     seeMoreButton.classList.add('see-more-interrogation');
 
     upper.innerHTML =`
-      Interrogation record - <span>${this.name}</span>
+      INTERROGARTIN RECORD - <span>${this.name}</span>
     `;
     lower.innerHTML =`
       Published: <span>${this.date}</span>.

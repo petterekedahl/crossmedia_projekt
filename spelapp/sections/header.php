@@ -14,7 +14,7 @@
       <div class="nav-button" id="nav-info">INFORMATION</div>
       <div class="nav-slidein-div"></div>
     </div>
-    <div>
+    <div id="display-investigation">
       <div class="nav-button" id="nav-investigation">INVESTIGATION</div>
       <div class="nav-slidein-div"></div>
     </div>
