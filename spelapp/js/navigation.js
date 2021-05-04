@@ -48,6 +48,9 @@ function loadNavClicks() {
     const line2 = document.getElementById('burger2');
     const line3 = document.getElementById('burger3');
 
+    console.log(document.documentElement.clientWidth);
+    if (document.documentElement.clientWidth > 800) return;
+
     if (!isActive) {
       isActive = true;
       line1.style.transform = 'translateY(2vh) rotate(45deg)';
@@ -91,7 +94,7 @@ function loadNavClicks() {
       ];
 
       // Checking if times.objects is below 10 or 0 to add an extra 0
-      for (let i = 0; i < times.length; i += 1) {
+      for (let i = 0; i < 3; i += 1) {
         if (times[i].hours < 10) {
           times[i].hours = `0${times[i].hours}`;
         }
