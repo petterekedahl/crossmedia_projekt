@@ -678,6 +678,5 @@ class ClueSubmitter {
     }
 
     return div;
-
   }
 }

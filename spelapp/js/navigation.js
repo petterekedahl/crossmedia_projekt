@@ -13,27 +13,23 @@ function loadNavClicks() {
       navLinks[i].querySelector('.nav-slidein-div').classList.add('active-slidein-div');
 
       whatPageToLoad = i;
+      if (document.documentElement.clientWidth < 801) isActive = activateMenu(isActive);
 
       switch (whatPageToLoad) {
         case 0:
           loadHomePage();
-          isActive = activateMenu(isActive)
           break;
         case 1:
           loadInformationPage();
-          isActive = activateMenu(isActive)
           break;
         case 2:
           loadInvestigationPage();
-          isActive = activateMenu(isActive)
           break;
         case 3:
           loadSuspectPage();
-          isActive = activateMenu(isActive)
           break;
         case 4:
           loadNotesPage();
-          isActive = activateMenu(isActive);
           break;
         default:
           break;
