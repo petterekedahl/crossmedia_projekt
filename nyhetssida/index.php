@@ -5,7 +5,7 @@
         <link rel='stylesheet' href='includes/css/nav.css'>
         <link rel='stylesheet' href='includes/css/footer.css'>
         <meta charset='utf-8'>
-        <title>Njet News</title>
+        <title>Sydnyheter</title>
     </head>
     <body>
         <?php include_once("includes/navigation.php");?>

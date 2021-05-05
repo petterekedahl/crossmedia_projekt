@@ -1,10 +1,7 @@
 "use strict";
 
 //TO DO:
-// - både prenumerera och läs mer --> pop up med info om tekniskt fel samt länk till spelplattformen
-// - anpassa artikelsidan till designen
 // - footern
-// - mestlästa och sidebar på bägge sidor -- sidebar: fixed!
 // - göra det mobilanpassat
 
 //------------------Variables---------------------//
@@ -13,6 +10,7 @@ const navContainer = document.getElementById("nav");
 const dateContainer = document.getElementById("datumContainer");
 const newsContainer = document.getElementById("news");
 const newsWrap = document.getElementById("newsFeed");
+const mostViewedContainer = document.getElementById("mostViewed");
 const justNowContainer = document.getElementById("senasteNytt");
 const today = `${currentWeekDay} ${currentDay} ${currentMonth} ${currentYear}`;
 let currentPage = location.pathname;
@@ -21,7 +19,7 @@ currentPage = currentPage[currentPage.length - 1];
 const indexPage = "index.php";
 let navItems;
 let currentFilter;
-
+let subscribeBtns;
 
 //------------------Functions--------------------//
 function createNavItems(item){
@@ -57,9 +55,31 @@ function createNews(article, container = newsContainer) {
 }
 
 function createMostViewed(article) {
-    if (article.mostViewed !== false) {
-        
-    }
+    let nDiv = document.createElement("a");
+    nDiv.setAttribute("href", `articlePage.php?id=${article.id}`);
+    nDiv.classList.add("article", "mostViewed");
+    let nTitle = document.createElement("h5");
+    nTitle.innerHTML = article.title;
+    nDiv.append(nTitle);
+    mostViewedContainer.append(nDiv);
+}
+
+//subscription overlay (aka santas little helper)
+function reDirrr(e) {
+    console.log(e.target);
+    let overlay = document.createElement("div");
+    overlay.setAttribute("id", "subscribing-overlay");
+    let nGif = document.createElement("img");
+    nGif.setAttribute("src", "images/circle.gif");
+    overlay.append(nGif);
+    document.body.prepend(overlay);
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    document.body.style.height = "100vh";
+    document.body.style.overflow = "hidden";
+    setTimeout(() => {
+        window.location.href = "http://www.melanie-deuretzbacher.se/voyage";
+    }, 3000);
 }
 
 //-----------------Direct Code-------------------//
@@ -75,6 +95,16 @@ categories.forEach(category => {
 //save all the navItems
 navItems = document.querySelectorAll(".navItem");
 
+//save all the subscribeElmnts
+subscribeBtns = document.querySelectorAll(".subscribe");
+
+let mostViewedArticles = articles.filter(article => article.mostViewed !== false);
+for (let i = mostViewedArticles.length - 1; i >= 0; i--) {
+    createMostViewed(mostViewedArticles[i]);
+}
+// mostViewedArticles.forEach(mVArticle => {
+//     createMostViewed(mVArticle);
+// });
 
 if (currentPage === indexPage) {
     //creates the senaste-nytt-news and removes it from the array
@@ -101,11 +131,18 @@ navItems.forEach(navItem => {
         let nContainer = document.createElement("div");
         nContainer.classList.add("sortedContainer");
         newsWrap.append(nContainer);
-        // console.log(event.target.innerText.toLowerCase());
         articles.filter((article) => {
             if (article.category === event.target.innerText.toLowerCase()){
                 createNews(article, nContainer);
             }
         });
+    });
+});
+
+//when clicking on prenumeration or login, the function reDirrr is called where the user gets redirected to the game app after some gif
+
+subscribeBtns.forEach(btn => {
+    btn.addEventListener("click", (event) => {
+        reDirrr(event);
     });
 });

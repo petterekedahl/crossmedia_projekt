@@ -6,4 +6,6 @@
 </div>
 <div id="newestNews">
     <h3>Mest klickade nyheter</h3>
+    <div id="mostViewed"></div>
+    <!-- <button>Visa fler</button> -->
 </div>

@@ -4,7 +4,7 @@
             <img id="logotype" src="images/SenasteNyttLogo.png" alt="Logotyp"> 
         </a>
         <div id="prenDiv">
-            <div id="abonnera">
+            <div id="abonnera" class="subscribe">
                 <div>PRENUMERERA</div>
                 <div>+</div>
             </div>
