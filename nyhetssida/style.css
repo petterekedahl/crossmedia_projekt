@@ -16,6 +16,9 @@
     --wrapperWidth: 70%;
     --sideBarWidth: 30%;
     --sideBarMarg: 2%;
+    --footerText: 15px;
+    --footerTitle: 20px;
+    --footerLinks: 12px;
 }
 
 * {

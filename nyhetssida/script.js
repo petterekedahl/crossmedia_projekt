@@ -138,11 +138,6 @@ navItems.forEach(navItem => {
                 createNews(allArticles[i], nContainer);
             }
         }
-        // articles.filter((article) => {
-        //     if (article.category === event.target.innerText.toLowerCase()){
-        //         createNews(article, nContainer);
-        //     }
-        // });
     });
 });
 

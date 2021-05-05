@@ -202,116 +202,116 @@ const articles = [
         image: false,
         mostViewed: false
     },
-    {
-        id: 20,
-        title: "First murderNews",
-        text: "some ingress for the murder.",
-        paragraph: "the text",
-        category: "brott",
-        justNu: false,
-        image: "",
-        mostViewed: true
-    },
-    {
-        id: 21,
-        title: "Some other news",
-        text: "some ingress for the news.",
-        paragraph: "",
-        category: "",
-        justNu: false,
-        image: false,
-        mostViewed: false
-    },
-    {
-        id: 22,
-        title: "Second murderNews",
-        text: "some ingress for the murder.",
-        paragraph: "the text",
-        category: "brott",
-        justNu: true,
-        image: false,
-        mostViewed: true
-    },
-    {
-        id: 23,
-        title: "Third murderNews",
-        text: "some ingress for the murder.",
-        paragraph: "the text",
-        category: "brott",
-        justNu: true,
-        image: "",
-        mostViewed: true
-    },
-    {
-        id: 24,
-        title: "other news",
-        text: "some ingress for the news.",
-        paragraph: "the text",
-        category: "",
-        justNu: false,
-        image: false,
-        mostViewed: false
-    },
-    {
-        id: 25,
-        title: "other news",
-        text: "some ingress for the news.",
-        paragraph: "the text",
-        category: "",
-        justNu: false,
-        image: "",
-        mostViewed: false
-    },
-    {
-        id: 26,
-        title: "Fourth murderNews",
-        text: "some ingress for the murder.",
-        paragraph: "the text",
-        category: "brott",
-        justNu: true,
-        image: "",
-        mostViewed: true
-    },
-    {
-        id: 27,
-        title: "Fifth murderNews",
-        text: "some ingress for the murder.",
-        paragraph: "the text",
-        category: "brott",
-        justNu: true,
-        image: false,
-        mostViewed: true
-    },
-    {
-        id: 28,
-        title: "other news",
-        text: "some ingress for the news.",
-        paragraph: "",
-        category: "",
-        justNu: false,
-        image: "",
-        mostViewed: false
-    },
-    {
-        id: 29,
-        title: "other news",
-        text: "some ingress for the news.",
-        paragraph: "",
-        category: "",
-        justNu: false,
-        image: false,
-        mostViewed: false
-    },
-    {
-        id: 30,
-        title: "Sixth murderNews",
-        text: "some ingress for the murder.",
-        paragraph: "the text",
-        category: "brott",
-        justNu: true,
-        image: "",
-        mostViewed: true
-    },
+    // {
+    //     id: 20,
+    //     title: "First murderNews",
+    //     text: "some ingress for the murder.",
+    //     paragraph: "the text",
+    //     category: "brott",
+    //     justNu: false,
+    //     image: "",
+    //     mostViewed: true
+    // },
+    // {
+    //     id: 21,
+    //     title: "Some other news",
+    //     text: "some ingress for the news.",
+    //     paragraph: "",
+    //     category: "",
+    //     justNu: false,
+    //     image: false,
+    //     mostViewed: false
+    // },
+    // {
+    //     id: 22,
+    //     title: "Second murderNews",
+    //     text: "some ingress for the murder.",
+    //     paragraph: "the text",
+    //     category: "brott",
+    //     justNu: true,
+    //     image: false,
+    //     mostViewed: true
+    // },
+    // {
+    //     id: 23,
+    //     title: "Third murderNews",
+    //     text: "some ingress for the murder.",
+    //     paragraph: "the text",
+    //     category: "brott",
+    //     justNu: true,
+    //     image: "",
+    //     mostViewed: true
+    // },
+    // {
+    //     id: 24,
+    //     title: "other news",
+    //     text: "some ingress for the news.",
+    //     paragraph: "the text",
+    //     category: "",
+    //     justNu: false,
+    //     image: false,
+    //     mostViewed: false
+    // },
+    // {
+    //     id: 25,
+    //     title: "other news",
+    //     text: "some ingress for the news.",
+    //     paragraph: "the text",
+    //     category: "",
+    //     justNu: false,
+    //     image: "",
+    //     mostViewed: false
+    // },
+    // {
+    //     id: 26,
+    //     title: "Fourth murderNews",
+    //     text: "some ingress for the murder.",
+    //     paragraph: "the text",
+    //     category: "brott",
+    //     justNu: true,
+    //     image: "",
+    //     mostViewed: true
+    // },
+    // {
+    //     id: 27,
+    //     title: "Fifth murderNews",
+    //     text: "some ingress for the murder.",
+    //     paragraph: "the text",
+    //     category: "brott",
+    //     justNu: true,
+    //     image: false,
+    //     mostViewed: true
+    // },
+    // {
+    //     id: 28,
+    //     title: "other news",
+    //     text: "some ingress for the news.",
+    //     paragraph: "",
+    //     category: "",
+    //     justNu: false,
+    //     image: "",
+    //     mostViewed: false
+    // },
+    // {
+    //     id: 29,
+    //     title: "other news",
+    //     text: "some ingress for the news.",
+    //     paragraph: "",
+    //     category: "",
+    //     justNu: false,
+    //     image: false,
+    //     mostViewed: false
+    // },
+    // {
+    //     id: 30,
+    //     title: "Sixth murderNews",
+    //     text: "some ingress for the murder.",
+    //     paragraph: "the text",
+    //     category: "brott",
+    //     justNu: true,
+    //     image: "",
+    //     mostViewed: true
+    // },
 ];
 
 //the categories for the navigation bar
