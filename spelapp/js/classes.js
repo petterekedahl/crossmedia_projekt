@@ -617,7 +617,6 @@ class SuspectGuess {
     return cardInner;
   }
 }
-
 class ClueSubmitter {
   constructor(data) {
     this.content = data.content;

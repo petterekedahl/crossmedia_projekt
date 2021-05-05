@@ -41,6 +41,8 @@ function loadHomePage() {
 }
 
 function loadInformationPage() {
+  contentDiv.classList.remove('content-div-grid');
+  contentDiv.classList.add('content-div-flex');
   resetMainDiv();
   const newsNotifications = document.createElement('div');
   const pageSplit = document.createElement('div');
@@ -89,24 +91,13 @@ function loadInvestigationPage() {
   contentDiv.classList.add('content-investigation-div');
   contentDiv.classList.add('content-div-flex');
 
-  const cluesDiv = document.createElement('div');
   const guessDiv = document.createElement('div');
 
-  cluesDiv.classList.add('investigation-clue-div');
   guessDiv.classList.add('investigation-guess-div');
   guessDiv.innerHTML = `
     <h2>Submit your guess.</h2>
     <p>Choose wisely, you only got one guess since we don't have time for play.</p>
   `;
-
-  for (let i = 0; i < 2; i++) {
-    let newClueSubmit = new ClueSubmitter({
-      content: STATE.user[`clue${i+1}`],
-      id: i,
-    })
-
-    cluesDiv.append(newClueSubmit.createHTML());
-  }
 
   const guessSuspects = document.createElement('div');
   guessDiv.append(guessSuspects);
@@ -128,7 +119,7 @@ function loadInvestigationPage() {
     }
   }
 
-  contentDiv.append(cluesDiv, guessDiv);
+  contentDiv.append(guessDiv);
 }
 
 function loadSuspectPage() {
