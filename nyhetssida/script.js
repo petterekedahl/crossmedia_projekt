@@ -21,6 +21,7 @@ let navItems;
 let currentFilter;
 let subscribeBtns;
 let mostViewedArticles = [...articles];
+let allArticles = [...articles];
 
 //------------------Functions--------------------//
 function createNavItems(item){
@@ -100,11 +101,13 @@ navItems = document.querySelectorAll(".navItem");
 //save all the subscribeElmnts
 subscribeBtns = document.querySelectorAll(".subscribe");
 
+//creates the articles in the sidebar
 mostViewedArticles = mostViewedArticles.filter(article => article.mostViewed !== false);
 for (let i = mostViewedArticles.length - 1; i >= 0; i--) {
     createMostViewed(mostViewedArticles[i]);
 }
 
+//when on index page load all articles
 if (currentPage === indexPage) {
     //creates the senaste-nytt-news and removes it from the array
     createNews(articles[articles.length - 1], justNowContainer);
@@ -120,21 +123,26 @@ if (currentPage === indexPage) {
 //when clicking on nav, only load articles with the category
 navItems.forEach(navItem => {
     navItem.addEventListener("click", (event) => {
-        navItems.forEach(it => {
+        navItems.forEach(it => { //de-highlighting
             it.style.removeProperty("color");
             it.style.removeProperty("text-decoration");
         });
-        event.target.style.color = "black";
+        event.target.style.color = "black"; //fixes the highlighting
         event.target.style.textDecoration = "underline";
         newsWrap.innerHTML = "";
         let nContainer = document.createElement("div");
         nContainer.classList.add("sortedContainer");
         newsWrap.append(nContainer);
-        articles.filter((article) => {
-            if (article.category === event.target.innerText.toLowerCase()){
-                createNews(article, nContainer);
+        for (let i = allArticles.length - 1; i >= 0; i--) {
+            if (allArticles[i].category === event.target.innerText.toLowerCase()){
+                createNews(allArticles[i], nContainer);
             }
-        });
+        }
+        // articles.filter((article) => {
+        //     if (article.category === event.target.innerText.toLowerCase()){
+        //         createNews(article, nContainer);
+        //     }
+        // });
     });
 });
 
