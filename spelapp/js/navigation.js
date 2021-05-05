@@ -2,7 +2,7 @@ function loadNavClicks() {
   const navLinks = document.querySelectorAll('#nav-div > div');
 
   const burgerMenu = document.querySelector('#burger-menu');
-  let isActive = false;
+  let isActive = true;
 
   for (let i = 0; i < navLinks.length; i++) {
     whatPageToLoad = 0;
@@ -45,7 +45,7 @@ function loadNavClicks() {
 
     if (document.documentElement.clientWidth > 800) return;
 
-    if (nav.style.right == '-100%' || nav.style.right == '') {
+    if (nav.style.right == '-100%' || nav.style.right == '-5000px' || nav.style.right == '') {
       isActive = true;
       line1.style.transform = 'translateY(2vh) rotate(45deg)';
       line3.style.transform = 'translateY(-2vh) rotate(-45deg)';
@@ -122,5 +122,5 @@ function loadNavClicks() {
 window.addEventListener('resize', () => {
   const nav = document.querySelector('#navigation');
   if (document.documentElement.clientWidth > 800) nav.style.right = '0';
-  if (document.documentElement.clientWidth < 801) nav.style.right = '-100%';
+  if (document.documentElement.clientWidth < 801) nav.style.right = '-5000px';
 })
