@@ -2,7 +2,7 @@ class Suspect {
   constructor(data) {
     this.name = data.name,
     this.height = data.height,
-    this.alibi = data.alibi,
+    // this.alibi = data.alibi,
     this.nationality = data.nationality,
     this.notes = data.notes,
     this.image = data.image,
@@ -62,16 +62,16 @@ class Suspect {
     heightP.classList.add('height-p');
 
     //set alibi
-    const alibiDiv = document.createElement('div');
-    const alibiSpan = document.createElement('span');
-    const alibiP = document.createElement('p');
-    alibiSpan.textContent = 'Alibi: ';
-    alibiP.textContent = this.alibi;
-    alibiDiv.append(alibiSpan, alibiP);
+    // const alibiDiv = document.createElement('div');
+    // const alibiSpan = document.createElement('span');
+    // const alibiP = document.createElement('p');
+    // alibiSpan.textContent = 'Alibi: ';
+    // alibiP.textContent = this.alibi;
+    // alibiDiv.append(alibiSpan, alibiP);
 
-    alibiDiv.classList.add('alibi-div');
-    alibiSpan.classList.add('alibi-span');
-    alibiP.classList.add('alibi-p');
+    // alibiDiv.classList.add('alibi-div');
+    // alibiSpan.classList.add('alibi-span');
+    // alibiP.classList.add('alibi-p');
 
     // set nationality
     const nationalityDiv = document.createElement('div');
@@ -85,17 +85,17 @@ class Suspect {
     nationalitySpan.classList.add('natio-span');
     nationalityP.classList.add('natio-p');
 
-    infoDiv.append(nameDiv, ageDiv, heightDiv, alibiDiv, nationalityDiv);
+    infoDiv.append(nameDiv, ageDiv, heightDiv, nationalityDiv);
     infoDiv.classList.add('suspect-info-div');
 
     // front card buttons
-    notesButton.textContent = 'Your notes:';
+    notesButton.textContent = 'YOUR NOTES';
     notesButton.id = this.id + "suspect-note-button";
 
     noteDiv.append(notesButton, noSuspectButton);
     notesButton.classList.add('notes-button');
     noSuspectButton.classList.add(`no-suspect-button`);
-    noSuspectButton.textContent = 'No interest';
+    noSuspectButton.textContent = 'NO INTEREST';
 
     noteDiv.classList.add('suspect-card-front-div');
 
@@ -109,7 +109,7 @@ class Suspect {
 
     notesTitle.textContent = 'Your Notes';
     yourNotes.setAttribute('contenteditable', true);
-    doneButton.textContent = 'Done';
+    doneButton.textContent = 'DONE';
 
     cardBack.append(notesTitle, yourNotes, doneButton);
 
@@ -120,7 +120,7 @@ class Suspect {
       noSuspectDiv.classList.add('suspect-is-no-suspect');
       const addSuspect = document.createElement('button');
       addSuspect.classList.add('add-suspect-button');
-      addSuspect.textContent = 'Add suspect';
+      addSuspect.textContent = 'ADD SUSPECT';
       noSuspectDiv.append(addSuspect);
       STATE.user.suspects.forEach(suspect => { 
         if (this.id == suspect.id) {
@@ -318,7 +318,7 @@ class InterrogationRecord {
     seeMoreButton.classList.add('see-more-interrogation');
 
     upper.innerHTML =`
-      Interrogation record - <span>${this.name}</span>
+      INTERROGARTIN RECORD - <span>${this.name}</span>
     `;
     lower.innerHTML =`
       Published: <span>${this.date}</span>.
@@ -426,7 +426,7 @@ class SuspectGuess {
   constructor(data) {
     this.name = data.name,
     this.height = data.height,
-    this.alibi = data.alibi,
+    // this.alibi = data.alibi,
     this.nationality = data.nationality,
     // this.notes = data.notes,
     this.image = data.image,
@@ -436,11 +436,8 @@ class SuspectGuess {
   }
 
   createHTML() {
-    const noSuspectDiv = document.createElement('div');
-    const card = document.createElement('div');
     const cardInner = document.createElement('div');
     const cardFront = document.createElement('div');
-    const cardBack = document.createElement('div');
     const imageDiv = document.createElement('div');
     const image = document.createElement('img');
     const nameDiv = document.createElement('div');
@@ -486,16 +483,16 @@ class SuspectGuess {
     heightP.classList.add('height-p');
 
     //set alibi
-    const alibiDiv = document.createElement('div');
-    const alibiSpan = document.createElement('span');
-    const alibiP = document.createElement('p');
-    alibiSpan.textContent = 'Alibi: ';
-    alibiP.textContent = this.alibi;
-    alibiDiv.append(alibiSpan, alibiP);
+    // const alibiDiv = document.createElement('div');
+    // const alibiSpan = document.createElement('span');
+    // const alibiP = document.createElement('p');
+    // alibiSpan.textContent = 'Alibi: ';
+    // alibiP.textContent = this.alibi;
+    // alibiDiv.append(alibiSpan, alibiP);
 
-    alibiDiv.classList.add('alibi-div');
-    alibiSpan.classList.add('alibi-span');
-    alibiP.classList.add('alibi-p');
+    // alibiDiv.classList.add('alibi-div');
+    // alibiSpan.classList.add('alibi-span');
+    // alibiP.classList.add('alibi-p');
 
     // set nationality
     const nationalityDiv = document.createElement('div');
@@ -509,7 +506,7 @@ class SuspectGuess {
     nationalitySpan.classList.add('natio-span');
     nationalityP.classList.add('natio-p');
 
-    infoDiv.append(nameDiv, ageDiv, heightDiv, alibiDiv, nationalityDiv);
+    infoDiv.append(nameDiv, ageDiv, heightDiv, nationalityDiv);
     infoDiv.classList.add('suspect-info-div');
 
     // front card buttons
@@ -615,69 +612,5 @@ class SuspectGuess {
 
     cardInner.append(guessButton);
     return cardInner;
-  }
-}
-
-class ClueSubmitter {
-  constructor(data) {
-    this.content = data.content;
-    this.id = data.id;
-  }
-
-  createHTML() {
-    const div = document.createElement('div');
-    const title = document.createElement('h2');
-    const clueInformation = document.createElement('p');
-
-    div.classList.add('investigation-clue-submit-div');
-    title.classList.add('investigation-submit-title');
-    clueInformation.classList.add('investigation-submit-info');
-    
-    if (this.id == 0) {
-      clueInformation.textContent = 'Submit your crime scene information here.'
-    } else {
-      clueInformation.textContent = 'Submit your information for the second crime scene here.'
-    }
-
-    div.append(title, clueInformation);
-
-    if (this.content) {
-      const clueDiv = document.createElement('div');
-      clueDiv.classList.add('investigation-clue-content');
-      clueDiv.textContent = this.content;
-
-      clueInformation.textContent = "This is what we found out about the murderer from the information you provided.";
-
-      div.append(clueDiv);
-    } else {
-      const submitionDiv = document.createElement('div');
-      const button = document.createElement('button');
-      button.classList.add('investigation-submit-button');
-      button.textContent = 'Submit';
-
-      const input = document.createElement('input');
-      input.classList.add('investigation-submit-input');
-      input.setAttribute('placeholder', 'Enter information');
-
-      submitionDiv.append(input, button);
-
-      button.addEventListener('click', () => {
-        if (this.id == 0) {
-          STATE.user.clue1 = input.value;
-        }
-        if (this.id == 1) {
-          STATE.user.clue2 = input.value;
-        }
-
-        submitionDiv.innerHTML = `<p class="investigation-submition-thankyou">Thank you for your submition, we will post what we find out here whenever we have looked through your submition.</p>`
-
-        postToDatabase('PUT', 'submit-clue');
-      })
-
-      div.append(submitionDiv);
-    }
-
-    return div;
-
   }
 }

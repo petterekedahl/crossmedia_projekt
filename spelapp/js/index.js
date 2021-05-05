@@ -35,6 +35,7 @@ fetch(userReq)
       //   "notes": user.notes
       // };
       STATE.user = user;
+      STATE.end = user.time;
   
       console.log(STATE.user);
     } catch (error) {

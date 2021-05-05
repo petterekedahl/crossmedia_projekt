@@ -76,6 +76,7 @@ if ($method == "GET" && isset($_GET["userId"])) {
       "guesses" => $user["guesses"],
       "clue1" => $user["clue1"],
       "clue2" => $user["clue2"],
+      "time" => strtotime('28-05-21 15:00:00') * 1000,
     ];
   // }
 

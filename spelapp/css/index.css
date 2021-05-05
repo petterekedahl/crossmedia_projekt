@@ -11,6 +11,7 @@ body {
 
   height: 100vh;
   width: 100vw;
+  overflow: hidden;
 }
 
 .wrong-answer-pop {
@@ -53,15 +54,16 @@ body {
 
 #main-div {
   display: none;
-  width: 75vw;
+  width: 70vw;
   height: 100vh;
   justify-content: center;
   align-items: center;
+  margin-left: 2.5vw;
 }
 
 @media (max-width: 800px) {
   #main-div {
-    width: 100vw;
+    width: 95vw;
   }
 }
 
@@ -78,7 +80,7 @@ body {
   width: 100%;
   height: 90vh;
 
-  padding: 10px;
+  padding: 3%;
 }
 .content-div-grid {
   display: grid;
@@ -233,13 +235,16 @@ body {
   justify-content: space-evenly;
   align-items: center;
 
+  margin-top: 2%;
   width: 70%;
 }
 
 /* Knappar i suspect */
 
 .suspect-card button {
-  border-radius: 5px;
+  /* border-radius: 5px; */
+
+  padding: 2%;
 
   display: flex;
   justify-content: center;
@@ -248,13 +253,15 @@ body {
   margin: 3px;
 
   transition: all 0.3s ease;
+
+  border: 2px solid rgba(0, 0, 0, 0.4);
 }
 
 .suspect-card-front button {
-  background-color: rgba(0, 0, 0, 0);
+  background-color: rgba(255, 255, 255, 1);
   color: rgba(0, 0, 0, 1);
 
-  width: 40%;
+  width: 45%;
   height: 100%;
 }
 
@@ -264,7 +271,7 @@ body {
 }
 
 .suspect-is-no-suspect button {
-  background-color: rgb(216, 216, 216);
+  background-color: rgb(255, 255, 255);
   color: rgba(0, 0, 0, 1);
   transition: all 0.3s ease;
   width: 50%;
@@ -272,7 +279,7 @@ body {
 }
 
 .suspect-card button:hover {
-  background-color: rgba(0,0,0,0.7);
+  background-color: rgba(0,0,0,0.6);
   color: rgba(255, 255, 255, 1);
   transition: all 0.3s ease;
   cursor: pointer;
@@ -432,6 +439,14 @@ body {
   transition: all 0.3s ease;
 }
 
+@media (max-width: 800px) {
+  .note-add-button {
+    margin-right: 5%;
+    height: 10vw;
+    width: 10vw;
+  }
+}
+
 /* HOME PAGE -----------------------------------------------*/
 
 .home-container-div {
@@ -506,10 +521,10 @@ body {
 
 /*Interrogation section------------------------------*/
 
-#informationPageSplit {
+/* #informationPageSplit {
   width: 100%;
   border: 2px solid black;
-}
+} */
 
 .interrogation-section {
 
@@ -517,7 +532,7 @@ body {
 
 /*The information just above all the records*/
 .interrogation-information {
-  margin: 0.8rem 0 0.8rem 0;
+  margin: 0 0 0.8rem 0;
 
   font-family: var(--fontContentText);
   font-size:1rem;
@@ -531,6 +546,8 @@ body {
 /*The individual records container*/
 .inter-record-container {
   border-bottom: 2px solid black;
+  margin-bottom: 2%;
+  padding-bottom: 5px;
 }
 /*Contains the title and name in same div*/
 .inter-record-upper-info {

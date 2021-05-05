@@ -41,6 +41,8 @@ function loadHomePage() {
 }
 
 function loadInformationPage() {
+  contentDiv.classList.remove('content-div-grid');
+  contentDiv.classList.add('content-div-flex');
   resetMainDiv();
   const newsNotifications = document.createElement('div');
   const pageSplit = document.createElement('div');
@@ -50,11 +52,13 @@ function loadInformationPage() {
   newsNotifications.classList.add('notification-section');
   interrigationZone.classList.add('interrogation-section');
 
-  const interrigationHeader = document.createElement('p');
-  interrigationHeader.textContent = 'Below you will find information such as interrogation records and more that might help the inverstigation.';
+  const interrigationHeader = document.createElement('div');
+  interrigationHeader.innerHTML = `
+  <h2>INFORMATION</h2>
+  <p>Below you will find information such as interrogation records and more that might help the inverstigation.</p>`;
   interrigationHeader.classList.add('interrogation-information');
 
-  interrigationZone.append(interrigationHeader);
+  contentDiv.append(interrigationHeader);
 
   if (notifications.length) {
     for (let i = 0; i < notifications.length; i++) {
@@ -87,24 +91,13 @@ function loadInvestigationPage() {
   contentDiv.classList.add('content-investigation-div');
   contentDiv.classList.add('content-div-flex');
 
-  const cluesDiv = document.createElement('div');
   const guessDiv = document.createElement('div');
 
-  cluesDiv.classList.add('investigation-clue-div');
   guessDiv.classList.add('investigation-guess-div');
   guessDiv.innerHTML = `
     <h2>Submit your guess.</h2>
     <p>Choose wisely, you only got one guess since we don't have time for play.</p>
   `;
-
-  for (let i = 0; i < 2; i++) {
-    let newClueSubmit = new ClueSubmitter({
-      content: STATE.user[`clue${i+1}`],
-      id: i,
-    })
-
-    cluesDiv.append(newClueSubmit.createHTML());
-  }
 
   const guessSuspects = document.createElement('div');
   guessDiv.append(guessSuspects);
@@ -126,7 +119,7 @@ function loadInvestigationPage() {
     }
   }
 
-  contentDiv.append(cluesDiv, guessDiv);
+  contentDiv.append(guessDiv);
 }
 
 function loadSuspectPage() {
