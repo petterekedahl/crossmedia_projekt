@@ -89,13 +89,13 @@ class Suspect {
     infoDiv.classList.add('suspect-info-div');
 
     // front card buttons
-    notesButton.textContent = 'Your notes:';
+    notesButton.textContent = 'YOUR NOTES';
     notesButton.id = this.id + "suspect-note-button";
 
     noteDiv.append(notesButton, noSuspectButton);
     notesButton.classList.add('notes-button');
     noSuspectButton.classList.add(`no-suspect-button`);
-    noSuspectButton.textContent = 'No interest';
+    noSuspectButton.textContent = 'NO INTEREST';
 
     noteDiv.classList.add('suspect-card-front-div');
 
@@ -109,7 +109,7 @@ class Suspect {
 
     notesTitle.textContent = 'Your Notes';
     yourNotes.setAttribute('contenteditable', true);
-    doneButton.textContent = 'Done';
+    doneButton.textContent = 'DONE';
 
     cardBack.append(notesTitle, yourNotes, doneButton);
 
@@ -120,7 +120,7 @@ class Suspect {
       noSuspectDiv.classList.add('suspect-is-no-suspect');
       const addSuspect = document.createElement('button');
       addSuspect.classList.add('add-suspect-button');
-      addSuspect.textContent = 'Add suspect';
+      addSuspect.textContent = 'ADD SUSPECT';
       noSuspectDiv.append(addSuspect);
       STATE.user.suspects.forEach(suspect => { 
         if (this.id == suspect.id) {

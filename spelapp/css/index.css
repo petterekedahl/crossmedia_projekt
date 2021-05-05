@@ -235,13 +235,16 @@ body {
   justify-content: space-evenly;
   align-items: center;
 
+  margin-top: 2%;
   width: 70%;
 }
 
 /* Knappar i suspect */
 
 .suspect-card button {
-  border-radius: 5px;
+  /* border-radius: 5px; */
+
+  padding: 2%;
 
   display: flex;
   justify-content: center;
@@ -250,13 +253,15 @@ body {
   margin: 3px;
 
   transition: all 0.3s ease;
+
+  border: 2px solid rgba(0, 0, 0, 0.4);
 }
 
 .suspect-card-front button {
-  background-color: rgba(0, 0, 0, 0);
+  background-color: rgba(255, 255, 255, 1);
   color: rgba(0, 0, 0, 1);
 
-  width: 40%;
+  width: 45%;
   height: 100%;
 }
 
@@ -266,7 +271,7 @@ body {
 }
 
 .suspect-is-no-suspect button {
-  background-color: rgb(216, 216, 216);
+  background-color: rgb(255, 255, 255);
   color: rgba(0, 0, 0, 1);
   transition: all 0.3s ease;
   width: 50%;
@@ -274,7 +279,7 @@ body {
 }
 
 .suspect-card button:hover {
-  background-color: rgba(0,0,0,0.7);
+  background-color: rgba(0,0,0,0.6);
   color: rgba(255, 255, 255, 1);
   transition: all 0.3s ease;
   cursor: pointer;
