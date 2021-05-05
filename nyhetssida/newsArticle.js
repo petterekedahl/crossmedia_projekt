@@ -6,9 +6,14 @@ function makeArticlePage(articleID){
     let currentArticle = articles.find(article => article.id == articleID);
     // console.log(currentArticle);
     let nRubrik = document.createElement("h1"); //artikelrubrik
+    nRubrik.classList.add("articleTitle");
     nRubrik.innerText = currentArticle.title;
     let nRegress = document.createElement("p"); //artikelinledning
+    nRegress.classList.add("articleIngress");
     nRegress.innerText = currentArticle.text;
+    let nText = document.createElement("p"); //artikeltext
+    nText.classList.add("articleParagraph");
+    nText.innerText = currentArticle.paragraph;
     let readMoreBox = document.createElement("div"); //läs mer låda
     readMoreBox.classList.add("readWholeBox");
     let readMoreText = document.createElement("p");
@@ -22,13 +27,9 @@ function makeArticlePage(articleID){
         let nImg = document.createElement("img");
         nImg.classList.add("articleImage");
         nImg.setAttribute("src", currentArticle.image);
-        (currentArticle.mostViewed !== false) ?  mainArticlePage.append(nRubrik, nImg, nRegress) : mainArticlePage.append(nRubrik, nImg, nRegress, readMoreBox);
-        // if (currentArticle.mostViewed !== false) {
-        //     mainArticlePage
-        // }
-        // mainArticlePage.append(nRubrik, nImg, nRegress, readMoreBox);
+        (currentArticle.mostViewed !== false) ?  mainArticlePage.append(nRubrik, nImg, nRegress, nText) : mainArticlePage.append(nRubrik, nImg, nRegress, readMoreBox);
+
     } else {
-        // mainArticlePage.append(nRubrik, nRegress, readMoreBox);
-        (currentArticle.mostViewed !== false) ?  mainArticlePage.append(nRubrik, nRegress) : mainArticlePage.append(nRubrik, nRegress, readMoreBox);
+        (currentArticle.mostViewed !== false) ?  mainArticlePage.append(nRubrik, nRegress, nText) : mainArticlePage.append(nRubrik, nRegress, readMoreBox);
     }
 }

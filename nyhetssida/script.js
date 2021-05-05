@@ -20,6 +20,7 @@ const indexPage = "index.php";
 let navItems;
 let currentFilter;
 let subscribeBtns;
+let mostViewedArticles = [...articles];
 
 //------------------Functions--------------------//
 function createNavItems(item){
@@ -54,6 +55,7 @@ function createNews(article, container = newsContainer) {
     container.append(nDiv);
 }
 
+//sidebar about most viewed articles
 function createMostViewed(article) {
     let nDiv = document.createElement("a");
     nDiv.setAttribute("href", `articlePage.php?id=${article.id}`);
@@ -78,7 +80,7 @@ function reDirrr(e) {
     document.body.style.height = "100vh";
     document.body.style.overflow = "hidden";
     setTimeout(() => {
-        window.location.href = "http://www.melanie-deuretzbacher.se/voyage";
+        window.location.href = "http://privateprotection.se/";
     }, 3000);
 }
 
@@ -98,22 +100,19 @@ navItems = document.querySelectorAll(".navItem");
 //save all the subscribeElmnts
 subscribeBtns = document.querySelectorAll(".subscribe");
 
-let mostViewedArticles = articles.filter(article => article.mostViewed !== false);
+mostViewedArticles = mostViewedArticles.filter(article => article.mostViewed !== false);
 for (let i = mostViewedArticles.length - 1; i >= 0; i--) {
     createMostViewed(mostViewedArticles[i]);
 }
-// mostViewedArticles.forEach(mVArticle => {
-//     createMostViewed(mVArticle);
-// });
 
 if (currentPage === indexPage) {
     //creates the senaste-nytt-news and removes it from the array
     createNews(articles[articles.length - 1], justNowContainer);
     articles.splice(articles.length - 1, 1);
     //creates the rest of the articles
-    articles.forEach(article => {
-        createNews(article);
-    });
+    for (let i = articles.length - 1; i >= 0; i--) {
+        createNews(articles[i]);
+    }
 }
 
 //---------------Event handlers------------------//

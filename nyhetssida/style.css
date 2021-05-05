@@ -9,9 +9,9 @@
     --fontSizeNewsFeedTitle: 2vw;
     --fontSizeNewsFeedIngress: 1vw;
     --fontSizeMostViewed: 1vw;
-    --fontSizeArticleTitle: 15px;
-    --fontSizeArticleIngress: 15px;
-    --fontSizeArticleText: 15px;
+    --fontSizeArticleTitle: 2vw;
+    --fontSizeArticleIngress: 1.4vw;
+    --fontSizeArticleText: 1.3vw;
     --navHov: #ca6258;
     --wrapperWidth: 70%;
     --sideBarWidth: 30%;
@@ -30,6 +30,7 @@ body {
     overflow-x: hidden;
 }
 
+/* placeholder between nav and main */
 #placeholder {
     height: 3vh;
     background-color: white;
@@ -42,11 +43,13 @@ main {
     justify-content: center;
 }
 
+/* both newsfeed and sidebar */
 #newsContainer {
     flex-basis: var(--wrapperWidth);
     display: flex;
 }
 
+/* only the newsfeed */
 #newsFeed {
     flex-basis: calc(100% - var(--sideBarWidth) - var(--sideBarMarg));
 }
@@ -117,6 +120,7 @@ a {
     flex-grow: 1;
     border: 1px solid black;
     padding: 1vw;
+    height: 80%;
 }
 
 #sideBar h3 {
@@ -137,9 +141,24 @@ a {
     /* color: var(--navBkg); */
 }
 
-#articleBody h1, #articleBody p {
+.articleTitle, .articleIngress, .articleParagraph {
     margin-bottom: 2vh;
     padding-left: 1vw;
+
+}
+
+.articleTitle {
+    font-size: var(--fontSizeArticleTitle);
+    font-weight: bold;
+}
+
+.articleIngress {
+    font-size: var(--fontSizeArticleIngress);
+    font-weight: bold;
+}
+
+.articleParagraph {
+    font-size: var(--fontSizeArticleText);
 }
 
 #articleBody .articleImage {
@@ -241,22 +260,29 @@ a {
 }
 
 #mostViewed {
-    height: 80%;
+    height: 90%;
     margin-top: 1.5vw;
     overflow-y: scroll;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    /* justify-content: space-evenly; */
     padding: 0 2vw;
+    /* position: relative; */
+}
+
+.mostViewed:first-child {
+    /* position: relative;
+    top: 0; */
 }
 
 #mostViewed > .article {
     display: block;
     flex-basis: 10vh;
-    flex-grow: 1;
+    padding: 2vw 0;
+    /* flex-grow: 1; */
     border-bottom: 1px solid var(--navBkg);
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
 }
 
@@ -266,4 +292,6 @@ a {
 
 #mostViewed h5 {
     font-size: var(--fontSizeMostViewed);
+    font-weight: lighter;
 }
+
