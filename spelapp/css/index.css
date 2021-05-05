@@ -434,6 +434,14 @@ body {
   transition: all 0.3s ease;
 }
 
+@media (max-width: 800px) {
+  .note-add-button {
+    margin-right: 5%;
+    height: 10vw;
+    width: 10vw;
+  }
+}
+
 /* HOME PAGE -----------------------------------------------*/
 
 .home-container-div {

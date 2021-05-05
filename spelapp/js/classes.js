@@ -2,7 +2,7 @@ class Suspect {
   constructor(data) {
     this.name = data.name,
     this.height = data.height,
-    this.alibi = data.alibi,
+    // this.alibi = data.alibi,
     this.nationality = data.nationality,
     this.notes = data.notes,
     this.image = data.image,
@@ -62,16 +62,16 @@ class Suspect {
     heightP.classList.add('height-p');
 
     //set alibi
-    const alibiDiv = document.createElement('div');
-    const alibiSpan = document.createElement('span');
-    const alibiP = document.createElement('p');
-    alibiSpan.textContent = 'Alibi: ';
-    alibiP.textContent = this.alibi;
-    alibiDiv.append(alibiSpan, alibiP);
+    // const alibiDiv = document.createElement('div');
+    // const alibiSpan = document.createElement('span');
+    // const alibiP = document.createElement('p');
+    // alibiSpan.textContent = 'Alibi: ';
+    // alibiP.textContent = this.alibi;
+    // alibiDiv.append(alibiSpan, alibiP);
 
-    alibiDiv.classList.add('alibi-div');
-    alibiSpan.classList.add('alibi-span');
-    alibiP.classList.add('alibi-p');
+    // alibiDiv.classList.add('alibi-div');
+    // alibiSpan.classList.add('alibi-span');
+    // alibiP.classList.add('alibi-p');
 
     // set nationality
     const nationalityDiv = document.createElement('div');
@@ -85,7 +85,7 @@ class Suspect {
     nationalitySpan.classList.add('natio-span');
     nationalityP.classList.add('natio-p');
 
-    infoDiv.append(nameDiv, ageDiv, heightDiv, alibiDiv, nationalityDiv);
+    infoDiv.append(nameDiv, ageDiv, heightDiv, nationalityDiv);
     infoDiv.classList.add('suspect-info-div');
 
     // front card buttons
@@ -426,7 +426,7 @@ class SuspectGuess {
   constructor(data) {
     this.name = data.name,
     this.height = data.height,
-    this.alibi = data.alibi,
+    // this.alibi = data.alibi,
     this.nationality = data.nationality,
     // this.notes = data.notes,
     this.image = data.image,
@@ -436,11 +436,8 @@ class SuspectGuess {
   }
 
   createHTML() {
-    const noSuspectDiv = document.createElement('div');
-    const card = document.createElement('div');
     const cardInner = document.createElement('div');
     const cardFront = document.createElement('div');
-    const cardBack = document.createElement('div');
     const imageDiv = document.createElement('div');
     const image = document.createElement('img');
     const nameDiv = document.createElement('div');
@@ -486,16 +483,16 @@ class SuspectGuess {
     heightP.classList.add('height-p');
 
     //set alibi
-    const alibiDiv = document.createElement('div');
-    const alibiSpan = document.createElement('span');
-    const alibiP = document.createElement('p');
-    alibiSpan.textContent = 'Alibi: ';
-    alibiP.textContent = this.alibi;
-    alibiDiv.append(alibiSpan, alibiP);
+    // const alibiDiv = document.createElement('div');
+    // const alibiSpan = document.createElement('span');
+    // const alibiP = document.createElement('p');
+    // alibiSpan.textContent = 'Alibi: ';
+    // alibiP.textContent = this.alibi;
+    // alibiDiv.append(alibiSpan, alibiP);
 
-    alibiDiv.classList.add('alibi-div');
-    alibiSpan.classList.add('alibi-span');
-    alibiP.classList.add('alibi-p');
+    // alibiDiv.classList.add('alibi-div');
+    // alibiSpan.classList.add('alibi-span');
+    // alibiP.classList.add('alibi-p');
 
     // set nationality
     const nationalityDiv = document.createElement('div');
@@ -509,7 +506,7 @@ class SuspectGuess {
     nationalitySpan.classList.add('natio-span');
     nationalityP.classList.add('natio-p');
 
-    infoDiv.append(nameDiv, ageDiv, heightDiv, alibiDiv, nationalityDiv);
+    infoDiv.append(nameDiv, ageDiv, heightDiv, nationalityDiv);
     infoDiv.classList.add('suspect-info-div');
 
     // front card buttons
