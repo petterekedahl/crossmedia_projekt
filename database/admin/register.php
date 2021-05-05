@@ -46,8 +46,6 @@ if(isset($_POST["username"]) && isset($_POST['email']) && isset($_POST["password
     "suspects" => $defaultSuspects,
     "notes" => [],
     "guesses" => 0,
-    "clue1" => false,
-    "clue2" => false,
     "finalGuessId" => false
   ];
 

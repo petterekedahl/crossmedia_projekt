@@ -84,9 +84,7 @@
             ],
             "id": 0,
             "finalGuessId": false,
-            "guesses": 0,
-            "clue1": "Thank you for your work, unfortunatley the inforamtion you provided for us were to no use",
-            "clue2": "Thank you for your work, the information you provided help us find out important information about the suspect. The murderer is a clown woopiwoopi."
+            "guesses": 0
         }
     ]
 }
