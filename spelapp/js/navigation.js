@@ -120,7 +120,7 @@ function loadNavClicks() {
 }
 
 window.addEventListener('resize', () => {
-  if (document.documentElement.clientWidth > 799) {
-    document.querySelector('#navigation').style.right = '0';
-  }
+  const nav = document.querySelector('#navigation');
+  if (document.documentElement.clientWidth > 800) nav.style.right = '0';
+  if (document.documentElement.clientWidth < 801) nav.style.right = '-100%';
 })
