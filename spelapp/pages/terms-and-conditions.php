@@ -34,7 +34,7 @@
         <li>Redistribute content from the Ministry of Private Protection's website</li>
       </ul>
     </div>
-    <button><a href="./register.php">Okay</a></button>
+    <a href="./register.php"><button>Okay</button></a>
   </main>
 </body>
 </html>
