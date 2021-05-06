@@ -13,6 +13,7 @@ if(isset($_SESSION['username'])) {
   <title>M.P.P. -</title>
   <link rel="stylesheet" href="../css/variables.css">
   <link rel="stylesheet" href="../css/login.css">
+  <link rel="icon" href="../images/Seal_of_the_MPP1.png">
 </head>
 <body>
   <div class="spel-login-div">

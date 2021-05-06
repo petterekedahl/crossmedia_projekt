@@ -10,6 +10,7 @@ session_start();
   <title>M.P.P. -</title>
   <link rel="stylesheet" href="../css/variables.css">
   <link rel="stylesheet" href="../css/register.css">
+  <link rel="icon" href="../images/Seal_of_the_MPP1.png">
 </head>
 <body>
   <div class="spel-register-div">
@@ -29,5 +30,4 @@ session_start();
     </form>
   </div>
 </body>
-<script src="../js/register.js"></script>
 </html>
