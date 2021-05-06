@@ -194,6 +194,7 @@ class Notes {
   createHTML() {
     const note = document.createElement('div');
     const noteContainer = document.createElement('div');
+    const noteInfoContainer = document.createElement('div');
     const noteInfoDiv = document.createElement('div');
     const noteTitle = document.createElement('div');
     const noteDate = document.createElement('div');
@@ -201,13 +202,15 @@ class Notes {
 
     note.classList.add('note-container-div');
     noteContainer.classList.add('notes');
+    noteInfoContainer.classList.add('note-information-container');
     noteInfoDiv.classList.add('note-info-div');
     noteTitle.classList.add('note-title');
     noteDate.classList.add('note-date');
     editButton.classList.add('note-edit-button');
 
-    noteInfoDiv.append(noteTitle, noteDate, editButton);
-    note.append(noteInfoDiv, noteContainer);
+    noteInfoDiv.append(noteTitle, noteDate);
+    noteInfoContainer.append(noteInfoDiv, editButton);
+    note.append(noteInfoContainer, noteContainer);
 
     noteTitle.textContent = this.title;
     noteDate.textContent = this.date;
