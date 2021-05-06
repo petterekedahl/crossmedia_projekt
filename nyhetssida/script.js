@@ -16,12 +16,13 @@ const today = `${currentWeekDay} ${currentDay} ${currentMonth} ${currentYear}`;
 let currentPage = location.pathname;
 currentPage = currentPage.split("/");
 currentPage = currentPage[currentPage.length - 1];
-const indexPage = "index.php";
+const articlePage = "articlePage.php";
 let navItems;
 let currentFilter;
 let subscribeBtns;
 let mostViewedArticles = [...articles];
 let allArticles = [...articles];
+let newsArticles = [...articles];
 
 //------------------Functions--------------------//
 function createNavItems(item){
@@ -108,7 +109,7 @@ for (let i = mostViewedArticles.length - 1; i >= 0; i--) {
 }
 
 //when on index page load all articles
-if (currentPage === indexPage) {
+if (currentPage !== articlePage) {
     //creates the senaste-nytt-news and removes it from the array
     createNews(articles[articles.length - 1], justNowContainer);
     articles.splice(articles.length - 1, 1);

@@ -8,6 +8,7 @@ header {
     background-color: white;
     top: -10vh;
     z-index: 5;
+    justify-content: center;
 }
 
 #logoContainer {
@@ -106,7 +107,6 @@ header {
 }
 
 #datumContainer {
-    /* flex-basis: 200px; */
     flex-grow: 1;
     display: flex;
     justify-content: flex-end;
@@ -121,28 +121,50 @@ header {
 }
 
 nav {
-    /* flex-grow: 1; */
     display: flex;
     flex-basis: calc(100% - var(--sideBarWidth) - var(--sideBarMarg));
     justify-content: space-evenly;
 }
 
 .navItem {
-    /* flex-basis: 0; */
     flex-grow: 1;
     display: flex;
-    /* justify-content: center; */
     align-items: center;
+    font-size: var(--fontSizeNav);
 }
 
 .navItem:hover {
     cursor: pointer;
     text-decoration: underline;
-    /* background-color: var(--navHov); */
 }
 
 #abonnera:hover > div {
     cursor: pointer;
     background-color: var(--navBkg);
     color: white;
+}
+
+/* over 1500 everything stops growing */
+@media (min-width: 1500px){
+    #logotype {
+        width: 300px;
+    }
+}
+
+@media (max-width: 1200px) {
+    #placeholder, #prenDiv, nav {
+        display: none;
+    }
+    #logotype {
+        width: 300px
+    }
+    header {
+        /* height: auto; */
+        top: 0;
+        justify-content: center;
+    }
+    #navContainer {
+        padding: 5px 0;
+        flex-basis: 35%;
+    }
 }

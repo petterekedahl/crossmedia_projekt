@@ -1,6 +1,6 @@
 footer {
     /* height: 25vh; */
-    margin-top: 3vh;
+    margin-top: 10vh;
     /* background-color: lightslategrey; */
     display: flex;
     justify-content: center;
@@ -76,3 +76,33 @@ footer p.subscribe:hover {
 .bdr-left * {
     display: block;
 }
+
+/* over 1500 everything stops growing */
+@media (min-width: 1500px){
+    #footerWrap {
+        padding: 30px 130px;
+    }
+}
+
+/* mobile */
+@media (max-width: 1200px) {
+    footer {
+        margin-top: 30px;
+    }
+    #info {
+        flex-direction: column;
+        height: auto;
+    }
+    .bdr-left {
+        height: auto;
+    }
+    #footerWrap {
+        width: 100%;
+        flex-basis: auto;
+        padding: 10px 35px
+    }
+    #copyright {
+        height: auto;
+    }
+}
+
