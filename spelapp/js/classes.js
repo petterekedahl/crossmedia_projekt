@@ -197,23 +197,26 @@ class Notes {
     const noteInfoDiv = document.createElement('div');
     const noteTitle = document.createElement('div');
     const noteDate = document.createElement('div');
+    const editButton = document.createElement('button');
 
     note.classList.add('note-container-div');
     noteContainer.classList.add('notes');
     noteInfoDiv.classList.add('note-info-div');
     noteTitle.classList.add('note-title');
     noteDate.classList.add('note-date');
+    editButton.classList.add('note-edit-button');
 
-    noteInfoDiv.append(noteTitle, noteDate);
+    noteInfoDiv.append(noteTitle, noteDate, editButton);
     note.append(noteInfoDiv, noteContainer);
 
     noteTitle.textContent = this.title;
     noteDate.textContent = this.date;
     noteContainer.textContent = this.notes;
+    editButton.textContent = "Edit";
 
     let isNoteOpen = false;
 
-    note.addEventListener('click', (event) => {
+    editButton.addEventListener('click', (event) => {
       event.stopPropagation();
       note.classList.toggle('note-container-active');
       noteContainer.addEventListener('click', (event) => {
@@ -226,19 +229,19 @@ class Notes {
       let notesButtonDiv = document.createElement('div');
       const noteDeleteButt = document.createElement('button');
       const noteSaveButt = document.createElement('button');
-      const noteCancelButt = document.createElement('button');
 
       noteDeleteButt.textContent = 'Delete';
-      noteCancelButt.textContent = 'Cancel';
       noteSaveButt.textContent = 'Save';
       
       if (!isNoteOpen) {
+        editButton.textContent = 'Cancel';
         noteTitle.setAttribute("contenteditable", true);
         noteContainer.setAttribute("contenteditable", true);
-        notesButtonDiv.append(noteDeleteButt, noteSaveButt, noteCancelButt);
+        notesButtonDiv.append(noteDeleteButt, noteSaveButt);
         note.append(notesButtonDiv);
         isNoteOpen = true;
       } else {
+        editButton.textContent = 'Edit';
         notesButtonDiv = document.querySelector('.notes-active-buttons');
         noteTitle.setAttribute("contenteditable", false);
         noteContainer.setAttribute("contenteditable", false);
