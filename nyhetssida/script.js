@@ -13,6 +13,7 @@ const newsWrap = document.getElementById("newsFeed");
 const mostViewedContainer = document.getElementById("mostViewed");
 const justNowContainer = document.getElementById("senasteNytt");
 const burgerMenu = document.getElementById("burger");
+const burgerLines = burgerMenu.querySelectorAll(".line");
 const nav = document.getElementById("nav");
 const today = `${currentWeekDay} ${currentDay} ${currentMonth} ${currentYear}`;
 let currentPage = location.pathname;
@@ -142,6 +143,9 @@ navItems.forEach(navItem => {
             }
         }
         nav.classList.toggle("openMenu");
+        burgerLines[0].classList.toggle("firstLine");
+        burgerLines[1].classList.toggle("secondLine");
+        burgerLines[2].classList.toggle("thirdLine");
     });
 });
 
@@ -155,5 +159,9 @@ subscribeBtns.forEach(btn => {
 
 burgerMenu.addEventListener("click", (event) => {
     nav.classList.toggle('openMenu');
+    // console.log(burgerLines);
     // spin the bars 
+    burgerLines[0].classList.toggle("firstLine");
+    burgerLines[1].classList.toggle("secondLine");
+    burgerLines[2].classList.toggle("thirdLine");
 });

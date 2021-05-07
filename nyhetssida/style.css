@@ -397,9 +397,11 @@ a {
     }
     #sideBar {
         position: static;
-        /* flex-flow: column-reverse; */
+        /*flex-flow: column-reverse;
+        */
         width: 100%;
-    }
+
+}
     .readWholeBox {
         margin-top: 30px;
         padding: 10px;
