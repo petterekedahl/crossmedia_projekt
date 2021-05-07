@@ -144,6 +144,10 @@ nav {
     color: white;
 }
 
+#burger {
+    display: none;
+}
+
 /* over 1500 everything stops growing */
 @media (min-width: 1500px){
     #logotype {
@@ -152,9 +156,25 @@ nav {
 }
 
 @media (max-width: 1200px) {
-    #placeholder, #prenDiv, nav {
+    #placeholder, #prenDiv {
         display: none;
     }
+    nav {
+        /*display: none;
+        */position: absolute;
+        height: 100vh;
+        width: 100vw;
+        background-color: var(--navBkg);
+        display: flex;
+        flex-direction: column;
+        top: 0;
+        left: 100vw;
+        transition: left .8s;
+        -webkit-transition: left .8s;
+        -moz-transition: left .8s;
+        -ms-transition: left .8s;
+        -o-transition: left .8s;
+}
     #logotype {
         width: 300px
     }
@@ -166,5 +186,45 @@ nav {
     #navContainer {
         padding: 5px 0;
         flex-basis: 35%;
+    }
+    #burger {
+        display: block;
+        width: 30px;
+        position: absolute;
+        top: 25%;
+        right: 30px;
+        z-index: 590;
+    }
+    .line {
+        height: 2px;
+        background-color: black;
+    }
+    .line:nth-child(2) {
+        margin: 7px 0 7px 0;
+    }
+    #logoContainer {
+        justify-content: space-between;
+        align-items: center;
+    }
+    #burger:hover {
+        cursor: pointer;
+    }
+    .openMenu {
+        /* position: absolute;
+        height: 100vh;
+        width: 100vw;
+        background-color: var(--navBkg);
+        display: flex;
+        flex-direction: column; */
+        top: 0;
+        left: 0;
+    }
+    .navItem {
+        font-size: 30px;
+        border-bottom: 1px solid white;
+        padding: 0 3vw;
+    }
+    .navItem:last-child {
+        border-bottom: none;
     }
 }

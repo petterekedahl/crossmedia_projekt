@@ -9,6 +9,11 @@
                 <div>+</div>
             </div>
         </div> 
+        <div id="burger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
     </div>
     <div id="navContainer">
         <div id="navWrap">

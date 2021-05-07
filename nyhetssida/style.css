@@ -378,7 +378,7 @@ a {
         --footerLinks: 12px; */
     }
     #newsContainer {
-        flex-flow: column-reverse;
+        flex-flow: column;
     }
     #articleBody {
         flex-direction: column;

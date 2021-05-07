@@ -12,6 +12,8 @@ const newsContainer = document.getElementById("news");
 const newsWrap = document.getElementById("newsFeed");
 const mostViewedContainer = document.getElementById("mostViewed");
 const justNowContainer = document.getElementById("senasteNytt");
+const burgerMenu = document.getElementById("burger");
+const nav = document.getElementById("nav");
 const today = `${currentWeekDay} ${currentDay} ${currentMonth} ${currentYear}`;
 let currentPage = location.pathname;
 currentPage = currentPage.split("/");
@@ -139,6 +141,7 @@ navItems.forEach(navItem => {
                 createNews(allArticles[i], nContainer);
             }
         }
+        nav.classList.toggle("openMenu");
     });
 });
 
@@ -148,4 +151,9 @@ subscribeBtns.forEach(btn => {
     btn.addEventListener("click", (event) => {
         reDirrr(event);
     });
+});
+
+burgerMenu.addEventListener("click", (event) => {
+    nav.classList.toggle('openMenu');
+    // spin the bars 
 });
