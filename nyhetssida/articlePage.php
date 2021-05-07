@@ -1,3 +1,7 @@
+<?php
+
+?>
+
 <!doctype>
 <html>
     <head>
@@ -10,21 +14,20 @@
     <body>
         <?php include_once("includes/navigation.php");?>
         <div id="placeholder"></div>
-        <main>
-            <div id="newsContainer">
-                <div id="newsFeed">
-                    <div id="senasteNytt"></div>
-                    <div id="news"></div>
-                </div>
-                <div id="sideBar">
-                    <?php include_once("includes/sideBar.php");?>
-                </div>
+        <main id="articleBody">
+            <div id="newsFeed" class="articleNewsFeed"></div>
+            <div id="sideBar">
+                <?php include_once("includes/sideBar.php");?>
             </div>
         </main>
         <?php include_once("includes/footer.php");?>
         <script src="resources.js"></script>
+        <script src="newsArticle.js"></script>
+        <script>
+            let currentArt = <?= $_GET['id']; ?>;
+            makeArticlePage(currentArt);
+        </script>
         <script src="script.js"></script>
         <script src="ajax.js"></script>
     </body>
 </html>
-
