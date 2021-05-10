@@ -1,7 +1,7 @@
 <?php
-function errorMessagePhp($statusCode = 400, $error = "Bad request") {
+function errorMessagePhp($statusCode = 400, $link) {
   http_response_code($statusCode);
-  header("Location: $error");
+  header("Location: $link");
   exit();
 }
 

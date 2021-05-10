@@ -25,12 +25,12 @@ if ($method == "POST") {
     $user = validateUser($database, $username, $password);
 
     if(!$user) {
-      errorMessagePhp(401, $loginUrlGame + "?error=0");
+      errorMessagePhp(401, "$loginUrlGame?error=0");
       exit();
     }
 
     if(!getHashedPassword($password, $user["password"])) {
-      errorMessagePhp(401, $loginUrlGame + "?error=1");
+      errorMessagePhp(401, "$loginUrlGame?error=1");
       exit();
     }
 

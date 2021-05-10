@@ -14,6 +14,16 @@ session_start();
 </head>
 <body>
   <div class="spel-register-div">
+  <?php
+  if (isset($_GET["error"])) {
+    if ($_GET["error"] == 0){
+      echo "<div id='error'>USERNAME ALREADY TAKEN</div>";
+    }
+    if ($_GET["error"] == 1){
+      echo "<div id='error'>EMAIL IS ALREADY BEING USED</div>";
+    }
+  }
+  ?>
     <form id="register-form" action="../../database/admin/register.php" method="POST">
       <input class="input-write" id="register-username" name="username" type="text" placeholder="username" required>
       <input class="input-write" id="register-email" name="email" type="text" placeholder="email" required>

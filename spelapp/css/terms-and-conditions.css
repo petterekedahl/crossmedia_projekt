@@ -15,7 +15,7 @@ body {
 }
 
 h1, h2 {
-  font-style: var(--fontHeaders);
+  font-family: var(--fontHeaders);
 }
 
 h2 {
@@ -23,12 +23,12 @@ h2 {
 }
 
 p {
-  font-style: var(--fontContentText);
+  font-family: var(--fontContentText);
   margin: 0.8rem 0 0.8rem 0;
 }
 
 li {
-  font-style: var(--fontContentText);
+  font-family: var(--fontContentText);
 }
 
 ul {
