@@ -9,6 +9,7 @@
         <link rel='stylesheet' href='includes/css/nav.css'>
         <link rel='stylesheet' href='includes/css/footer.css'>
         <meta charset='utf-8'>
+        <meta name="viewport" content="width=580">
         <title>Sydnyheter</title>
     </head>
     <body>

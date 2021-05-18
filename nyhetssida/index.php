@@ -4,6 +4,7 @@
         <link rel='stylesheet' href='style.css'>
         <link rel='stylesheet' href='includes/css/nav.css'>
         <link rel='stylesheet' href='includes/css/footer.css'>
+        <meta name="viewport" content="width=580">
         <meta charset='utf-8'>
         <title>Sydnyheter</title>
     </head>
