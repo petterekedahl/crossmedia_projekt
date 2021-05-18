@@ -27,9 +27,9 @@ function makeArticlePage(articleID){
         let nImg = document.createElement("img");
         nImg.classList.add("articleImage");
         nImg.setAttribute("src", currentArticle.image);
-        (currentArticle.mostViewed !== false) ?  mainArticlePage.append(nRubrik, nImg, nRegress, nText) : mainArticlePage.append(nRubrik, nImg, nRegress, readMoreBox);
+        (currentArticle.prenum === false) ?  mainArticlePage.append(nRubrik, nImg, nRegress, nText) : mainArticlePage.append(nRubrik, nImg, nRegress, readMoreBox);
 
     } else {
-        (currentArticle.mostViewed !== false) ?  mainArticlePage.append(nRubrik, nRegress, nText) : mainArticlePage.append(nRubrik, nRegress, readMoreBox);
+        (currentArticle.prenum === false) ?  mainArticlePage.append(nRubrik, nRegress, nText) : mainArticlePage.append(nRubrik, nRegress, readMoreBox);
     }
 }

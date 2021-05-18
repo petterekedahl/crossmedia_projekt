@@ -10,7 +10,9 @@ const articles = [
         category: "brott",
         justNu: false,
         image: false,
-        mostViewed: false
+        mostViewed: false,
+        prenum: true,
+        video: false
     },
     {
         id: 1,
@@ -20,7 +22,9 @@ const articles = [
         category: "brott",
         justNu: true,
         image: "images/coffin_stockImage.jpg",
-        mostViewed: false
+        mostViewed: false,
+        prenum: true,
+        video: false
     },
     {
         id: 2,
@@ -30,7 +34,9 @@ const articles = [
         category: "brott",
         justNu: false,
         image: false,
-        mostViewed: false
+        mostViewed: true,
+        prenum: true,
+        video: false
     },
     {
         id: 3,
@@ -40,7 +46,9 @@ const articles = [
         category: "underhållning",
         justNu: false,
         image: false,
-        mostViewed: false
+        mostViewed: false,
+        prenum: true,
+        video: false
     },
     {
         id: 4,
@@ -50,7 +58,9 @@ const articles = [
         category: "brott",
         justNu: false,
         image: false,
-        mostViewed: false
+        mostViewed: true,
+        prenum: true,
+        video: false
     },
     {
         id: 5,
@@ -60,7 +70,9 @@ const articles = [
         category: "brott",
         justNu: false,
         image: "images/palm_stockImage.jpg",
-        mostViewed: true
+        mostViewed: true,
+        prenum: true,
+        video: false
     },
     {
         id: 6,
@@ -70,7 +82,9 @@ const articles = [
         category: "teknik",
         justNu: false,
         image: false,
-        mostViewed: false
+        mostViewed: false,
+        prenum: true,
+        video: false
     },
     {
         id: 7,
@@ -80,17 +94,21 @@ const articles = [
         category: "mat & hälsa",
         justNu: false,
         image: "images/honey_stockImage.jpg",
-        mostViewed: false
+        mostViewed: false,
+        prenum: true,
+        video: false
     },
     {
         id: 8,
-        title: "Månadens horoskop - så blir ditt kärleksliv i maj",
+        title: "Månadens horoskop - så blir ditt kärleksliv i juni",
         text: "Ny månad, nya möjligheter! Har du fortfarande inte hittat kärleken? Frukta ej, vi kan hjälpa dig på traven!",
-        paragraph: "Här har vi lite mer text för att testa",
+        paragraph: "",
         category: "underhållning",
         justNu: false,
         image: "images/zodiacs_stockImage.jpg",
-        mostViewed: true
+        mostViewed: true,
+        prenum: true,
+        video: false
     },
     {
         id: 9,
@@ -100,17 +118,21 @@ const articles = [
         category: "mat & hälsa",
         justNu: false,
         image: false,
-        mostViewed: false
+        mostViewed: false,
+        prenum: true,
+        video: false
     },
     {
         id: 10,
         title: 'Rött kort för "jävla sopa" – Jag är rasande',
         text: "Anfallaren kritiserar SvFF kring utvisningen förra helgen och riskerar avstängning. Anfallaren fick en smäll mot ena foten under matchen, men fick inte med sig en frispark och skrek då ”jävla sopa” till domaren, vilket gjorde att han fick rött kort.",
-        paragraph: "Här har vi lite mer text för att testa",
+        paragraph: "",
         category: "sport",
         justNu: false,
         image: false,
-        mostViewed: true
+        mostViewed: true,
+        prenum: true,
+        video: false
     },
     {
         id: 11,
@@ -120,7 +142,9 @@ const articles = [
         category: "sport",
         justNu: false,
         image: false,
-        mostViewed: false
+        mostViewed: false,
+        prenum: true,
+        video: false
     },
     {
         id: 12,
@@ -130,7 +154,9 @@ const articles = [
         category: "sport",
         justNu: false,
         image: "images/soccer_stockImage.jpg",
-        mostViewed: false
+        mostViewed: true,
+        prenum: true,
+        video: false
     },
     {
         id: 13,
@@ -140,7 +166,9 @@ const articles = [
         category: "sport",
         justNu: false,
         image: false,
-        mostViewed: false
+        mostViewed: false,
+        prenum: true,
+        video: false
     },
     {
         id: 14,
@@ -150,7 +178,9 @@ const articles = [
         category: "sport",
         justNu: false,
         image: false,
-        mostViewed: false
+        mostViewed: false,
+        prenum: true,
+        video: false
     },
     {
         id: 15,
@@ -160,7 +190,9 @@ const articles = [
         category: "mat & hälsa",
         justNu: false,
         image: false,
-        mostViewed: false
+        mostViewed: false,
+        prenum: true,
+        video: false
     },
     {
         id: 16,
@@ -170,7 +202,9 @@ const articles = [
         category: "mat & hälsa",
         justNu: false,
         image: "images/burrata_stockImage.jpg",
-        mostViewed: false
+        mostViewed: false,
+        prenum: true,
+        video: false
     },
     {
         id: 17,
@@ -180,7 +214,9 @@ const articles = [
         category: "mat & hälsa",
         justNu: false,
         image: false,
-        mostViewed: false
+        mostViewed: false,
+        prenum: true,
+        video: false
     },
     {
         id: 18,
@@ -190,7 +226,9 @@ const articles = [
         category: "teknik",
         justNu: false,
         image: "images/amplifier_stockImage.jpg",
-        mostViewed: false
+        mostViewed: false,
+        prenum: true,
+        video: false
     },
     {
         id: 19,
@@ -198,9 +236,11 @@ const articles = [
         text: `"Studenter gillar Ben & Jerry's, så jag tror Lund är en perfekt stad".`,
         paragraph: "",
         category: "mat & hälsa",
-        justNu: true,
+        justNu: false,
         image: false,
-        mostViewed: false
+        mostViewed: true,
+        prenum: true,
+        video: false
     },
     // {
     //     id: 20,
@@ -210,18 +250,22 @@ const articles = [
     //     category: "brott",
     //     justNu: false,
     //     image: "",
-    //     mostViewed: true
+    //     mostViewed: true,
+    //     prenum: false,
+    //     video: false
     // },
-    // {
-    //     id: 21,
-    //     title: "Some other news",
-    //     text: "some ingress for the news.",
-    //     paragraph: "",
-    //     category: "",
-    //     justNu: false,
-    //     image: false,
-    //     mostViewed: false
-    // },
+    {
+        id: 21,
+        title: 'Tareq Taylor får inte medverka i "Masked singer"',
+        text: 'Tareq Taylor fick tacka nej till erbjudandet om att vara med i "Masked Singer". Han avslöjer att det är SVT som lag bakom beslutet.',
+        paragraph: "",
+        category: "underhållning",
+        justNu: false,
+        image: "images/masqerade_stockImage.jpg",
+        mostViewed: false,
+        prenum: true,
+        video: false
+    },
     // {
     //     id: 22,
     //     title: "Second murderNews",
@@ -230,7 +274,10 @@ const articles = [
     //     category: "brott",
     //     justNu: true,
     //     image: false,
-    //     mostViewed: true
+    //     mostViewed: true,
+    //     prenum: false,
+    //     video: false
+    
     // },
     // {
     //     id: 23,
@@ -240,28 +287,34 @@ const articles = [
     //     category: "brott",
     //     justNu: true,
     //     image: "",
-    //     mostViewed: true
+    //     mostViewed: true,
+    //     prenum: false,
+    //     video: false
     // },
-    // {
-    //     id: 24,
-    //     title: "other news",
-    //     text: "some ingress for the news.",
-    //     paragraph: "the text",
-    //     category: "",
-    //     justNu: false,
-    //     image: false,
-    //     mostViewed: false
-    // },
-    // {
-    //     id: 25,
-    //     title: "other news",
-    //     text: "some ingress for the news.",
-    //     paragraph: "the text",
-    //     category: "",
-    //     justNu: false,
-    //     image: "",
-    //     mostViewed: false
-    // },
+    {
+        id: 24,
+        title: 'Pearl Jam släpper liveinspelningar',
+        text: 'Coronapandemin har slagit hårt mot musikbranschen. Pearl Jam är inget undantag - bandet fick skjuta upp den planerade turneringen. För fansen finns det dock ett litet tröstplåster: Bandet släpper nu 186 liveinspelningar.',
+        paragraph: "",
+        category: "underhållning",
+        justNu: false,
+        image: false,
+        mostViewed: false,
+        prenum: true,
+        video: false
+    },
+    {
+        id: 25,
+        title: "Så spelas matcherna i hockey-VM 2021",
+        text: "Hockey-VM 2021 i Riga har sin primiär den 21 maj. Här har vi sammanfattat all information kring årets event",
+        paragraph: "",
+        category: "sport",
+        justNu: false,
+        image: "images/hockey_stockImage.jpg",
+        mostViewed: false,
+        prenum: true,
+        video: false
+    },
     // {
     //     id: 26,
     //     title: "Fourth murderNews",
@@ -270,7 +323,9 @@ const articles = [
     //     category: "brott",
     //     justNu: true,
     //     image: "",
-    //     mostViewed: true
+    //     mostViewed: true,
+    //     prenum: false,
+    //     video: false
     // },
     // {
     //     id: 27,
@@ -280,37 +335,57 @@ const articles = [
     //     category: "brott",
     //     justNu: true,
     //     image: false,
-    //     mostViewed: true
+    //     mostViewed: true,
+    //     prenum: false,
+    //     video: false
     // },
+    {
+        id: 28,
+        title: "IBS-mage: Så kan du lugna ner din mage",
+        text: 'Vi har tagit fram de 10 bästa metoderna som kan hjälpa dig att lugna ner din mage. Läs mer om hur dessa metoder har hjälpt ett flertal personer redan.',
+        paragraph: "",
+        category: "mat & hälsa",
+        justNu: false,
+        image: false,
+        mostViewed: false,
+        prenum: true,
+        video: false
+    },
+    {
+        id: 29,
+        title: "Pokemon Snap får en revival",
+        text: "Många minns Pokemon Snap ur barndomsdagar där spelet för N64-konsolen fick spelaren att agera fotograf i en värld dominerad av Pokemon. Spelet från 1999 får nu en remake och vi har testat spelet.",
+        paragraph: "",
+        category: "underhållning",
+        justNu: false,
+        image: false,
+        mostViewed: true,
+        prenum: true,
+        video: false
+    },
+    {
+        id: 30,
+        title: "Spanien hävdar restriktioner - hela landet i feststämning",
+        text: "Människor gick ut för att fira den första helgen efter att restriktionerna hade hävts. Polisen fick avhysa festsugna från gatorna.",
+        paragraph: "",
+        category: "brott",
+        justNu: true,
+        image: false,
+        mostViewed: false,
+        prenum: true,
+        video: false
+    },
     // {
-    //     id: 28,
-    //     title: "other news",
-    //     text: "some ingress for the news.",
-    //     paragraph: "",
-    //     category: "",
-    //     justNu: false,
-    //     image: "",
-    //     mostViewed: false
-    // },
-    // {
-    //     id: 29,
-    //     title: "other news",
-    //     text: "some ingress for the news.",
-    //     paragraph: "",
-    //     category: "",
-    //     justNu: false,
-    //     image: false,
-    //     mostViewed: false
-    // },
-    // {
-    //     id: 30,
+    //     id: 31,
     //     title: "Sixth murderNews",
     //     text: "some ingress for the murder.",
     //     paragraph: "the text",
     //     category: "brott",
     //     justNu: true,
     //     image: "",
-    //     mostViewed: true
+    //     mostViewed: true,
+    //     prenum: false,
+    //     video: false
     // },
 ];
 
