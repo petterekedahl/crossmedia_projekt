@@ -23,12 +23,12 @@ if(isset($_POST["username"]) && isset($_POST['email']) && isset($_POST["password
   $email = $_POST['email'];
   
   if (!isUsernameTaken($database, $username)) {
-    errorMessagePhp(401, $loginUrlReg + "error=0");
+    errorMessagePhp(401, "$loginUrlReg?error=0");
     exit();
   }
 
   if(!isEmailTaken($database, $email)) {
-    errorMessagePhp(401, $loginUrlReg + "error=1");
+    errorMessagePhp(401, "$loginUrlReg?error=1");
     exit();
   }
 

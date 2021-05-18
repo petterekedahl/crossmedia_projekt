@@ -102,3 +102,16 @@ a:hover {
 a:visited {
   color: var(--contentFontColor);
 }
+
+#error {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%);
+  color: rgb(211, 81, 81);
+  font-family: var(--fontContentText);
+
+  width: 100%;
+
+  text-align: center;
+}

@@ -2,6 +2,10 @@ const contentDiv = document.getElementById('content-div');
 function resetMainDiv() {
   contentDiv.innerHTML = '';
   contentDiv.classList.remove('content-investigation-div');
+  const burgerDivs = document.querySelectorAll('.burger-line');
+  for (let i = 0; i < burgerDivs.length; i++) {
+    burgerDivs[i].style.backgroundColor = 'black';
+  }
 }
 
 function loadHomePage() {
@@ -126,6 +130,13 @@ function loadSuspectPage() {
   resetMainDiv();
   contentDiv.classList.remove('content-div-flex');
   contentDiv.classList.add('content-div-grid');
+
+  const burgerDivs = document.querySelectorAll('.burger-line');
+  for (let i = 0; i < burgerDivs.length; i++) {
+    console.log(burgerDivs[i])
+    burgerDivs[i].style.backgroundColor = 'white';
+  }
+
   suspects = STATE.user.suspects;
 
   for (let i = 0; i < suspects.length; i++) {

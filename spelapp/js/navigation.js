@@ -66,6 +66,11 @@ function loadNavClicks() {
     event.stopPropagation();
 
     isActive = activateMenu(isActive);
+    
+    const burgerDivs = document.querySelectorAll('.burger-line');
+    for (let i = 0; i < burgerDivs.length; i++) {
+      burgerDivs[i].style.backgroundColor = 'black';
+    }
 
   })
 

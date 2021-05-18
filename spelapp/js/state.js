@@ -6,11 +6,11 @@ const STATE = {
 
 const pageContents = {
   homepage: {
-    image: './images/Seal_of_the_MPP1.png',
-    title: "Dear user,",
-    p1: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam in dictum lectus. Integer ante felis, dictum ut facilisis at, sollicitudin eget elit. Fusce tincidunt nibh ac varius viverra. Duis fermentum scelerisque ornare. Aenean ac arcu et quam scelerisque faucibus a sagittis sem. Suspendisse laoreet gravida magna, sed finibus odio malesuada eget. Donec vel ligula maximus lacus faucibus sollicitudin ut eget magna. In vel mattis nisl.",
-    p2: "Phasellus at lacus metus. Mauris at erat sagittis eros consectetur varius vitae ac erat. Nunc auctor a sem sed pharetra. Aliquam erat volutpat. Maecenas ultricies feugiat nisl, id hendrerit dolor. Praesent id neque quis enim tristique condimentum at eu lacus. Suspendisse malesuada est id arcu pharetra, non dignissim lectus vulputate.",
-    p3: "Maecenas tempus tempus sodales. Integer at libero ac mi fringilla pellentesque. Vivamus sodales lectus non facilisis fermentum. Sed leo nisl, tristique sed nulla tempor, posuere blandit urna. Proin rutrum nisl sit amet mattis elementum. Vivamus tincidunt ex at consequat venenatis. Aliquam sit amet ullamcorper erat.",
+    image: '../spelapp/images/Seal_of_the_MPP1.png',
+    title: "Dear Investigator,",
+    p1: "We are happy that you have decided to join the MPP-programme.",
+    p2: "The Ministry of Private Protection is a secret service agency based in The US. We are a small task force whom specify in solving some of the worlds most difficult crime cases one at a time. MPP also uses controversial methods in solving the cases we are working on. One of this method is letting volanteers help taking the investigation forward and inspecting the crime scenes. Taking on such a role comes with responsibility and trespassing the boundries and wasting time is not acceptable.",
+    p3: "The case we are currently working on is a murder which have taken place in Malmö, Sweden. We have been gathering information about suspects and  interrogation records are at your disposal. Feel free to navigate around this app to find all the information you need to help us solve this case.",
     sincerly: "Sincerly,",
     us: "Ministry of Private Protection"
   }

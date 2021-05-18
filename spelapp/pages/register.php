@@ -10,9 +10,20 @@ session_start();
   <title>M.P.P. -</title>
   <link rel="stylesheet" href="../css/variables.css">
   <link rel="stylesheet" href="../css/register.css">
+  <link rel="icon" href="../images/Seal_of_the_MPP1.png">
 </head>
 <body>
   <div class="spel-register-div">
+  <?php
+  if (isset($_GET["error"])) {
+    if ($_GET["error"] == 0){
+      echo "<div id='error'>USERNAME ALREADY TAKEN</div>";
+    }
+    if ($_GET["error"] == 1){
+      echo "<div id='error'>EMAIL IS ALREADY BEING USED</div>";
+    }
+  }
+  ?>
     <form id="register-form" action="../../database/admin/register.php" method="POST">
       <input class="input-write" id="register-username" name="username" type="text" placeholder="username" required>
       <input class="input-write" id="register-email" name="email" type="text" placeholder="email" required>
@@ -29,5 +40,4 @@ session_start();
     </form>
   </div>
 </body>
-<script src="../js/register.js"></script>
 </html>
